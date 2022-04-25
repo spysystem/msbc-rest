@@ -65,3 +65,4 @@ composer.lock
 
 # OpenAPI generator
 .openapi-generator
+.openapi-generator-ignore

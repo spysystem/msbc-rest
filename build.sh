@@ -4,14 +4,17 @@ set -e
 
 rm -rf docs lib test
 
-docker pull spysystem/openapi-generator:th-spy-master
+docker pull spysystem/openapi-generator:th-spy-master-dev
 docker run \
 	--user $(id -u):$(id -g) \
-	--rm -v ${PWD}:/local spysystem/openapi-generator:th-spy-master generate \
+	--rm \
+	-v ${PWD}:/local \
+	spysystem/openapi-generator:th-spy-master-dev \
+	generate \
 	-i /local/src/msbc.yaml \
 	-g php \
 	-o /local \
-	-c /local/config.json
+	-c /local/config.yaml
 
 git add docs/*
 git add lib/*
