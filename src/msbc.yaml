@@ -9,13 +9,13 @@ servers:
   - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4/Company('{companyName}')
     description: URL for regular access to the Microsoft Business Center API.
     variables:
-      tenantID:
+      'tenantID':
         description: Tenant ID
-        default: "{{ tenant_id }}"
-      companyName:
+        default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+      'companyName':
         description: Company name
         default: "CRONUS%20Danmark%20A%2FS"
-      environment:
+      'environment':
         description: "Environment: Production or Sandbox"
         default: Production
         enum:
@@ -26,8 +26,12 @@ tags:
   - name: Authenticate
     description: |
       Authentication operations for Microsoft Business Center API.
+  - name: SpyCustomerPage
+    description: |
+      SpyCustomerPage operations for Microsoft Business Center API.
 
 paths:
+#region Authenticate
   /token:
     description: |
       This endpoint is used to obtain an access token for the Microsoft Business Center API.
@@ -39,11 +43,15 @@ paths:
       servers:
         - url: https://login.microsoftonline.com/{tenantID}/oauth2/v2.0
           variables:
-            tenantID:
+            'tenantID':
               description: Tenant ID
-              default: "{{ tenant_id }}"
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
       requestBody:
-        $ref: '#/components/requestBodies/Authenticate'
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Authenticate'
+        required: true
       responses:
         '200':
           $ref: '#/components/responses/Authorized'
@@ -51,26 +59,153 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+#endregion
+#region SpyCustomer
+  /SpyCustomer:
+    get:
+      operationId: GetCustomers
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerPage]
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateCustomer
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomer'
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyCustomer(\'{account}\'):
+    parameters:
+      - in: path
+        name: account
+        description: The account of the Customer to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetCustomer
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditCustomer
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomer'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteCustomer
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
 
 security:
   - bearerAuth: []
 
 components:
+  parameters:
+    selectParameter:
+      name: $select
+      in: query
+      required: false
+      schema:
+        type: string
+
+    filterParameter:
+      name: $filter
+      in: query
+      required: false
+      schema:
+        type: string
+
+    ifMatchParameter:
+      in: header
+      description: The ETag of the Entity to update
+      name: if-Match
+      required: true
+      schema:
+       type: string
+
+    dataAccessIntentParameter:
+      in: header
+      name: Data-Access-Intent
+      description: Data Access Intent
+      schema:
+        type: string
+        enum:
+          - ReadOnly
+          - ReadWrite
+        default: ReadOnly
+
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
-
-  requestBodies:
-    Authenticate:
-      description: |
-        This request body is used to obtain an access token for the Microsoft Business Center API.
-        The access token is valid for one hour.
-      required: true
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/Authenticate'
 
   responses:
     Authorized:
@@ -81,16 +216,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/AuthenticateResponse'
+
     Unauthorized:
       description: |
         Response body for when the authentication fails.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/AuthenticateErrorResponse'
+
     Default:
       description: |
-        Response body for when the authentication fails with codes other than 401
+        Response body for when the request fails with codes other than 401
       content:
         application/json:
           schema:
@@ -100,47 +237,289 @@ components:
     Authenticate:
       type: object
       properties:
-        grant_type:
+        'grant_type':
           type: string
           default: "client_credentials"
-        client_id:
+        'client_id':
           type: string
           default: "b8f8f8f8-f8f8-f8f8-f8f8-f8f8f8f8f8f8"
-        client_secret:
+        'client_secret':
           type: string
           default: "b8f8f8f8-f8f8-f8f8-f8f8-f8f8f8f8f8f8"
-        scope:
+        'scope':
           type: string
           default: "https://api.businesscentral.dynamics.com/.default"
 
     AuthenticateResponse:
       type: object
       properties:
-        token_type:
+        'token_type':
           type: string
-        expires_in:
+        'expires_in':
           type: integer
-        ext_expires_in:
+        'ext_expires_in':
           type: integer
-        access_token:
+        'access_token':
+          type: string
+
+    AuthenticateErrorResponse:
+      type: object
+      properties:
+        'error':
+          type: string
+        'error_description':
+          type: string
+        'error_codes':
+          type: array
+          items:
+            type: integer
+        'timestamp':
+          type: string
+        'trace_id':
+          type: string
+        'correlation_id':
+          type: string
+        'error_uri':
           type: string
 
     ErrorResponse:
       type: object
       properties:
-        error:
+        'error':
+          $ref: '#/components/schemas/Error'
+
+    Error:
+      type: object
+      properties:
+        'code':
           type: string
-        error_description:
+        'message':
           type: string
-        error_codes:
+
+    ODataEnvelope:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+
+    BaseEntity:
+      type: object
+      properties:
+        '@odata.etag':
+          type: string
+          description: If-Match header for updates
+
+#region SpyCustomerSchemas
+    SpyCustomerListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomerList'
+    SpyCustomerResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomer'
+    SpyCustomerList:
+      type: object
+      properties:
+        value:
           type: array
           items:
-            type: integer
-        timestamp:
-          type: string
-        trace_id:
-          type: string
-        correlation_id:
-          type: string
-        error_uri:
-          type: string
+            $ref: '#/components/schemas/SpyCustomer'
+    SpyCustomer:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'No':
+              type: string
+            'Name':
+              type: string
+            'Search_Name':
+              type: string
+            'Name_2':
+              type: string
+            'Address':
+              type: string
+            'Address_2':
+              type: string
+            'City':
+              type: string
+            'ContactName':
+              type: string
+            'Phone_No':
+              type: string
+            'Document_Sending_Profile':
+              type: string
+            'Ship_to_Code':
+              type: string
+            'Global_Dimension_1_Code':
+              type: string
+            'Global_Dimension_2_Code':
+              type: string
+            'Credit_Limit_LCY':
+              type: number
+            'Customer_Posting_Group':
+              type: string
+            'Currency_Code':
+              type: string
+            'Customer_Price_Group':
+              type: string
+            'Language_Code':
+              type: string
+            'Payment_Terms_Code':
+              type: string
+            'Fin_Charge_Terms_Code':
+              type: string
+            'Salesperson_Code':
+              type: string
+            'Shipment_Method_Code':
+              type: string
+            'Shipping_Agent_Code':
+              type: string
+            'Invoice_Disc_Code':
+              type: string
+            'Customer_Disc_Group':
+              type: string
+            'Country_Region_Code':
+              type: string
+            'Blocked':
+              type: string
+              enum:
+                - ' '
+                - 'Ship'
+                - 'Invoice'
+                - 'All'
+              default: ' '
+            'Invoice_Copies':
+              type: integer
+            'Last_Statement_No':
+              type: integer
+            'Print_Statements':
+              type: boolean
+            'Bill_to_Customer_No':
+              type: string
+            'Payment_Method_Code':
+              type: string
+            'Last_Date_Modified':
+              type: string
+            'Balance_LCY':
+              type: number
+            'Balance_Due_LCY':
+              type: number
+            'Cr_Memo_Amounts_LCY':
+              type: number
+            'Application_Method':
+              type: string
+              enum:
+                - 'Manual'
+                - 'Apply to Oldest'
+              default: 'Manual'
+            'Prices_Including_VAT':
+              type: boolean
+            'Location_Code':
+              type: string
+            'Fax_No':
+              type: string
+            'VAT_Registration_No':
+              type: string
+            'Combine_Shipments':
+              type: boolean
+            'Gen_Bus_Posting_Group':
+              type: string
+            'GLN':
+              type: string
+            'Post_Code':
+              type: string
+            'County':
+              type: string
+            'EORI_Number':
+              type: string
+            'Use_GLN_in_Electronic_Document':
+              type: boolean
+            'E_Mail':
+              type: string
+            'Home_Page':
+              type: string
+            'Reminder_Terms_Code':
+              type: string
+            'Tax_Area_Code':
+              type: string
+            'Tax_Liable':
+              type: boolean
+            'VAT_Bus_Posting_Group':
+              type: string
+            'Reserve':
+              type: string
+              enum:
+                - 'Never'
+                - 'Optional'
+                - 'Always'
+              default: 'Never'
+            'Block_Payment_Tolerance':
+              type: boolean
+            'IC_Partner_Code':
+              type: string
+            'Prepayment_Percent':
+              type: number
+            'Outstanding_Invoices_LCY':
+              type: number
+            'Partner_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Company'
+                - 'Person'
+              default: ' '
+            'Privacy_Blocked':
+              type: boolean
+            'Disable_Search_by_Name':
+              type: boolean
+            'Preferred_Bank_Account_Code':
+              type: string
+            'Cash_Flow_Payment_Terms_Code':
+              type: string
+            'Primary_Contact_No':
+              type: string
+            'Mobile_Phone_No':
+              type: string
+            'Responsibility_Center':
+              type: string
+            'Shipping_Advice':
+              type: string
+              enum:
+                - 'Partial'
+                - 'Complete'
+              default: 'Partial'
+            'Shipping_Time':
+              type: string
+            'Service_Zone_Code':
+              type: string
+            'Price_Calculation_Method':
+              type: string
+              enum:
+                - ' '
+                - 'Lowest Price'
+              default: ' '
+            'Allow_Line_Disc':
+              type: boolean
+            'Base_Calendar_Code':
+              type: string
+            'Copy_Sell_to_Addr_to_Qte_From':
+              type: string
+              enum:
+                - 'Company'
+                - 'Person'
+              default: 'Company'
+            'Balance_Due':
+              type: number
+            'Shipping_Agent_Service_Code':
+              type: string
+            'Global_Dimension_1_Filter':
+              type: string
+            'Global_Dimension_2_Filter':
+              type: string
+            'Currency_Filter':
+              type: string
+            'Date_Filter':
+              type: string
+#endregion
