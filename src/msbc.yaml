@@ -35,6 +35,9 @@ tags:
   - name: SpySupplierPage
     description: |
       SpySupplierPage operations for Microsoft Business Center API.
+  - name: SpyLedgerAccountPage
+    description: |
+      SpyLedgerAccountPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -377,6 +380,108 @@ paths:
           description: Successful response
 #endregion
 
+#region SpyLedgerAccount
+  /SpyLedgerAccount:
+    get:
+      operationId: GetLedgerAccounts
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerAccountPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerAccountListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateLedgerAccount
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerAccountPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyLedgerAccount'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerAccountResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyLedgerAccount(\'{No}\'):
+    parameters:
+      - in: path
+        name: 'No'
+        description: The No of the LedgerAccount to retrieve
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetLedgerAccount
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerAccountPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerAccountResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditLedgerAccount
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerAccountPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyLedgerAccount'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerAccountResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteLedgerAccount
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerAccountPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
 
 security:
   - bearerAuth: []
@@ -954,5 +1059,127 @@ components:
             'Currency_Filter':
               type: string
             'Date_Filter':
+              type: string
+#endregion
+
+#region SpyLedgerAccountSchemas
+    SpyLedgerAccountListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyLedgerAccountList'
+    SpyLedgerAccountResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyLedgerAccount'
+    SpyLedgerAccountList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyLedgerAccount'
+    SpyLedgerAccount:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'No':
+              type: string
+            'Name':
+              type: string
+            'Net_Change':
+              type: number
+            'Balance':
+              type: number
+            'Income_Balance':
+              type: string
+              enum:
+                - 'Income Statement'
+                - 'Balance Sheet'
+              default: 'Income Statement'
+            'Account_Category':
+              type: string
+              enum:
+                - ' '
+                - 'Assets'
+                - 'Liabilities'
+                - 'Equity'
+                - 'Income'
+                - 'Cost of Goods Sold'
+                - 'Expense'
+              default: ' '
+            'Account_Subcategory_Descript':
+              type: string
+            'Account_Type':
+              type: string
+              enum:
+                - 'Posting'
+                - 'Heading'
+                - 'Total'
+                - 'Begin-Total'
+                - 'End-Total'
+              default: 'Posting'
+            'Direct_Posting':
+              type: boolean
+            'Totaling':
+              type: string
+            'Gen_Posting_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Purchase'
+                - 'Sale'
+                - 'Settlement'
+              default: ' '
+            'Gen_Bus_Posting_Group':
+              type: string
+            'Gen_Prod_Posting_Group':
+              type: string
+            'VAT_Bus_Posting_Group':
+              type: string
+            'VAT_Prod_Posting_Group':
+              type: string
+            'Debit_Amount':
+              type: number
+            'Credit_Amount':
+              type: number
+            'Balance_at_Date':
+              type: number
+            'Additional_Currency_Net_Change':
+              type: number
+            'Add_Currency_Balance_at_Date':
+              type: number
+            'Additional_Currency_Balance':
+              type: number
+            'Consol_Debit_Acc':
+              type: string
+            'Consol_Credit_Acc':
+              type: string
+            'Cost_Type_No':
+              type: string
+            'Consol_Translation_Method':
+              type: string
+              enum:
+                - 'Average Rate (Manual)'
+                - 'Closing Rate'
+                - 'Historical Rate'
+                - 'Composite Rate'
+                - 'Equity Rate'
+              default: 'Average Rate (Manual)'
+            'Default_IC_Partner_G_L_Acc_No':
+              type: string
+            'Default_Deferral_Template_Code':
+              type: string
+            'No_2':
+              type: string
+            'Business_Unit_Filter':
+              type: string
+            'Global_Dimension_1_Filter':
+              type: string
+            'Global_Dimension_2_Filter':
+              type: string
+            'Date_Filter':
+              type: string
+            'Dimension_Set_ID_Filter':
               type: string
 #endregion
