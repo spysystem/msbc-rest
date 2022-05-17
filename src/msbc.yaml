@@ -38,6 +38,9 @@ tags:
   - name: SpyLedgerAccountPage
     description: |
       SpyLedgerAccountPage operations for Microsoft Business Center API.
+  - name: SpyCustomerTemplatePage
+    description: |
+      SpyCustomerTemplatePage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -482,6 +485,110 @@ paths:
         '204':
           description: Successful response
 #endregion
+
+#region SpyCustomerTemplate
+  /SpyCustomerTemplate:
+    get:
+      operationId: GetCustomerTemplates
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTemplatePage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTemplateListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateCustomerTemplate
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTemplatePage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomerTemplate'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTemplateResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyCustomerTemplate(\'{Code}\'):
+    parameters:
+      - in: path
+        name: 'Code'
+        description: The Code of the CustomerTemplate to retrieve
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetCustomerTemplate
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTemplatePage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTemplateResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditCustomerTemplate
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTemplatePage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomerTemplate'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTemplateResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteCustomerTemplate
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTemplatePage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 
 security:
   - bearerAuth: []
@@ -1181,5 +1288,70 @@ components:
             'Date_Filter':
               type: string
             'Dimension_Set_ID_Filter':
+              type: string
+#endregion
+
+#region SpyCustomerTemplateSchemas
+    SpyCustomerTemplateListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomerTemplateList'
+    SpyCustomerTemplateResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomerTemplate'
+    SpyCustomerTemplateList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyCustomerTemplate'
+    SpyCustomerTemplate:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Code':
+              type: string
+            'Description':
+              type: string
+            'Contact_Type':
+              type: string
+              enum:
+                - 'Company'
+                - 'Person'
+              default: 'Company'
+            'Country_Region_Code':
+              type: string
+            'Territory_Code':
+              type: string
+            'Currency_Code':
+              type: string
+            'Gen_Bus_Posting_Group':
+              type: string
+            'VAT_Bus_Posting_Group':
+              type: string
+            'Customer_Posting_Group':
+              type: string
+            'Customer_Price_Group':
+              type: string
+            'Customer_Disc_Group':
+              type: string
+            'Allow_Line_Disc':
+              type: boolean
+            'Invoice_Disc_Code':
+              type: string
+            'Prices_Including_VAT':
+              type: boolean
+            'Payment_Terms_Code':
+              type: string
+            'Payment_Method_Code':
+              type: string
+            'Shipment_Method_Code':
+              type: string
+            'Global_Dimension_1_Code':
+              type: string
+            'Global_Dimension_2_Code':
               type: string
 #endregion
