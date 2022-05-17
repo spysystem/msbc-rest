@@ -32,6 +32,9 @@ tags:
   - name: SpyCustomerPage
     description: |
       SpyCustomerPage operations for Microsoft Business Center API.
+  - name: SpySupplierPage
+    description: |
+      SpySupplierPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -270,6 +273,110 @@ paths:
         '204':
           description: Successful response
 #endregion
+
+#region SpySupplier
+  /SpySupplier:
+    get:
+      operationId: GetSuppliers
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateSupplier
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpySupplier'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpySupplier(\'{No}\'):
+    parameters:
+      - in: path
+        name: 'No'
+        description: The No of the Supplier to retrieve
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetSupplier
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditSupplier
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpySupplier'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteSupplier
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 
 security:
   - bearerAuth: []
@@ -668,6 +775,177 @@ components:
             'Balance_Due':
               type: number
             'Shipping_Agent_Service_Code':
+              type: string
+            'Global_Dimension_1_Filter':
+              type: string
+            'Global_Dimension_2_Filter':
+              type: string
+            'Currency_Filter':
+              type: string
+            'Date_Filter':
+              type: string
+#endregion
+
+#region SpySupplierSchemas
+    SpySupplierListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpySupplierList'
+    SpySupplierResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpySupplier'
+    SpySupplierList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpySupplier'
+    SpySupplier:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'No':
+              type: string
+            'Name':
+              type: string
+            'Name_2':
+              type: string
+            'Blocked':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'All'
+              default: ' '
+            'Privacy_Blocked':
+              type: boolean
+            'Last_Date_Modified':
+              type: string
+            'Balance_LCY':
+              type: number
+            'BalanceAsCustomer':
+              type: integer
+            'Balance_Due_LCY':
+              type: number
+            'Document_Sending_Profile':
+              type: string
+            'Search_Name':
+              type: string
+            'IC_Partner_Code':
+              type: string
+            'Purchaser_Code':
+              type: string
+            'Responsibility_Center':
+              type: string
+            'Disable_Search_by_Name':
+              type: boolean
+            'Address':
+              type: string
+            'Address_2':
+              type: string
+            'Country_Region_Code':
+              type: string
+            'City':
+              type: string
+            'County':
+              type: string
+            'Post_Code':
+              type: string
+            'ShowMap':
+              type: string
+            'Phone_No':
+              type: string
+            'MobilePhoneNo':
+              type: string
+            'E_Mail':
+              type: string
+            'Fax_No':
+              type: string
+            'Home_Page':
+              type: string
+            'Our_Account_No':
+              type: string
+            'Language_Code':
+              type: string
+            'Primary_Contact_No':
+              type: string
+            'Control16':
+              type: string
+            'VAT_Registration_No':
+              type: string
+            'EORI_Number':
+              type: string
+            'GLN':
+              type: string
+            'Tax_Liable':
+              type: boolean
+            'Tax_Area_Code':
+              type: string
+            'Pay_to_Vendor_No':
+              type: string
+            'Invoice_Disc_Code':
+              type: string
+            'Prices_Including_VAT':
+              type: boolean
+            'Price_Calculation_Method':
+              type: string
+              enum:
+                - ' '
+                - 'Lowest Price'
+              default: ' '
+            'Gen_Bus_Posting_Group':
+              type: string
+            'VAT_Bus_Posting_Group':
+              type: string
+            'Vendor_Posting_Group':
+              type: string
+            'Currency_Code':
+              type: string
+            'Prepayment_Percent':
+              type: number
+            'Application_Method':
+              type: string
+              enum:
+                - 'Manual'
+                - 'Apply to Oldest'
+              default: 'Manual'
+            'Payment_Terms_Code':
+              type: string
+            'Payment_Method_Code':
+              type: string
+            'Priority':
+              type: integer
+            'Block_Payment_Tolerance':
+              type: boolean
+            'Preferred_Bank_Account_Code':
+              type: string
+            'Partner_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Company'
+                - 'Person'
+              default: ' '
+            'Cash_Flow_Payment_Terms_Code':
+              type: string
+            'Creditor_No':
+              type: string
+            'Giro_Acc_No':
+              type: string
+            'Location_Code':
+              type: string
+            'Shipment_Method_Code':
+              type: string
+            'Lead_Time_Calculation':
+              type: string
+            'Base_Calendar_Code':
+              type: string
+            'Customized_Calendar':
+              type: string
+            'Over_Receipt_Code':
               type: string
             'Global_Dimension_1_Filter':
               type: string
