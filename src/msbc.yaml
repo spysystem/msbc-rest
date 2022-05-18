@@ -44,6 +44,9 @@ tags:
   - name: SpyCustomerTransPage
     description: |
       SpyCustomerTransPage operations for Microsoft Business Center API.
+  - name: SpySupplierTransPage
+    description: |
+      SpySupplierTransPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -695,7 +698,108 @@ paths:
           description: Successful response
 #endregion
 
+#region SpySupplierTrans
+  /SpySupplierTrans:
+    get:
+      operationId: GetSupplierTransactions
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierTransPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierTransListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateSupplierTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierTransPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpySupplierTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
 
+  /SpySupplierTrans({Entry_No}):
+    parameters:
+      - in: path
+        name: 'Entry_No'
+        description: The Entry_No of the SupplierTransaction to retrieve
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetSupplierTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierTransPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditSupplierTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierTransPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpySupplierTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpySupplierTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteSupplierTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpySupplierTransPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
 
 security:
   - bearerAuth: []
@@ -1612,6 +1716,157 @@ components:
             'External_Document_No':
               type: string
             'RecipientBankAccount':
+              type: string
+            'Shortcut_Dimension_3_Code':
+              type: string
+            'Shortcut_Dimension_4_Code':
+              type: string
+            'Shortcut_Dimension_5_Code':
+              type: string
+            'Shortcut_Dimension_6_Code':
+              type: string
+            'Shortcut_Dimension_7_Code':
+              type: string
+            'Shortcut_Dimension_8_Code':
+              type: string
+            'Date_Filter':
+              type: string
+#endregion
+
+#region SpySupplierTransSchemas
+    SpySupplierTransListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpySupplierTransList'
+    SpySupplierTransResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpySupplierTrans'
+    SpySupplierTransList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpySupplierTrans'
+    SpySupplierTrans:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Entry_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Document_No':
+              type: string
+            'External_Document_No':
+              type: string
+            'Vendor_No':
+              type: string
+            'Vendor_Name':
+              type: string
+            'Message_to_Recipient':
+              type: string
+            'Description':
+              type: string
+            'Global_Dimension_1_Code':
+              type: string
+            'Global_Dimension_2_Code':
+              type: string
+            'Vendor_Posting_Group':
+              type: string
+            'IC_Partner_Code':
+              type: string
+            'Purchaser_Code':
+              type: string
+            'Currency_Code':
+              type: string
+            'Payment_Method_Code':
+              type: string
+            'Payment_Reference':
+              type: string
+            'Creditor_No':
+              type: string
+            'Giro_Acc_No':
+              type: string
+            'Original_Amount':
+              type: number
+            'Original_Amt_LCY':
+              type: number
+            'Amount':
+              type: number
+            'Amount_LCY':
+              type: number
+            'Debit_Amount':
+              type: number
+            'Debit_Amount_LCY':
+              type: number
+            'Credit_Amount':
+              type: number
+            'Credit_Amount_LCY':
+              type: number
+            'Remaining_Amount':
+              type: number
+            'Remaining_Amt_LCY':
+              type: number
+            'Bal_Account_Type':
+              type: string
+              enum:
+                - 'G/L Account'
+                - 'Customer'
+                - 'Vendor'
+                - 'Bank Account'
+                - 'Fixed Asset'
+                - 'IC Partner'
+                - 'Employee'
+              default: 'G/L Account'
+            'Bal_Account_No':
+              type: string
+            'Due_Date':
+              type: string
+            'Pmt_Discount_Date':
+              type: string
+            'Pmt_Disc_Tolerance_Date':
+              type: string
+            'Original_Pmt_Disc_Possible':
+              type: number
+            'Remaining_Pmt_Disc_Possible':
+              type: number
+            'Max_Payment_Tolerance':
+              type: number
+            'Open':
+              type: boolean
+            'On_Hold':
+              type: string
+            'User_ID':
+              type: string
+            'Source_Code':
+              type: string
+            'Reason_Code':
+              type: string
+            'Reversed':
+              type: boolean
+            'Reversed_by_Entry_No':
+              type: integer
+            'Reversed_Entry_No':
+              type: integer
+            'Exported_to_Payment_File':
+              type: boolean
+            'Dimension_Set_ID':
+              type: integer
+            'RecipientBankAcc':
               type: string
             'Shortcut_Dimension_3_Code':
               type: string
