@@ -47,6 +47,9 @@ tags:
   - name: SpySupplierTransPage
     description: |
       SpySupplierTransPage operations for Microsoft Business Center API.
+  - name: SpyJournalPage
+    description: |
+      SpyJournalPagePage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -799,6 +802,30 @@ paths:
       responses:
         '204':
           description: Successful response
+#endregion
+
+#region SpyJournal
+  /SpyJournalPage:
+    get:
+      operationId: GetJournals
+      security:
+        - bearerAuth: []
+      tags: [SpyJournalPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyJournalListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
 #endregion
 
 security:
@@ -1567,7 +1594,7 @@ components:
               type: string
 #endregion
 
-    #region SpyCustomerTransSchemas
+#region SpyCustomerTransSchemas
     SpyCustomerTransListResponse:
       allOf:
         - $ref: '#/components/schemas/ODataEnvelope'
@@ -1881,5 +1908,68 @@ components:
             'Shortcut_Dimension_8_Code':
               type: string
             'Date_Filter':
+              type: string
+#endregion
+
+#region SpyJournalSchemas
+    SpyJournalListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyJournalList'
+    SpyJournalList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyJournal'
+    SpyJournal:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Journal_Template_Name':
+              type: string
+            'Journal_Batch_Name':
+              type: string
+            'Line_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_No':
+              type: string
+            'External_Document_No':
+              type: string
+            'Account_No':
+              type: string
+            'Account_Type':
+              type: string
+              enum:
+                - 'G/L Account'
+                - 'Customer'
+                - 'Vendor'
+                - 'Bank Account'
+                - 'Fixed Asset'
+                - 'IC Partner'
+                - 'Employee'
+              default: 'G/L Account'
+            'Amount':
+              type: number
+            'Currency_Code':
+              type: string
+            'Amount_LCY':
+              type: number
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Description':
               type: string
 #endregion
