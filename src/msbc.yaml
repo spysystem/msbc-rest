@@ -41,6 +41,9 @@ tags:
   - name: SpyCustomerTemplatePage
     description: |
       SpyCustomerTemplatePage operations for Microsoft Business Center API.
+  - name: SpyCustomerTransPage
+    description: |
+      SpyCustomerTransPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -588,6 +591,110 @@ paths:
         '204':
           description: Successful response
 #endregion
+
+#region SpyCustomerTrans
+  /SpyCustomerTrans:
+    get:
+      operationId: GetCustomerTransactions
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTransListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateCustomerTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTransPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomerTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyCustomerTrans({Entry_No}):
+    parameters:
+      - in: path
+        name: 'Entry_No'
+        description: The Entry_No of the CustomerTransaction to retrieve
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetCustomerTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTransPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditCustomerTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustomerTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustomerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteCustomerTransaction
+      security:
+        - bearerAuth: []
+      tags: [SpyCustomerTransPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 
 
 security:
@@ -1353,5 +1460,171 @@ components:
             'Global_Dimension_1_Code':
               type: string
             'Global_Dimension_2_Code':
+              type: string
+#endregion
+
+    #region SpyCustomerTransSchemas
+    SpyCustomerTransListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomerTransList'
+    SpyCustomerTransResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustomerTrans'
+    SpyCustomerTransList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyCustomerTrans'
+    SpyCustomerTrans:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Entry_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Document_No':
+              type: string
+            'Customer_No':
+              type: string
+            'Customer_Name':
+              type: string
+            'Description':
+              type: string
+            'Global_Dimension_1_Code':
+              type: string
+            'Global_Dimension_2_Code':
+              type: string
+            'Customer_Posting_Group':
+              type: string
+            'IC_Partner_Code':
+              type: string
+            'Salesperson_Code':
+              type: string
+            'Currency_Code':
+              type: string
+            'Original_Amount':
+              type: number
+            'Original_Amt_LCY':
+              type: number
+            'Amount':
+              type: number
+            'Amount_LCY':
+              type: number
+            'Debit_Amount':
+              type: number
+            'Debit_Amount_LCY':
+              type: number
+            'Credit_Amount':
+              type: number
+            'Credit_Amount_LCY':
+              type: number
+            'Remaining_Amount':
+              type: number
+            'Remaining_Amt_LCY':
+              type: number
+            'Sales_LCY':
+              type: number
+            'Bal_Account_Type':
+              type: string
+              enum:
+                - 'G/L Account'
+                - 'Customer'
+                - 'Vendor'
+                - 'Bank Account'
+                - 'Fixed Asset'
+                - 'IC Partner'
+                - 'Employee'
+              default: 'G/L Account'
+            'Bal_Account_No':
+              type: string
+            'Due_Date':
+              type: string
+            'Payment_Prediction':
+              type: string
+              enum:
+                - ' '
+                - 'Late'
+                - 'On-Time'
+              default: ' '
+            'Prediction_Confidence':
+              type: string
+              enum:
+                - ' '
+                - 'Low'
+                - 'Medium'
+                - 'High'
+              default: ' '
+            'Prediction_Confidence_Percent':
+              type: number
+            'Pmt_Discount_Date':
+              type: string
+            'Pmt_Disc_Tolerance_Date':
+              type: string
+            'Original_Pmt_Disc_Possible':
+              type: number
+            'Remaining_Pmt_Disc_Possible':
+              type: number
+            'Max_Payment_Tolerance':
+              type: number
+            'Payment_Method_Code':
+              type: string
+            'Open':
+              type: boolean
+            'On_Hold':
+              type: string
+            'User_ID':
+              type: string
+            'Source_Code':
+              type: string
+            'Reason_Code':
+              type: string
+            'Reversed':
+              type: boolean
+            'Reversed_by_Entry_No':
+              type: integer
+            'Reversed_Entry_No':
+              type: integer
+            'Exported_to_Payment_File':
+              type: boolean
+            'Message_to_Recipient':
+              type: string
+            'Direct_Debit_Mandate_ID':
+              type: string
+            'Dimension_Set_ID':
+              type: integer
+            'External_Document_No':
+              type: string
+            'RecipientBankAccount':
+              type: string
+            'Shortcut_Dimension_3_Code':
+              type: string
+            'Shortcut_Dimension_4_Code':
+              type: string
+            'Shortcut_Dimension_5_Code':
+              type: string
+            'Shortcut_Dimension_6_Code':
+              type: string
+            'Shortcut_Dimension_7_Code':
+              type: string
+            'Shortcut_Dimension_8_Code':
+              type: string
+            'Date_Filter':
               type: string
 #endregion
