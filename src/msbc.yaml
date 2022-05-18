@@ -50,6 +50,9 @@ tags:
   - name: SpyJournalPage
     description: |
       SpyJournalPagePage operations for Microsoft Business Center API.
+  - name: SpyCustLedgerPage
+    description: |
+      SpyCustLedgerPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -826,6 +829,109 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyCustLedger
+  /SpyCustLedgerPage:
+    get:
+      operationId: GetCustomerLedgerEntries
+      security:
+        - bearerAuth: []
+      tags: [SpyCustLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustLedgerListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateCustomerLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyCustLedgerPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustLedger'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyCustLedgerPage({Entry_No}):
+    parameters:
+      - in: path
+        name: 'Entry_No'
+        description: The Entry_No of the CustomerLedgerEntry to retrieve
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetCustomerLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyCustLedgerPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditCustomerLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyCustLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCustLedger'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCustLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteCustomerLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyCustLedgerPage]
+      responses:
+        '204':
+          description: Successful response
 #endregion
 
 security:
@@ -1971,5 +2077,59 @@ components:
                 - 'Refund'
               default: ' '
             'Description':
+              type: string
+#endregion
+
+#region SpyCustLedgerSchemas
+    SpyCustLedgerListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustLedgerList'
+    SpyCustLedgerResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCustLedger'
+    SpyCustLedgerList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyCustLedger'
+    SpyCustLedger:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Entry_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_No':
+              type: string
+            'External_Document_No':
+              type: string
+            'Customer_No':
+              type: string
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Amount':
+              type: number
+            'Currency_Code':
+              type: string
+            'Amount_LCY':
+              type: number
+            'Description':
+              type: string
+            'Date_Filter':
               type: string
 #endregion
