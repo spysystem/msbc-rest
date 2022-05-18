@@ -56,6 +56,9 @@ tags:
   - name: SpyVendLedgerPage
     description: |
       SpyVendLedgerPage operations for Microsoft Business Center API.
+  - name: SpyCountryPage
+    description: |
+      SpyCountryPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1035,6 +1038,109 @@ paths:
       security:
         - bearerAuth: []
       tags: [SpyVendLedgerPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
+#region SpyCountry
+  /SpyCountryPage:
+    get:
+      operationId: GetSpyCountries
+      security:
+        - bearerAuth: []
+      tags: [SpyCountryPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCountryListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateSpyCountry
+      security:
+        - bearerAuth: []
+      tags: [SpyCountryPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCountry'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCountryResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyCountryPage(\'{Code}\'):
+    parameters:
+      - in: path
+        name: 'Code'
+        description: The Code of the SpyCountry to retrieve
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetSpyCountry
+      security:
+        - bearerAuth: []
+      tags: [SpyCountryPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCountryResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditSpyCountry
+      security:
+        - bearerAuth: []
+      tags: [SpyCountryPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyCountry'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCountryResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteSpyCountry
+      security:
+        - bearerAuth: []
+      tags: [SpyCountryPage]
       responses:
         '204':
           description: Successful response
@@ -2291,5 +2397,62 @@ components:
             'Description':
               type: string
             'Date_Filter':
+              type: string
+#endregion
+
+#region SpyCountrySchemas
+    SpyCountryListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCountryList'
+    SpyCountryResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyCountry'
+    SpyCountryList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyCountry'
+    SpyCountry:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Code':
+              type: string
+            'Name':
+              type: string
+            'ISO_Code':
+              type: string
+            'ISO_Numeric_Code':
+              type: string
+            'Address_Format':
+              type: string
+              enum:
+                - 'Post Code+City'
+                - 'City+Post Code'
+                - 'City+County+Post Code'
+                - 'Blank Line+Post Code+City'
+                - 'Custom'
+              default: 'Post Code+City'
+            'Contact_Address_Format':
+              type: string
+              enum:
+                - 'First'
+                - 'After Company Name'
+                - 'Last'
+              default: 'First'
+            'County_Name':
+              type: string
+            'EU_Country_Region_Code':
+              type: string
+            'Intrastat_Code':
+              type: string
+            'OIOUBL_Country_Region_Code':
+              type: string
+            'VAT_Scheme':
               type: string
 #endregion
