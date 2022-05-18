@@ -59,6 +59,9 @@ tags:
   - name: SpyCountryPage
     description: |
       SpyCountryPage operations for Microsoft Business Center API.
+  - name: SpyExchangeRatesPage
+    description: |
+      SpyExchangeRatesPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1144,6 +1147,30 @@ paths:
       responses:
         '204':
           description: Successful response
+#endregion
+
+#region SpyExchangeRates
+  /SpyExchangeRates:
+    get:
+      operationId: GetExchangeRates
+      security:
+        - bearerAuth: []
+      tags: [SpyExchangeRatesPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyExchangeRatesListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
 #endregion
 
 security:
@@ -2455,4 +2482,44 @@ components:
               type: string
             'VAT_Scheme':
               type: string
+#endregion
+
+#region SpyExchangeRatesSchemas
+    SpyExchangeRatesListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyExchangeRatesList'
+    SpyExchangeRatesList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyExchangeRates'
+    SpyExchangeRates:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Currency_Code':
+              type: string
+            'Starting_Date':
+              type: string
+            'Relational_Currency_Code':
+              type: string
+            'Exchange_Rate_Amount':
+              type: number
+            'Relational_Exch_Rate_Amount':
+              type: number
+            'Adjustment_Exch_Rate_Amount':
+              type: number
+            'Relational_Adjmt_Exch_Rate_Amt':
+              type: number
+            'Fix_Exchange_Rate_Amount':
+              type: string
+              enum:
+                - 'Currency'
+                - 'Relational Currency'
+                - 'Both'
+              default: 'Currency'
 #endregion
