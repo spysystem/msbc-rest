@@ -53,6 +53,9 @@ tags:
   - name: SpyCustLedgerPage
     description: |
       SpyCustLedgerPage operations for Microsoft Business Center API.
+  - name: SpyVendLedgerPage
+    description: |
+      SpyVendLedgerPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -929,6 +932,109 @@ paths:
       security:
         - bearerAuth: []
       tags: [SpyCustLedgerPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
+#region SpyVendLedger
+  /SpyVendLedgerPage:
+    get:
+      operationId: GetSupplierLedgerEntries
+      security:
+        - bearerAuth: []
+      tags: [SpyVendLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVendLedgerListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateSupplierLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyVendLedgerPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyVendLedger'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVendLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyVendLedgerPage({Entry_No}):
+    parameters:
+      - in: path
+        name: 'Entry_No'
+        description: The Entry_No of the SupplierLedgerEntry to retrieve
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetSupplierLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyVendLedgerPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVendLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditSupplierLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyVendLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyVendLedger'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVendLedgerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteSupplierLedgerEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyVendLedgerPage]
       responses:
         '204':
           description: Successful response
@@ -2110,6 +2216,60 @@ components:
             'External_Document_No':
               type: string
             'Customer_No':
+              type: string
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Amount':
+              type: number
+            'Currency_Code':
+              type: string
+            'Amount_LCY':
+              type: number
+            'Description':
+              type: string
+            'Date_Filter':
+              type: string
+#endregion
+
+#region SpyVendLedgerSchemas
+    SpyVendLedgerListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyVendLedgerList'
+    SpyVendLedgerResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyVendLedger'
+    SpyVendLedgerList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyVendLedger'
+    SpyVendLedger:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Entry_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_No':
+              type: string
+            'External_Document_No':
+              type: string
+            'Vendor_No':
               type: string
             'Document_Type':
               type: string
