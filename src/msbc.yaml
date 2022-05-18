@@ -62,6 +62,9 @@ tags:
   - name: SpyExchangeRatesPage
     description: |
       SpyExchangeRatesPage operations for Microsoft Business Center API.
+  - name: SpyLedgerTransPage
+    description: |
+      SpyLedgerTransPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1171,6 +1174,109 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyLedgerTrans
+  /SpyLedgerTrans:
+    get:
+      operationId: GetLedgerTransactionEntries
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerTransListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateLedgerTransactionEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerTransPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyLedgerTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyLedgerTrans({Entry_No}):
+    parameters:
+      - in: path
+        name: 'Entry_No'
+        description: The Entry_No of the LedgerTransactionEntry to retrieve
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/dataAccessIntentParameter'
+    get:
+      operationId: GetLedgerTransactionEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerTransPage]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditLedgerTransactionEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyLedgerTrans'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyLedgerTransResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteLedgerTransactionEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyLedgerTransPage]
+      responses:
+        '204':
+          description: Successful response
 #endregion
 
 security:
@@ -2522,4 +2628,136 @@ components:
                 - 'Relational Currency'
                 - 'Both'
               default: 'Currency'
+#endregion
+
+#region SpyLedgerTransSchemas
+    SpyLedgerTransListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyLedgerTransList'
+    SpyLedgerTransResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyLedgerTrans'
+    SpyLedgerTransList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyLedgerTrans'
+    SpyLedgerTrans:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Entry_No':
+              type: integer
+            'Posting_Date':
+              type: string
+            'Document_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Payment'
+                - 'Invoice'
+                - 'Credit Memo'
+                - 'Finance Charge Memo'
+                - 'Reminder'
+                - 'Refund'
+              default: ' '
+            'Document_No':
+              type: string
+            'G_L_Account_No':
+              type: string
+            'G_L_Account_Name':
+              type: string
+            'Description':
+              type: string
+            'Job_No':
+              type: string
+            'Global_Dimension_1_Code':
+              type: string
+            'Global_Dimension_2_Code':
+              type: string
+            'IC_Partner_Code':
+              type: string
+            'Gen_Posting_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Purchase'
+                - 'Sale'
+                - 'Settlement'
+              default: ' '
+            'Gen_Bus_Posting_Group':
+              type: string
+            'Gen_Prod_Posting_Group':
+              type: string
+            'Quantity':
+              type: number
+            'Amount':
+              type: number
+            'Debit_Amount':
+              type: number
+            'Credit_Amount':
+              type: number
+            'Additional_Currency_Amount':
+              type: number
+            'VAT_Amount':
+              type: number
+            'Bal_Account_Type':
+              type: string
+              enum:
+                - 'G/L Account'
+                - 'Customer'
+                - 'Vendor'
+                - 'Bank Account'
+                - 'Fixed Asset'
+                - 'IC Partner'
+                - 'Employee'
+              default: 'G/L Account'
+            'Bal_Account_No':
+              type: string
+            'User_ID':
+              type: string
+            'Source_Code':
+              type: string
+            'Source_Type':
+              type: string
+            'Source_No':
+              type: string
+            'Reason_Code':
+              type: string
+            'Reversed':
+              type: boolean
+            'Reversed_by_Entry_No':
+              type: integer
+            'Reversed_Entry_No':
+              type: integer
+            'FA_Entry_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Fixed Asset'
+                - 'Maintenance'
+              default: ' '
+            'FA_Entry_No':
+              type: integer
+            'Dimension_Set_ID':
+              type: integer
+            'External_Document_No':
+              type: string
+            'Shortcut_Dimension_3_Code':
+              type: string
+            'Shortcut_Dimension_4_Code':
+              type: string
+            'Shortcut_Dimension_5_Code':
+              type: string
+            'Shortcut_Dimension_6_Code':
+              type: string
+            'Shortcut_Dimension_7_Code':
+              type: string
+            'Shortcut_Dimension_8_Code':
+              type: string
 #endregion
