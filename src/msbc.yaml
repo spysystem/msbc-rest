@@ -80,6 +80,9 @@ tags:
   - name: SpyFieldsPage
     description: |
       SpyFieldsPage operations for Microsoft Business Center API.
+  - name: SpyInsertPostCodeCodeUnit
+    description: |
+      SpyInsertPostCode CodeUnit for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1928,7 +1931,7 @@ paths:
           description: Successful response
 #endregion
 
-  #region SpyFieldsPage
+#region SpyFieldsPage
   /SpyFieldsPage:
     get:
       operationId: GetFields
@@ -2036,6 +2039,49 @@ paths:
       responses:
         '204':
           description: Successful response
+#endregion
+
+#region SpyInsertPostCodeCodeUnit
+  /SpyInsertPostCode_InsertPostCode:
+    description: |
+      This Codeunit is used to insert a new PostCode into the database.
+    post:
+      operationId: InsertPostCode
+      security:
+        - bearerAuth: []
+      tags: [SpyInsertPostCode]
+      parameters:
+        - in: query
+          name: company
+          required: true
+          description: Company Name
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyInsertPostCode'
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: Production or Sandbox"
+              default: Production
+              enum:
+                - Production
+                - Sandbox
+      responses:
+        204:
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
 #endregion
 
 security:
@@ -3748,4 +3794,20 @@ components:
               type: string
             'FieldName':
               type: string
+#endregion
+
+#region SpyInsertPostCodeSchemas
+    SpyInsertPostCode:
+      type: object
+      required:
+        - city
+        - country
+        - postCode
+      properties:
+        'country':
+          type: string
+        'city':
+          type: string
+        'postCode':
+          type: string
 #endregion
