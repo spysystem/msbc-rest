@@ -74,6 +74,9 @@ tags:
   - name: SpyDefaultDimensionPage
     description: |
       SpyDefaultDimensionPage operations for Microsoft Business Center API.
+  - name: SpyVatPostingSetupPage
+    description: |
+      SpyVatPostingSetupPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1812,6 +1815,116 @@ paths:
           description: Successful response
 #endregion
 
+#region SpyVatPostingSetup
+  /SpyVatPostingSetup:
+    get:
+      operationId: GetSpyVatSettings
+      security:
+        - bearerAuth: []
+      tags: [SpyVatPostingSetupPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVatPostingSetupListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateSpyVatSetting
+      security:
+        - bearerAuth: []
+      tags: [SpyVatPostingSetupPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyVatPostingSetup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVatPostingSetupResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyVatPostingSetup(\'{VatBusPostingGroup}\',\'{VatProdPostingGroup}\'):
+    parameters:
+      - in: path
+        name: 'VatBusPostingGroup'
+        description: The VatBusPostingGroup of the SpyVatSetting to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'VatProdPostingGroup'
+        description: The VatProdPostingGroup of the SpyVatSetting to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetSpyVatSetting
+      security:
+        - bearerAuth: []
+      tags: [SpyVatPostingSetupPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVatPostingSetupResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditSpyVatSetting
+      security:
+        - bearerAuth: []
+      tags: [SpyVatPostingSetupPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyVatPostingSetup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyVatPostingSetupResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteSpyVatSetting
+      security:
+        - bearerAuth: []
+      tags: [SpyVatPostingSetupPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 security:
   - bearerAuth: []
 
@@ -3417,4 +3530,78 @@ components:
                 - 'Same Code'
                 - 'No Code'
               default: ' '
+#endregion
+
+#region SpyVatPostingSetupSchemas
+    SpyVatPostingSetupListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyVatPostingSetupList'
+    SpyVatPostingSetupResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyVatPostingSetup'
+    SpyVatPostingSetupList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyVatPostingSetup'
+    SpyVatPostingSetup:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'VAT_Bus_Posting_Group':
+              type: string
+            'VAT_Prod_Posting_Group':
+              type: string
+            'Description':
+              type: string
+            'Blocked':
+              type: boolean
+            'VAT_Identifier':
+              type: string
+            'VAT_Percent':
+              type: number
+            'VAT_Calculation_Type':
+              type: string
+              enum:
+                - 'Normal VAT'
+                - 'Reverse Charge VAT'
+                - 'Full VAT'
+                - 'Sales Tax'
+              default: 'Normal VAT'
+            'Unrealized_VAT_Type':
+              type: string
+              enum:
+                - ' '
+                - 'Percentage'
+                - 'First'
+                - 'Last'
+                - 'First Fully Paid'
+                - 'Last Fully Paid'
+            'Adjust_for_Payment_Discount':
+              type: boolean
+            'Sales_VAT_Account':
+              type: string
+            'Sales_VAT_Unreal_Account':
+              type: string
+            'Purchase_VAT_Account':
+              type: string
+            'Purch_VAT_Unreal_Account':
+              type: string
+            'Reverse_Chrg_VAT_Acc':
+              type: string
+            'Reverse_Chrg_VAT_Unreal_Acc':
+              type: string
+            'VAT_Clause_Code':
+              type: string
+            'EU_Service':
+              type: boolean
+            'Certificate_of_Supply_Required':
+              type: boolean
+            'Tax_Category':
+              type: string
 #endregion
