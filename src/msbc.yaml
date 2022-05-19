@@ -68,6 +68,9 @@ tags:
   - name: SpyPostCodePage
     description: |
       SpyPostCodePage operations for Microsoft Business Center API.
+  - name: SpyTemplateLinePage
+    description: |
+      SpyTemplateLinePage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1580,6 +1583,115 @@ paths:
           description: Successful response
 #endregion
 
+#region SpyTemplateLine
+  /SpyTemplateLine:
+    get:
+      operationId: GetTemplateLines
+      security:
+        - bearerAuth: []
+      tags: [SpyTemplateLinePage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyTemplateLineListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateTemplateLine
+      security:
+        - bearerAuth: []
+      tags: [SpyTemplateLinePage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyTemplateLine'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyTemplateLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyTemplateLine(\'{Template}\',{LineNo}):
+    parameters:
+      - in: path
+        name: 'Template'
+        description: The Template of the TemplateLine to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'LineNo'
+        description: The Line No of the TemplateLine to retrieve
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: GetTemplateLine
+      security:
+        - bearerAuth: []
+      tags: [SpyTemplateLinePage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyTemplateLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditTemplateLine
+      security:
+        - bearerAuth: []
+      tags: [SpyTemplateLinePage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyTemplateLine'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyTemplateLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteTemplateLine
+      security:
+        - bearerAuth: []
+      tags: [SpyTemplateLinePage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
 security:
   - bearerAuth: []
 
@@ -3097,5 +3209,53 @@ components:
             'City':
               type: string
             'Country_Region_Code':
+              type: string
+#endregion
+
+#region SpyTemplateLineSchemas
+    SpyTemplateLineListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyTemplateLineList'
+    SpyTemplateLineResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyTemplateLine'
+    SpyTemplateLineList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyTemplateLine'
+    SpyTemplateLine:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Template':
+              type: string
+            'Line_No':
+              type: integer
+            'Type':
+              type: string
+              enum:
+                - 'Field'
+                - 'Template'
+                - 'Related Template'
+              default: 'Field'
+            'Field_ID':
+              type: integer
+            'FieldName':
+              type: string
+            'Table_ID':
+              type: integer
+            'Table_Name':
+              type: string
+            'Template_Code':
+              type: string
+            'Template_Description':
+              type: string
+            'DefaultValue':
               type: string
 #endregion
