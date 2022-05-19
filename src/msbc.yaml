@@ -71,6 +71,9 @@ tags:
   - name: SpyTemplateLinePage
     description: |
       SpyTemplateLinePage operations for Microsoft Business Center API.
+  - name: SpyDefaultDimensionPage
+    description: |
+      SpyDefaultDimensionPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1692,6 +1695,123 @@ paths:
         '204':
           description: Successful response
 #endregion
+
+#region SpyDefaultDimension
+  /SpyDefaultDimension:
+    get:
+      operationId: GetDefaultDimensions
+      security:
+        - bearerAuth: []
+      tags: [SpyDefaultDimensionPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyDefaultDimensionListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateDefaultDimension
+      security:
+        - bearerAuth: []
+      tags: [SpyDefaultDimensionPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyDefaultDimension'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyDefaultDimensionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyDefaultDimension({TableID},\'{No}\',\'{DimensionCode}\'):
+    parameters:
+      - in: path
+        name: 'TableID'
+        description: The TableID of the DefaultDimension to retrieve
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: 'No'
+        description: The TableID of the DefaultDimension to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'DimensionCode'
+        description: The TableID of the DefaultDimension to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetDefaultDimension
+      security:
+        - bearerAuth: []
+      tags: [SpyDefaultDimensionPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyDefaultDimensionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditDefaultDimension
+      security:
+        - bearerAuth: []
+      tags: [SpyDefaultDimensionPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyDefaultDimension'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyDefaultDimensionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteDefaultDimension
+      security:
+        - bearerAuth: []
+      tags: [SpyDefaultDimensionPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 security:
   - bearerAuth: []
 
@@ -3258,4 +3378,43 @@ components:
               type: string
             'DefaultValue':
               type: string
+#endregion
+
+#region SpyDefaultDimensionSchemas
+    SpyDefaultDimensionListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyDefaultDimensionList'
+    SpyDefaultDimensionResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyDefaultDimension'
+    SpyDefaultDimensionList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyDefaultDimension'
+    SpyDefaultDimension:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Table_ID':
+              type: integer
+            'No':
+              type: string
+            'Dimension_Code':
+              type: string
+            'Dimension_Value_Code':
+              type: string
+            'Value_Posting':
+              type: string
+              enum:
+                - ' '
+                - 'Code Mandatory'
+                - 'Same Code'
+                - 'No Code'
+              default: ' '
 #endregion
