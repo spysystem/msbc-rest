@@ -152,12 +152,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetPaymentTerm
       security:
         - bearerAuth: []
       tags: [SpyPaymentTermPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -359,12 +360,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetSupplier
       security:
         - bearerAuth: []
       tags: [SpySupplierPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -462,12 +464,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetLedgerAccount
       security:
         - bearerAuth: []
       tags: [SpyLedgerAccountPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -565,12 +568,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetCustomerTemplate
       security:
         - bearerAuth: []
       tags: [SpyCustomerTemplatePage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -668,12 +672,13 @@ paths:
         required: true
         schema:
           type: integer
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetCustomerTransaction
       security:
         - bearerAuth: []
       tags: [SpyCustomerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -771,12 +776,13 @@ paths:
         required: true
         schema:
           type: integer
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetSupplierTransaction
       security:
         - bearerAuth: []
       tags: [SpySupplierTransPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -898,12 +904,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetCustomerLedgerEntry
       security:
         - bearerAuth: []
       tags: [SpyCustLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -1001,12 +1008,13 @@ paths:
         required: true
         schema:
           type: integer
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetSupplierLedgerEntry
       security:
         - bearerAuth: []
       tags: [SpyVendLedgerPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -1104,12 +1112,13 @@ paths:
         required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetSpyCountry
       security:
         - bearerAuth: []
       tags: [SpyCountryPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
@@ -1231,12 +1240,13 @@ paths:
         required: true
         schema:
           type: integer
-      - $ref: '#/components/parameters/dataAccessIntentParameter'
     get:
       operationId: GetLedgerTransactionEntry
       security:
         - bearerAuth: []
       tags: [SpyLedgerTransPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
           description: Successful response
