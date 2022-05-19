@@ -831,7 +831,7 @@ paths:
 #region SpyJournal
   /SpyJournalPage:
     get:
-      operationId: GetJournals
+      operationId: GetJournalEntries
       security:
         - bearerAuth: []
       tags: [SpyJournalPage]
@@ -850,6 +850,98 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateJournalEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyJournalPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyJournal'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyJournalResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyJournalPage(\'{JournalTemplateName}\',\'{JournalBatchName}\',{LineNo}):
+    parameters:
+      - in: path
+        name: 'JournalTemplateName'
+        description: The Journal Template Name of the JournalEntry to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'JournalBatchName'
+        description: The Journal Batch Name of the JournalEntry to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'LineNo'
+        description: The Line No of the JournalEntry to retrieve
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: GetJournalEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyJournalPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyJournalResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditJournalEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyJournalPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyJournal'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyJournalResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteJournalEntry
+      security:
+        - bearerAuth: []
+      tags: [SpyJournalPage]
+      responses:
+        '204':
+          description: Successful response
 #endregion
 
 #region SpyCustLedger
@@ -2490,6 +2582,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ODataEnvelope'
         - $ref: '#/components/schemas/SpyJournalList'
+    SpyJournalResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyJournal'
     SpyJournalList:
       type: object
       properties:
