@@ -77,6 +77,9 @@ tags:
   - name: SpyVatPostingSetupPage
     description: |
       SpyVatPostingSetupPage operations for Microsoft Business Center API.
+  - name: SpyFieldsPage
+    description: |
+      SpyFieldsPage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1925,6 +1928,116 @@ paths:
           description: Successful response
 #endregion
 
+  #region SpyFieldsPage
+  /SpyFieldsPage:
+    get:
+      operationId: GetFields
+      security:
+        - bearerAuth: []
+      tags: [SpyFieldsPage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyFieldsListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateField
+      security:
+        - bearerAuth: []
+      tags: [SpyFieldsPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyFields'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyFieldsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyFieldsPage({TableNo},{FieldNo}):
+    parameters:
+      - in: path
+        name: 'TableNo'
+        description: The TableNo of the Field to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'FieldNo'
+        description: The FieldNo of the Field to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetField
+      security:
+        - bearerAuth: []
+      tags: [SpyFieldsPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyFieldsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditField
+      security:
+        - bearerAuth: []
+      tags: [SpyFieldsPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyFields'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyFieldsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteField
+      security:
+        - bearerAuth: []
+      tags: [SpyFieldsPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
 security:
   - bearerAuth: []
 
@@ -3603,5 +3716,36 @@ components:
             'Certificate_of_Supply_Required':
               type: boolean
             'Tax_Category':
+              type: string
+#endregion
+
+#region SpyFieldsPageSchemas
+    SpyFieldsListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyFieldsList'
+    SpyFieldsResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyFields'
+    SpyFieldsList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyFields'
+    SpyFields:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'TableNo':
+              type: integer
+            'FieldNo':
+              type: integer
+            'TableName':
+              type: string
+            'FieldName':
               type: string
 #endregion
