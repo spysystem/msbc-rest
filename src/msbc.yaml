@@ -1278,6 +1278,92 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateExchangeRate
+      security:
+        - bearerAuth: []
+      tags: [SpyExchangeRatesPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyExchangeRates'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyExchangeRatesResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyExchangeRates(\'{CurrencyCode}\',{StartingDate}):
+    parameters:
+      - in: path
+        name: 'CurrencyCode'
+        description: The CurrencyCode of the ExchangeRate to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'StartingDate'
+        description: The Starting Date of the ExchangeRate to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetExchangeRate
+      security:
+        - bearerAuth: []
+      tags: [SpyExchangeRatesPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyExchangeRatesResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditExchangeRate
+      security:
+        - bearerAuth: []
+      tags: [SpyExchangeRatesPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyExchangeRates'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyExchangeRatesResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteExchangeRate
+      security:
+        - bearerAuth: []
+      tags: [SpyExchangeRatesPage]
+      responses:
+        '204':
+          description: Successful response
 #endregion
 
 #region SpyLedgerTrans
@@ -2814,6 +2900,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ODataEnvelope'
         - $ref: '#/components/schemas/SpyExchangeRatesList'
+    SpyExchangeRatesResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyExchangeRates'
     SpyExchangeRatesList:
       type: object
       properties:
