@@ -86,6 +86,9 @@ tags:
   - name: SpyCalcCustomerBalanceCodeUnit
     description: |
       SpyCalcCustomerBalance CodeUnit for Microsoft Business Center API.
+  - name: SpyApplyCustomerTemplatesCodeUnit
+    description: |
+      SpyApplyCustomerTemplates CodeUnit for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -2052,7 +2055,7 @@ paths:
       operationId: InsertPostCode
       security:
         - bearerAuth: []
-      tags: [SpyInsertPostCode]
+      tags: [SpyInsertPostCodeCodeUnit]
       parameters:
         - in: query
           name: company
@@ -2124,6 +2127,50 @@ paths:
         default:
           $ref: '#/components/responses/Default'
 #endregion
+
+#region SpyApplyCustomerTemplatesCodeUnit
+  /SpyApplyCustomerTemplates_ApplyTemplates:
+    description: |
+      This Codeunit is used to apply Templates on a Customer.
+    post:
+      operationId: ApplyCustomerTemplates
+      security:
+        - bearerAuth: []
+      tags: [SpyApplyCustomerTemplatesCodeUnit]
+      parameters:
+        - in: query
+          name: company
+          required: true
+          description: Company Name, unencoded
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyApplyCustomerTemplates'
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: Production or Sandbox"
+              default: Production
+              enum:
+                - Production
+                - Sandbox
+      responses:
+        204:
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
 
 security:
   - bearerAuth: []
@@ -3850,5 +3897,18 @@ components:
         'city':
           type: string
         'postCode':
+          type: string
+#endregion
+
+#region SpyApplyCustomerTemplatesSchemas
+    SpyApplyCustomerTemplates:
+      type: object
+      required:
+        - customer
+        - countryType
+      properties:
+        'customer':
+          type: string
+        'countryType':
           type: string
 #endregion
