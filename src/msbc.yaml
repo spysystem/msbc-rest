@@ -65,6 +65,9 @@ tags:
   - name: SpyLedgerTransPage
     description: |
       SpyLedgerTransPage operations for Microsoft Business Center API.
+  - name: SpyPostCodePage
+    description: |
+      SpyPostCodePage operations for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -1274,6 +1277,116 @@ paths:
       security:
         - bearerAuth: []
       tags: [SpyLedgerTransPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
+#region SpyPostCode
+  /SpyPostCode:
+    get:
+      operationId: GetPostalCodes
+      security:
+        - bearerAuth: []
+      tags: [SpyPostCodePage]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPostCodeListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreatePostalCode
+      security:
+        - bearerAuth: []
+      tags: [SpyPostCodePage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyPostCode'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPostCodeResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyPostCode(\'{Code}\',\'{City}\'):
+    parameters:
+      - in: path
+        name: 'Code'
+        description: The Code of the PostalCode to retrieve
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: 'City'
+        description: The City of the PostalCode to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetPostalCode
+      security:
+        - bearerAuth: []
+      tags: [SpyPostCodePage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPostCodeResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditPostalCode
+      security:
+        - bearerAuth: []
+      tags: [SpyPostCodePage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyPostCode'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPostCodeResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeletePostalCode
+      security:
+        - bearerAuth: []
+      tags: [SpyPostCodePage]
       responses:
         '204':
           description: Successful response
@@ -2759,5 +2872,34 @@ components:
             'Shortcut_Dimension_7_Code':
               type: string
             'Shortcut_Dimension_8_Code':
+              type: string
+#endregion
+
+#region SpyPostCodeSchemas
+    SpyPostCodeListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyPostCodeList'
+    SpyPostCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyPostCode'
+    SpyPostCodeList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyPostCode'
+    SpyPostCode:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'Code':
+              type: string
+            'City':
+              type: string
+            'Country_Region_Code':
               type: string
 #endregion
