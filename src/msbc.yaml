@@ -83,6 +83,9 @@ tags:
   - name: SpyInsertPostCodeCodeUnit
     description: |
       SpyInsertPostCode CodeUnit for Microsoft Business Center API.
+  - name: SpyCalcCustomerBalanceCodeUnit
+    description: |
+      SpyCalcCustomerBalance CodeUnit for Microsoft Business Center API.
 
 paths:
 #region Authenticate
@@ -2054,7 +2057,7 @@ paths:
         - in: query
           name: company
           required: true
-          description: Company Name
+          description: Company Name, unencoded
           schema:
             type: string
       requestBody:
@@ -2062,6 +2065,44 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SpyInsertPostCode'
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: Production or Sandbox"
+              default: Production
+              enum:
+                - Production
+                - Sandbox
+      responses:
+        204:
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyCalcCustomerBalanceCodeUnit
+  /SpyCalcCustomerBalance_calcCustomerBalance:
+    description: |
+      This Codeunit is used to calculate the customers balance in Business Central
+    post:
+      operationId: CalcCustomerBalance
+      security:
+        - bearerAuth: []
+      tags: [SpyCalcCustomerBalanceCodeUnit]
+      parameters:
+        - in: query
+          name: company
+          required: true
+          description: Company Name, unencoded
+          schema:
+            type: string
       servers:
         - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
           description: URL for code unit access to the Microsoft Business Center API.
