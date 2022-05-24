@@ -3632,6 +3632,15 @@ components:
               type: string
             'Source_Type':
               type: string
+              enum:
+                - ' '
+                - 'Customer'
+                - 'Vendor'
+                - 'Bank Account'
+                - 'Fixed Asset'
+                - 'IC Partner'
+                - 'Employee'
+              default: ' '
             'Source_No':
               type: string
             'Reason_Code':
