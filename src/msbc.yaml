@@ -866,7 +866,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpyJournalListResponse'
+                $ref: '#/components/schemas/SpyJournalEntriesListResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -880,14 +880,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SpyJournal'
+              $ref: '#/components/schemas/SpyJournalEntry'
       responses:
         '200':
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpyJournalResponse'
+                $ref: '#/components/schemas/SpyJournalEntryResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -926,7 +926,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpyJournalResponse'
+                $ref: '#/components/schemas/SpyJournalEntryResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -943,14 +943,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SpyJournal'
+              $ref: '#/components/schemas/SpyJournalEntry'
       responses:
         '200':
           description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpyJournalResponse'
+                $ref: '#/components/schemas/SpyJournalEntryResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -3256,22 +3256,22 @@ components:
 #endregion
 
 #region SpyJournalSchemas
-    SpyJournalListResponse:
+    SpyJournalEntriesListResponse:
       allOf:
         - $ref: '#/components/schemas/ODataEnvelope'
-        - $ref: '#/components/schemas/SpyJournalList'
-    SpyJournalResponse:
+        - $ref: '#/components/schemas/SpyJournalEntriesList'
+    SpyJournalEntryResponse:
       allOf:
         - $ref: '#/components/schemas/ODataEnvelope'
-        - $ref: '#/components/schemas/SpyJournal'
-    SpyJournalList:
+        - $ref: '#/components/schemas/SpyJournalEntry'
+    SpyJournalEntriesList:
       type: object
       properties:
         'value':
           type: array
           items:
-            $ref: '#/components/schemas/SpyJournal'
-    SpyJournal:
+            $ref: '#/components/schemas/SpyJournalEntry'
+    SpyJournalEntry:
       allOf:
         - $ref: '#/components/schemas/BaseEntity'
         - type: object
@@ -3279,6 +3279,12 @@ components:
             'Journal_Template_Name':
               type: string
             'Journal_Batch_Name':
+              type: string
+            'Due_Date':
+              type: string
+            'Payment_Terms_Code':
+              type: string
+            'Pmt_Discount_Date':
               type: string
             'Line_No':
               type: integer
