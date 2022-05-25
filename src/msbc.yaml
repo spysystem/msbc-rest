@@ -154,8 +154,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyPaymentTerm'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -362,8 +362,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpySupplier'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -466,8 +466,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyLedgerAccount'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -570,8 +570,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyCustomerTemplate'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -674,8 +674,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyCustomerTrans'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -778,8 +778,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpySupplierTrans'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -882,8 +882,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyJournalEntry'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -998,8 +998,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyCustLedger'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1102,8 +1102,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyVendLedger'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1206,8 +1206,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyCountry'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1310,8 +1310,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyExchangeRates'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1420,8 +1420,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyLedgerTrans'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1524,8 +1524,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyPostCode'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1634,8 +1634,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyTemplateLine'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1744,8 +1744,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyDefaultDimension'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1860,8 +1860,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyVatPostingSetup'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -1970,8 +1970,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SpyFields'
       responses:
-        '200':
-          description: Successful response
+        '201':
+          description: Created
           content:
             application/json:
               schema:
