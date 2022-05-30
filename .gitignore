@@ -25,8 +25,6 @@
 cmake-build-debug/
 cmake-build-release/
 
-# Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
 
 ## File-based project format:
 *.iws
@@ -65,4 +63,3 @@ composer.lock
 
 # OpenAPI generator
 .openapi-generator
-.openapi-generator-ignore
