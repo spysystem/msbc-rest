@@ -1,0 +1,85 @@
+# Spy\MsbcRestClient\JournalLinesPageApi
+
+All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Production/ODataV4/Company(&#39;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&#39;), except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteTempJournalLine()**](JournalLinesPageApi.md#deleteTempJournalLine) | **DELETE** /journalLines(\&#39;{id}\&#39;) |  |
+
+
+## `deleteTempJournalLine()`
+
+```php
+deleteTempJournalLine($id)
+```
+### URI(s):
+- https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID}) URL for code unit access to the Microsoft Business Center API.
+    - Variables:
+      - tenantID: Tenant ID
+        - Default value: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+      - environment: Environment: something like Production or Sandbox
+        - Default value: Production
+
+      - companyID: Company ID
+        - Default value: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = Spy\MsbcRestClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Spy\MsbcRestClient\Api\JournalLinesPageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The id of the TempJournalLine to retrieve
+
+$hostIndex = 0;
+$variables = [
+    'tenantID' => 'YOUR_VALUE',
+    'environment' => 'YOUR_VALUE',
+    'companyID' => 'YOUR_VALUE',
+];
+
+try {
+    $apiInstance->deleteTempJournalLine($id, $hostIndex, $variables);
+} catch (Exception $e) {
+    echo 'Exception when calling JournalLinesPageApi->deleteTempJournalLine: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The id of the TempJournalLine to retrieve | |
+| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
+| variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
