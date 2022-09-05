@@ -26,6 +26,10 @@ tags:
   - name: Authenticate
     description: |
       Authentication operations for Microsoft Business Center API.
+  - name: Company
+    description: |
+      Company information for Microsft Business Center API.
+
   - name: SpyPaymentTermPage
     description: |
       SpyPaymentTermPage operations for Microsoft Business Center API.
@@ -120,6 +124,42 @@ paths:
         default:
           $ref: '#/components/responses/Default'
 #endregion
+
+#region Company
+  /companies:
+    description: |
+      Returns the list of companies tied to the given environment
+    get:
+      operationId: GetCompanies
+      security:
+        - bearerAuth: []
+      tags: [Company]
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/v2.0
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: Production or Sandbox"
+              default: Production
+              enum:
+                - Production
+                - Sandbox
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/companiesListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
 
 #region SpyPaymentTerm
   /SpyPaymentTerm:
@@ -2318,6 +2358,41 @@ components:
         'correlation_id':
           type: string
         'error_uri':
+          type: string
+#endregion
+
+#region Company
+    companiesListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/companiesList'
+    companiesList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/companies'
+    companies:
+      type: object
+      properties:
+        'id':
+          type: string
+        'systemVersion':
+          type: string
+        'name':
+          type: string
+        'displayName':
+          type: string
+        'businessProfileId':
+          type: string
+        'systemCreatedAt':
+          type: string
+        'systemCreatedBy':
+          type: string
+        'systemModifiedAt':
+          type: string
+        'systemModifiedBy':
           type: string
 #endregion
 
