@@ -6,15 +6,15 @@ info:
     The Microsoft Business Center API is a RESTful API that provides an interface to the Microsoft Business Center service.
 
 servers:
-  - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4/Company('{companyName}')
+  - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4/Company('{companyId}')
     description: URL for regular access to the Microsoft Business Center API.
     variables:
       'tenantID':
         description: Tenant ID
         default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-      'companyName':
-        description: Company name
-        default: "CRONUS%20Danmark%20A%2FS"
+      'companyId':
+        description: Company ID
+        default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
       'environment':
         description: "Environment: Production or Sandbox"
         default: Production
@@ -2058,9 +2058,9 @@ paths:
       tags: [SpyInsertPostCodeCodeUnit]
       parameters:
         - in: query
-          name: company
+          name: companyId
           required: true
-          description: Company Name, unencoded
+          description: Company ID
           schema:
             type: string
       requestBody:
@@ -2101,9 +2101,9 @@ paths:
       tags: [SpyCalcCustomerBalanceCodeUnit]
       parameters:
         - in: query
-          name: company
+          name: companyId
           required: true
-          description: Company Name, unencoded
+          description: Company ID
           schema:
             type: string
       servers:
@@ -2139,9 +2139,9 @@ paths:
       tags: [SpyApplyCustomerTemplatesCodeUnit]
       parameters:
         - in: query
-          name: company
+          name: companyId
           required: true
-          description: Company Name, unencoded
+          description: Company ID
           schema:
             type: string
       requestBody:
