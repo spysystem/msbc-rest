@@ -1,10 +1,10 @@
 del /s /q docs lib test
 
-docker pull spysystem/openapi-generator:th-spy-master-dev
+docker pull spysystem/openapi-generator:spy_branch
 docker run^
     --rm^
     -v "%cd%":/local^
-    spysystem/openapi-generator:th-spy-master-dev^
+    spysystem/openapi-generator:spy_branch^
     generate^
     -g php^
     -i /local/src/msbc.yaml^
