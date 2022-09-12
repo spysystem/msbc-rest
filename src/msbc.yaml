@@ -16,11 +16,8 @@ servers:
         description: Company ID
         default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
       'environment':
-        description: "Environment: Production or Sandbox"
+        description: "Environment: something like Production or Sandbox"
         default: Production
-        enum:
-          - Production
-          - Sandbox
 
 tags:
   - name: Authenticate
@@ -28,8 +25,7 @@ tags:
       Authentication operations for Microsoft Business Center API.
   - name: Company
     description: |
-      Company information for Microsft Business Center API.
-
+      Company information for Microsoft Business Center API.
   - name: SpyPaymentTermPage
     description: |
       SpyPaymentTermPage operations for Microsoft Business Center API.
@@ -142,11 +138,8 @@ paths:
               description: Tenant ID
               default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
             'environment':
-              description: "Environment: Production or Sandbox"
+              description: "Environment: something like Production or Sandbox"
               default: Production
-              enum:
-                - Production
-                - Sandbox
       responses:
         '200':
           description: Successful response
@@ -2116,11 +2109,8 @@ paths:
               description: Tenant ID
               default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
             'environment':
-              description: "Environment: Production or Sandbox"
+              description: "Environment: something like Production or Sandbox"
               default: Production
-              enum:
-                - Production
-                - Sandbox
       responses:
         204:
           description: Successful response
@@ -2154,11 +2144,8 @@ paths:
               description: Tenant ID
               default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
             'environment':
-              description: "Environment: Production or Sandbox"
+              description: "Environment: something like Production or Sandbox"
               default: Production
-              enum:
-                - Production
-                - Sandbox
       responses:
         204:
           description: Successful response
@@ -2197,11 +2184,8 @@ paths:
               description: Tenant ID
               default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
             'environment':
-              description: "Environment: Production or Sandbox"
+              description: "Environment: something like Production or Sandbox"
               default: Production
-              enum:
-                - Production
-                - Sandbox
       responses:
         204:
           description: Successful response
