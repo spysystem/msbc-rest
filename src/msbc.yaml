@@ -89,7 +89,9 @@ tags:
   - name: SpyApplyCustomerTemplatesCodeUnit
     description: |
       SpyApplyCustomerTemplates CodeUnit for Microsoft Business Center API.
-
+  - name: TempJournalLinesPage
+    description: |
+      TempJournalLinesPage operations for Microsoft Business Center API.
 paths:
 #region Authenticate
   /token:
@@ -2195,6 +2197,144 @@ paths:
           $ref: '#/components/responses/Default'
 #endregion
 
+#region TempJournalLinesPage
+  /journalLines:
+    description: |
+      This Page is used to add Journal Lines to a temporary table - we will commit them later using a code unit
+    servers:
+      - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID})
+        description: URL for code unit access to the Microsoft Business Center API.
+        variables:
+          'tenantID':
+            description: Tenant ID
+            default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+          'environment':
+            description: "Environment: something like Production or Sandbox"
+            default: Production
+          'companyID':
+            description: Company ID
+            default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    get:
+      operationId: GetTempJournalLines
+      security:
+        - bearerAuth: []
+      tags: [TempJournalLinesPage]
+      parameters:
+        - in: query
+          name: $expand
+          description: Expand Option
+          example: "spyDimensions"
+          schema:
+            type: string
+            default: "spyDimensions"
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/journalLineListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreateTempJournalLine
+      security:
+        - bearerAuth: []
+      tags: [TempJournalLinesPage]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createJournalLine'
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/journalLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /journalLines(\'{id}\'):
+    servers:
+      - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID})
+        description: URL for code unit access to the Microsoft Business Center API.
+        variables:
+          'tenantID':
+            description: Tenant ID
+            default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+          'environment':
+            description: "Environment: something like Production or Sandbox"
+            default: Production
+          'companyID':
+            description: Company ID
+            default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    parameters:
+      - in: path
+        name: 'id'
+        description: The id of the TempJournalLine to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetTempJournalLine
+      security:
+        - bearerAuth: []
+      tags: [journalLinesPage]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/journalLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditTempJournalLine
+      security:
+        - bearerAuth: []
+      tags: [journalLinesPage]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/journalLine'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/journalLineResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeleteTempJournalLine
+      security:
+        - bearerAuth: []
+      tags: [journalLinesPage]
+      responses:
+        '204':
+          description: Successful response
+
 
 security:
   - bearerAuth: []
@@ -3985,4 +4125,102 @@ components:
           type: string
         'countryType':
           type: string
+#endregion
+
+#region journalLinesSchemas
+    journalLineListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/journalLineList'
+    journalLineResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/journalLine'
+    journalLineList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/journalLine'
+    journalLine:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - $ref: '#/components/schemas/createJournalLine'
+        - type: object
+          properties:
+            'id':
+              type: string
+            'systemCreatedAt':
+              type: string
+            'systemCreatedBy':
+              type: string
+            'systemModifiedAt':
+              type: string
+            'systemModifiedBy':
+              type: string
+    spyDimension:
+      type: object
+      properties:
+        'dimensionName':
+          type: string
+        'dimensionValue':
+          type: string
+    createJournalLine:
+      type: object
+      properties:
+        'templateName':
+          type: string
+        'journalName':
+          type: string
+        'documentNumber':
+          type: string
+        'documentType':
+          type: string
+        'countryType':
+          type: string
+        'account':
+          type: string
+        'description':
+          type: string
+        'amount':
+          type: number
+        'entryType':
+          type: string
+        'postingDate':
+          type: string
+        'deliveryAccount':
+          type: string
+        'postType':
+          type: string
+        'invoiceNo':
+          type: string
+        'currency':
+          type: string
+        'amountBaseCurrency':
+          type: number
+        'countyUSTaxAccount':
+          type: string
+        'stateUSTaxAccount':
+          type: string
+        'vatCode':
+          type: string
+        'vatArea':
+          type: string
+        'taxTitle':
+          type: string
+        'taxPercentage':
+          type: number
+        'dueDate':
+          type: string
+        'paymentTerm':
+          type: string
+        'cashDiscountDate':
+          type: string
+        'custGroup':
+          type: string
+        'spyDimensions':
+          type: array
+          items:
+            $ref: '#/components/schemas/spyDimension'
 #endregion
