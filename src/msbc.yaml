@@ -2369,6 +2369,41 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         default:
           $ref: '#/components/responses/Default'
+
+  /SpyCreateJournalLine_deleteAllEntries:
+    description: |
+      This Codeunit is used to delete all entries in the Temporary Journal Lines table
+    post:
+      operationId: DeleteAllTempJournalLines
+      security:
+        - bearerAuth: []
+      tags: [TempJournalLinesPage]
+      parameters:
+        - in: query
+          name: company
+          required: true
+          description: Company ID
+          schema:
+            type: string
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: something like Production or Sandbox"
+              default: Production
+      responses:
+        204:
+          description: Successful response
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
 #endregion
 
 security:
