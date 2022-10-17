@@ -92,6 +92,9 @@ tags:
   - name: TempJournalLinesPage
     description: |
       TempJournalLinesPage operations for Microsoft Business Center API.
+  - name: Batch
+    description: |
+      Batch operations for Microsoft Business Center API.
 paths:
 #region Authenticate
   /token:
@@ -129,6 +132,8 @@ paths:
       Returns the list of companies tied to the given environment
     get:
       operationId: GetCompanies
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [Company]
@@ -155,7 +160,6 @@ paths:
           $ref: '#/components/responses/Default'
 #endregion
 
-
 #region SpyPaymentTerm
   /SpyPaymentTerm:
     get:
@@ -180,10 +184,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreatePaymentTerm
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyPaymentTermPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -215,6 +222,7 @@ paths:
       tags: [SpyPaymentTermPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -233,6 +241,7 @@ paths:
       tags: [SpyPaymentTermPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -284,10 +293,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateCustomer
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyCustomerPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -319,6 +331,7 @@ paths:
       tags: [SpyCustomerPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -337,6 +350,7 @@ paths:
       tags: [SpyCustomerPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -388,10 +402,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateSupplier
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpySupplierPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -423,6 +440,7 @@ paths:
       tags: [SpySupplierPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -441,6 +459,7 @@ paths:
       tags: [SpySupplierPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -492,10 +511,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateLedgerAccount
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyLedgerAccountPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -527,6 +549,7 @@ paths:
       tags: [SpyLedgerAccountPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -545,6 +568,7 @@ paths:
       tags: [SpyLedgerAccountPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -596,10 +620,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateCustomerTemplate
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyCustomerTemplatePage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -631,6 +658,7 @@ paths:
       tags: [SpyCustomerTemplatePage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -649,6 +677,7 @@ paths:
       tags: [SpyCustomerTemplatePage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -700,10 +729,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateCustomerTransaction
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyCustomerTransPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -735,6 +767,7 @@ paths:
       tags: [SpyCustomerTransPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -753,6 +786,7 @@ paths:
       tags: [SpyCustomerTransPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -804,10 +838,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateSupplierTransaction
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpySupplierTransPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -839,6 +876,7 @@ paths:
       tags: [SpySupplierTransPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -857,6 +895,7 @@ paths:
       tags: [SpySupplierTransPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -908,10 +947,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateJournalEntry
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyJournalPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -955,6 +997,7 @@ paths:
       tags: [SpyJournalPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -973,6 +1016,7 @@ paths:
       tags: [SpyJournalPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1024,10 +1068,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateCustomerLedgerEntry
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyCustLedgerPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1059,6 +1106,7 @@ paths:
       tags: [SpyCustLedgerPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1077,6 +1125,7 @@ paths:
       tags: [SpyCustLedgerPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1128,10 +1177,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateSupplierLedgerEntry
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyVendLedgerPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1163,6 +1215,7 @@ paths:
       tags: [SpyVendLedgerPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1181,6 +1234,7 @@ paths:
       tags: [SpyVendLedgerPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1232,10 +1286,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateSpyCountry
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyCountryPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1267,6 +1324,7 @@ paths:
       tags: [SpyCountryPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1285,6 +1343,7 @@ paths:
       tags: [SpyCountryPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1336,10 +1395,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateExchangeRate
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyExchangeRatesPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1377,6 +1439,7 @@ paths:
       tags: [SpyExchangeRatesPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1395,6 +1458,7 @@ paths:
       tags: [SpyExchangeRatesPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1446,10 +1510,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateLedgerTransactionEntry
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyLedgerTransPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1481,6 +1548,7 @@ paths:
       tags: [SpyLedgerTransPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1499,6 +1567,7 @@ paths:
       tags: [SpyLedgerTransPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1550,10 +1619,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreatePostalCode
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyPostCodePage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1591,6 +1663,7 @@ paths:
       tags: [SpyPostCodePage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1609,6 +1682,7 @@ paths:
       tags: [SpyPostCodePage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1660,10 +1734,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateTemplateLine
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyTemplateLinePage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1701,6 +1778,7 @@ paths:
       tags: [SpyTemplateLinePage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1719,6 +1797,7 @@ paths:
       tags: [SpyTemplateLinePage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1770,10 +1849,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateDefaultDimension
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyDefaultDimensionPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1835,6 +1917,7 @@ paths:
       tags: [SpyDefaultDimensionPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1886,10 +1969,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateSpyVatSetting
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyVatPostingSetupPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1927,6 +2013,7 @@ paths:
       tags: [SpyVatPostingSetupPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -1945,6 +2032,7 @@ paths:
       tags: [SpyVatPostingSetupPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -1996,10 +2084,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateField
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [SpyFieldsPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -2037,6 +2128,7 @@ paths:
       tags: [SpyFieldsPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -2055,6 +2147,7 @@ paths:
       tags: [SpyFieldsPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -2099,6 +2192,7 @@ paths:
           schema:
             type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -2174,6 +2268,7 @@ paths:
           schema:
             type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -2243,10 +2338,13 @@ paths:
           $ref: '#/components/responses/Default'
     post:
       operationId: CreateTempJournalLine
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
       security:
         - bearerAuth: []
       tags: [TempJournalLinesPage]
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -2291,6 +2389,7 @@ paths:
       tags: [TempJournalLinesPage]
       parameters:
         - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
       responses:
         '200':
           description: Successful response
@@ -2309,6 +2408,7 @@ paths:
       tags: [TempJournalLinesPage]
       parameters:
         - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
       requestBody:
         required: true
         content:
@@ -2405,6 +2505,40 @@ paths:
         default:
           $ref: '#/components/responses/Default'
 #endregion
+
+#region Batch
+  /$batch:
+    description: |
+      Endpoint for doing batch calls to Microsoft Business Central API
+    servers:
+      - url: https://api.businesscentral.dynamics.com/v2.0
+        description: URL for batch access to the Microsoft Business Center API.
+    parameters:
+      - in: header
+        name: 'Isolation'
+        schema:
+          type: string
+          default: 'snapshot'
+    post:
+      operationId: CallBatchService
+      security:
+        - bearerAuth: []
+      tags: [Batch]
+      requestBody:
+        required: true
+        content:
+          'application/json;IEEE754Compatible=true':
+            schema:
+              $ref: '#/components/schemas/batchRequest'
+      responses:
+        200:
+          description: Batch successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batchResponse'
+#endregion
+
 
 security:
   - bearerAuth: []
@@ -4301,4 +4435,56 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/spyDimension'
+#endregion
+
+#region Batch
+    batchRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/batchRequestItem'
+
+    batchRequestItem:
+      type: object
+      required:
+        - 'id'
+        - 'method'
+        - 'url'
+      properties:
+        'id':
+          type: string
+        'method':
+          type: string
+        'url':
+          type: string
+        'headers':
+          type: object
+        'body':
+          type: object
+
+    batchResponse:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/batchResponseItem'
+
+    batchResponseItem:
+      type: object
+      required:
+        - 'id'
+        - 'status'
+      properties:
+        'id':
+          type: string
+        'status':
+          type: string
+        'headers':
+          type: object
+        'body':
+          type: object
+
 #endregion
