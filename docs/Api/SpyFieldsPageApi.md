@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createField()`
 
 ```php
-createField($spy_fields): \Spy\MsbcRestClient\Model\SpyFieldsResponse
+createField($spy_fields, $select): \Spy\MsbcRestClient\Model\SpyFieldsResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyFieldsPageApi(
     $config
 );
 $spy_fields = new \Spy\MsbcRestClient\Model\SpyFields(); // \Spy\MsbcRestClient\Model\SpyFields
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createField($spy_fields);
+    $result = $apiInstance->createField($spy_fields, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyFieldsPageApi->createField: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_fields** | [**\Spy\MsbcRestClient\Model\SpyFields**](../Model/SpyFields.md)|  | [optional] |
+| **spy_fields** | [**\Spy\MsbcRestClient\Model\SpyFields**](../Model/SpyFields.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +133,7 @@ void (empty response body)
 ## `editField()`
 
 ```php
-editField($table_no, $field_no, $if_match, $spy_fields): \Spy\MsbcRestClient\Model\SpyFieldsResponse
+editField($table_no, $field_no, $if_match, $spy_fields, $select): \Spy\MsbcRestClient\Model\SpyFieldsResponse
 ```
 
 
@@ -157,9 +159,10 @@ $table_no = 'table_no_example'; // string | The TableNo of the Field to retrieve
 $field_no = 'field_no_example'; // string | The FieldNo of the Field to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_fields = new \Spy\MsbcRestClient\Model\SpyFields(); // \Spy\MsbcRestClient\Model\SpyFields
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editField($table_no, $field_no, $if_match, $spy_fields);
+    $result = $apiInstance->editField($table_no, $field_no, $if_match, $spy_fields, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyFieldsPageApi->editField: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +177,7 @@ try {
 | **field_no** | **string**| The FieldNo of the Field to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_fields** | [**\Spy\MsbcRestClient\Model\SpyFields**](../Model/SpyFields.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `getField()`
 
 ```php
-getField($table_no, $field_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyFieldsResponse
+getField($table_no, $field_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyFieldsResponse
 ```
 
 
@@ -220,9 +224,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyFieldsPageApi(
 $table_no = 'table_no_example'; // string | The TableNo of the Field to retrieve
 $field_no = 'field_no_example'; // string | The FieldNo of the Field to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getField($table_no, $field_no, $data_access_intent);
+    $result = $apiInstance->getField($table_no, $field_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyFieldsPageApi->getField: ', $e->getMessage(), PHP_EOL;
@@ -236,6 +241,7 @@ try {
 | **table_no** | **string**| The TableNo of the Field to retrieve | |
 | **field_no** | **string**| The FieldNo of the Field to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

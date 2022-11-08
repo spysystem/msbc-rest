@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createCustomer()`
 
 ```php
-createCustomer($spy_customer): \Spy\MsbcRestClient\Model\SpyCustomerResponse
+createCustomer($spy_customer, $select): \Spy\MsbcRestClient\Model\SpyCustomerResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerPageApi(
     $config
 );
 $spy_customer = new \Spy\MsbcRestClient\Model\SpyCustomer(); // \Spy\MsbcRestClient\Model\SpyCustomer
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createCustomer($spy_customer);
+    $result = $apiInstance->createCustomer($spy_customer, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerPageApi->createCustomer: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_customer** | [**\Spy\MsbcRestClient\Model\SpyCustomer**](../Model/SpyCustomer.md)|  | [optional] |
+| **spy_customer** | [**\Spy\MsbcRestClient\Model\SpyCustomer**](../Model/SpyCustomer.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editCustomer()`
 
 ```php
-editCustomer($account, $if_match, $spy_customer): \Spy\MsbcRestClient\Model\SpyCustomerResponse
+editCustomer($account, $if_match, $spy_customer, $select): \Spy\MsbcRestClient\Model\SpyCustomerResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerPageApi(
 $account = 'account_example'; // string | The account of the Customer to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_customer = new \Spy\MsbcRestClient\Model\SpyCustomer(); // \Spy\MsbcRestClient\Model\SpyCustomer
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editCustomer($account, $if_match, $spy_customer);
+    $result = $apiInstance->editCustomer($account, $if_match, $spy_customer, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerPageApi->editCustomer: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **account** | **string**| The account of the Customer to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_customer** | [**\Spy\MsbcRestClient\Model\SpyCustomer**](../Model/SpyCustomer.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +195,7 @@ try {
 ## `getCustomer()`
 
 ```php
-getCustomer($account, $data_access_intent): \Spy\MsbcRestClient\Model\SpyCustomerResponse
+getCustomer($account, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyCustomerResponse
 ```
 
 
@@ -215,9 +219,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerPageApi(
 );
 $account = 'account_example'; // string | The account of the Customer to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getCustomer($account, $data_access_intent);
+    $result = $apiInstance->getCustomer($account, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerPageApi->getCustomer: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +235,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **string**| The account of the Customer to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

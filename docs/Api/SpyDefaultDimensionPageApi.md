@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createDefaultDimension()`
 
 ```php
-createDefaultDimension($spy_default_dimension): \Spy\MsbcRestClient\Model\SpyDefaultDimensionResponse
+createDefaultDimension($spy_default_dimension, $select): \Spy\MsbcRestClient\Model\SpyDefaultDimensionResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyDefaultDimensionPageApi(
     $config
 );
 $spy_default_dimension = new \Spy\MsbcRestClient\Model\SpyDefaultDimension(); // \Spy\MsbcRestClient\Model\SpyDefaultDimension
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createDefaultDimension($spy_default_dimension);
+    $result = $apiInstance->createDefaultDimension($spy_default_dimension, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyDefaultDimensionPageApi->createDefaultDimension: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_default_dimension** | [**\Spy\MsbcRestClient\Model\SpyDefaultDimension**](../Model/SpyDefaultDimension.md)|  | [optional] |
+| **spy_default_dimension** | [**\Spy\MsbcRestClient\Model\SpyDefaultDimension**](../Model/SpyDefaultDimension.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -133,7 +135,7 @@ void (empty response body)
 ## `editDefaultDimension()`
 
 ```php
-editDefaultDimension($table_id, $no, $dimension_code, $if_match, $spy_default_dimension): \Spy\MsbcRestClient\Model\SpyDefaultDimensionResponse
+editDefaultDimension($table_id, $no, $dimension_code, $if_match, $spy_default_dimension, $select): \Spy\MsbcRestClient\Model\SpyDefaultDimensionResponse
 ```
 
 
@@ -160,9 +162,10 @@ $no = 'no_example'; // string | The TableID of the DefaultDimension to retrieve
 $dimension_code = 'dimension_code_example'; // string | The TableID of the DefaultDimension to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_default_dimension = new \Spy\MsbcRestClient\Model\SpyDefaultDimension(); // \Spy\MsbcRestClient\Model\SpyDefaultDimension
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editDefaultDimension($table_id, $no, $dimension_code, $if_match, $spy_default_dimension);
+    $result = $apiInstance->editDefaultDimension($table_id, $no, $dimension_code, $if_match, $spy_default_dimension, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyDefaultDimensionPageApi->editDefaultDimension: ', $e->getMessage(), PHP_EOL;
@@ -178,6 +181,7 @@ try {
 | **dimension_code** | **string**| The TableID of the DefaultDimension to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_default_dimension** | [**\Spy\MsbcRestClient\Model\SpyDefaultDimension**](../Model/SpyDefaultDimension.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

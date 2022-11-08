@@ -61,7 +61,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **company** | **string**| Company ID | |
-| **spy_insert_post_code** | [**\Spy\MsbcRestClient\Model\SpyInsertPostCode**](../Model/SpyInsertPostCode.md)|  | [optional] |
+| **spy_insert_post_code** | [**\Spy\MsbcRestClient\Model\SpyInsertPostCode**](../Model/SpyInsertPostCode.md)|  | |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 

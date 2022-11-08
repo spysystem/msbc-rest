@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createExchangeRate()`
 
 ```php
-createExchangeRate($spy_exchange_rates): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
+createExchangeRate($spy_exchange_rates, $select): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyExchangeRatesPageApi(
     $config
 );
 $spy_exchange_rates = new \Spy\MsbcRestClient\Model\SpyExchangeRates(); // \Spy\MsbcRestClient\Model\SpyExchangeRates
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createExchangeRate($spy_exchange_rates);
+    $result = $apiInstance->createExchangeRate($spy_exchange_rates, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyExchangeRatesPageApi->createExchangeRate: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_exchange_rates** | [**\Spy\MsbcRestClient\Model\SpyExchangeRates**](../Model/SpyExchangeRates.md)|  | [optional] |
+| **spy_exchange_rates** | [**\Spy\MsbcRestClient\Model\SpyExchangeRates**](../Model/SpyExchangeRates.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +133,7 @@ void (empty response body)
 ## `editExchangeRate()`
 
 ```php
-editExchangeRate($currency_code, $starting_date, $if_match, $spy_exchange_rates): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
+editExchangeRate($currency_code, $starting_date, $if_match, $spy_exchange_rates, $select): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
 ```
 
 
@@ -157,9 +159,10 @@ $currency_code = 'currency_code_example'; // string | The CurrencyCode of the Ex
 $starting_date = 'starting_date_example'; // string | The Starting Date of the ExchangeRate to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_exchange_rates = new \Spy\MsbcRestClient\Model\SpyExchangeRates(); // \Spy\MsbcRestClient\Model\SpyExchangeRates
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editExchangeRate($currency_code, $starting_date, $if_match, $spy_exchange_rates);
+    $result = $apiInstance->editExchangeRate($currency_code, $starting_date, $if_match, $spy_exchange_rates, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyExchangeRatesPageApi->editExchangeRate: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +177,7 @@ try {
 | **starting_date** | **string**| The Starting Date of the ExchangeRate to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_exchange_rates** | [**\Spy\MsbcRestClient\Model\SpyExchangeRates**](../Model/SpyExchangeRates.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `getExchangeRate()`
 
 ```php
-getExchangeRate($currency_code, $starting_date, $data_access_intent): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
+getExchangeRate($currency_code, $starting_date, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyExchangeRatesResponse
 ```
 
 
@@ -220,9 +224,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyExchangeRatesPageApi(
 $currency_code = 'currency_code_example'; // string | The CurrencyCode of the ExchangeRate to retrieve
 $starting_date = 'starting_date_example'; // string | The Starting Date of the ExchangeRate to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getExchangeRate($currency_code, $starting_date, $data_access_intent);
+    $result = $apiInstance->getExchangeRate($currency_code, $starting_date, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyExchangeRatesPageApi->getExchangeRate: ', $e->getMessage(), PHP_EOL;
@@ -236,6 +241,7 @@ try {
 | **currency_code** | **string**| The CurrencyCode of the ExchangeRate to retrieve | |
 | **starting_date** | **string**| The Starting Date of the ExchangeRate to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

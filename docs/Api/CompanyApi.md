@@ -10,7 +10,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `getCompanies()`
 
 ```php
-getCompanies(): \Spy\MsbcRestClient\Model\CompaniesListResponse
+getCompanies($select): \Spy\MsbcRestClient\Model\CompaniesListResponse
 ```
 ### URI(s):
 - https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/v2.0 URL for code unit access to the Microsoft Business Center API.
@@ -40,6 +40,7 @@ $apiInstance = new Spy\MsbcRestClient\Api\CompanyApi(
     new GuzzleHttp\Client(),
     $config
 );
+$select = 'select_example'; // string
 
 $hostIndex = 0;
 $variables = [
@@ -48,7 +49,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->getCompanies($hostIndex, $variables);
+    $result = $apiInstance->getCompanies($select, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompanyApi->getCompanies: ', $e->getMessage(), PHP_EOL;
@@ -57,7 +58,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **select** | **string**|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 

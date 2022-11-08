@@ -77,6 +77,7 @@ All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticateApi* | [**authenticate**](docs/Api/AuthenticateApi.md#authenticate) | **POST** /token | 
+*BatchApi* | [**callBatchService**](docs/Api/BatchApi.md#callbatchservice) | **POST** /$batch | 
 *CompanyApi* | [**getCompanies**](docs/Api/CompanyApi.md#getcompanies) | **GET** /companies | 
 *JournalLinesPageApi* | [**deleteTempJournalLine**](docs/Api/JournalLinesPageApi.md#deletetempjournalline) | **DELETE** /journalLines(\&#39;{id}\&#39;) | 
 *SpyApplyCustomerTemplatesCodeUnitApi* | [**applyCustomerTemplates**](docs/Api/SpyApplyCustomerTemplatesCodeUnitApi.md#applycustomertemplates) | **POST** /SpyApplyCustomerTemplates_ApplyTemplates | 
@@ -184,6 +185,10 @@ Class | Method | HTTP request | Description
 - [AuthenticateErrorResponse](docs/Model/AuthenticateErrorResponse.md)
 - [AuthenticateResponse](docs/Model/AuthenticateResponse.md)
 - [BaseEntity](docs/Model/BaseEntity.md)
+- [BatchRequest](docs/Model/BatchRequest.md)
+- [BatchRequestItem](docs/Model/BatchRequestItem.md)
+- [BatchResponse](docs/Model/BatchResponse.md)
+- [BatchResponseItem](docs/Model/BatchResponseItem.md)
 - [Companies](docs/Model/Companies.md)
 - [CompaniesList](docs/Model/CompaniesList.md)
 - [CompaniesListResponse](docs/Model/CompaniesListResponse.md)

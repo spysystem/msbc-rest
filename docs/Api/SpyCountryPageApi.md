@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createSpyCountry()`
 
 ```php
-createSpyCountry($spy_country): \Spy\MsbcRestClient\Model\SpyCountryResponse
+createSpyCountry($spy_country, $select): \Spy\MsbcRestClient\Model\SpyCountryResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCountryPageApi(
     $config
 );
 $spy_country = new \Spy\MsbcRestClient\Model\SpyCountry(); // \Spy\MsbcRestClient\Model\SpyCountry
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createSpyCountry($spy_country);
+    $result = $apiInstance->createSpyCountry($spy_country, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCountryPageApi->createSpyCountry: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_country** | [**\Spy\MsbcRestClient\Model\SpyCountry**](../Model/SpyCountry.md)|  | [optional] |
+| **spy_country** | [**\Spy\MsbcRestClient\Model\SpyCountry**](../Model/SpyCountry.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editSpyCountry()`
 
 ```php
-editSpyCountry($code, $if_match, $spy_country): \Spy\MsbcRestClient\Model\SpyCountryResponse
+editSpyCountry($code, $if_match, $spy_country, $select): \Spy\MsbcRestClient\Model\SpyCountryResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCountryPageApi(
 $code = 'code_example'; // string | The Code of the SpyCountry to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_country = new \Spy\MsbcRestClient\Model\SpyCountry(); // \Spy\MsbcRestClient\Model\SpyCountry
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editSpyCountry($code, $if_match, $spy_country);
+    $result = $apiInstance->editSpyCountry($code, $if_match, $spy_country, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCountryPageApi->editSpyCountry: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **code** | **string**| The Code of the SpyCountry to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_country** | [**\Spy\MsbcRestClient\Model\SpyCountry**](../Model/SpyCountry.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -253,7 +257,7 @@ try {
 ## `getSpyCountry()`
 
 ```php
-getSpyCountry($code, $data_access_intent): \Spy\MsbcRestClient\Model\SpyCountryResponse
+getSpyCountry($code, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyCountryResponse
 ```
 
 
@@ -277,9 +281,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCountryPageApi(
 );
 $code = 'code_example'; // string | The Code of the SpyCountry to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getSpyCountry($code, $data_access_intent);
+    $result = $apiInstance->getSpyCountry($code, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCountryPageApi->getSpyCountry: ', $e->getMessage(), PHP_EOL;
@@ -292,6 +297,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| The Code of the SpyCountry to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

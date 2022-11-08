@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createPostalCode()`
 
 ```php
-createPostalCode($spy_post_code): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
+createPostalCode($spy_post_code, $select): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyPostCodePageApi(
     $config
 );
 $spy_post_code = new \Spy\MsbcRestClient\Model\SpyPostCode(); // \Spy\MsbcRestClient\Model\SpyPostCode
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createPostalCode($spy_post_code);
+    $result = $apiInstance->createPostalCode($spy_post_code, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPostCodePageApi->createPostalCode: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_post_code** | [**\Spy\MsbcRestClient\Model\SpyPostCode**](../Model/SpyPostCode.md)|  | [optional] |
+| **spy_post_code** | [**\Spy\MsbcRestClient\Model\SpyPostCode**](../Model/SpyPostCode.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +133,7 @@ void (empty response body)
 ## `editPostalCode()`
 
 ```php
-editPostalCode($code, $city, $if_match, $spy_post_code): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
+editPostalCode($code, $city, $if_match, $spy_post_code, $select): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
 ```
 
 
@@ -157,9 +159,10 @@ $code = 'code_example'; // string | The Code of the PostalCode to retrieve
 $city = 'city_example'; // string | The City of the PostalCode to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_post_code = new \Spy\MsbcRestClient\Model\SpyPostCode(); // \Spy\MsbcRestClient\Model\SpyPostCode
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editPostalCode($code, $city, $if_match, $spy_post_code);
+    $result = $apiInstance->editPostalCode($code, $city, $if_match, $spy_post_code, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPostCodePageApi->editPostalCode: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +177,7 @@ try {
 | **city** | **string**| The City of the PostalCode to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_post_code** | [**\Spy\MsbcRestClient\Model\SpyPostCode**](../Model/SpyPostCode.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `getPostalCode()`
 
 ```php
-getPostalCode($code, $city, $data_access_intent): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
+getPostalCode($code, $city, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyPostCodeResponse
 ```
 
 
@@ -220,9 +224,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyPostCodePageApi(
 $code = 'code_example'; // string | The Code of the PostalCode to retrieve
 $city = 'city_example'; // string | The City of the PostalCode to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getPostalCode($code, $city, $data_access_intent);
+    $result = $apiInstance->getPostalCode($code, $city, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPostCodePageApi->getPostalCode: ', $e->getMessage(), PHP_EOL;
@@ -236,6 +241,7 @@ try {
 | **code** | **string**| The Code of the PostalCode to retrieve | |
 | **city** | **string**| The City of the PostalCode to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

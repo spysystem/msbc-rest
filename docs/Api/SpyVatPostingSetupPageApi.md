@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createSpyVatSetting()`
 
 ```php
-createSpyVatSetting($spy_vat_posting_setup): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
+createSpyVatSetting($spy_vat_posting_setup, $select): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyVatPostingSetupPageApi(
     $config
 );
 $spy_vat_posting_setup = new \Spy\MsbcRestClient\Model\SpyVatPostingSetup(); // \Spy\MsbcRestClient\Model\SpyVatPostingSetup
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createSpyVatSetting($spy_vat_posting_setup);
+    $result = $apiInstance->createSpyVatSetting($spy_vat_posting_setup, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVatPostingSetupPageApi->createSpyVatSetting: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_vat_posting_setup** | [**\Spy\MsbcRestClient\Model\SpyVatPostingSetup**](../Model/SpyVatPostingSetup.md)|  | [optional] |
+| **spy_vat_posting_setup** | [**\Spy\MsbcRestClient\Model\SpyVatPostingSetup**](../Model/SpyVatPostingSetup.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +133,7 @@ void (empty response body)
 ## `editSpyVatSetting()`
 
 ```php
-editSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $if_match, $spy_vat_posting_setup): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
+editSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $if_match, $spy_vat_posting_setup, $select): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
 ```
 
 
@@ -157,9 +159,10 @@ $vat_bus_posting_group = 'vat_bus_posting_group_example'; // string | The VatBus
 $vat_prod_posting_group = 'vat_prod_posting_group_example'; // string | The VatProdPostingGroup of the SpyVatSetting to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_vat_posting_setup = new \Spy\MsbcRestClient\Model\SpyVatPostingSetup(); // \Spy\MsbcRestClient\Model\SpyVatPostingSetup
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $if_match, $spy_vat_posting_setup);
+    $result = $apiInstance->editSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $if_match, $spy_vat_posting_setup, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVatPostingSetupPageApi->editSpyVatSetting: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +177,7 @@ try {
 | **vat_prod_posting_group** | **string**| The VatProdPostingGroup of the SpyVatSetting to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_vat_posting_setup** | [**\Spy\MsbcRestClient\Model\SpyVatPostingSetup**](../Model/SpyVatPostingSetup.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `getSpyVatSetting()`
 
 ```php
-getSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $data_access_intent): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
+getSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyVatPostingSetupResponse
 ```
 
 
@@ -220,9 +224,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyVatPostingSetupPageApi(
 $vat_bus_posting_group = 'vat_bus_posting_group_example'; // string | The VatBusPostingGroup of the SpyVatSetting to retrieve
 $vat_prod_posting_group = 'vat_prod_posting_group_example'; // string | The VatProdPostingGroup of the SpyVatSetting to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $data_access_intent);
+    $result = $apiInstance->getSpyVatSetting($vat_bus_posting_group, $vat_prod_posting_group, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVatPostingSetupPageApi->getSpyVatSetting: ', $e->getMessage(), PHP_EOL;
@@ -236,6 +241,7 @@ try {
 | **vat_bus_posting_group** | **string**| The VatBusPostingGroup of the SpyVatSetting to retrieve | |
 | **vat_prod_posting_group** | **string**| The VatProdPostingGroup of the SpyVatSetting to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

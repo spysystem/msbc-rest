@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createLedgerAccount()`
 
 ```php
-createLedgerAccount($spy_ledger_account): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
+createLedgerAccount($spy_ledger_account, $select): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerAccountPageApi(
     $config
 );
 $spy_ledger_account = new \Spy\MsbcRestClient\Model\SpyLedgerAccount(); // \Spy\MsbcRestClient\Model\SpyLedgerAccount
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createLedgerAccount($spy_ledger_account);
+    $result = $apiInstance->createLedgerAccount($spy_ledger_account, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerAccountPageApi->createLedgerAccount: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_ledger_account** | [**\Spy\MsbcRestClient\Model\SpyLedgerAccount**](../Model/SpyLedgerAccount.md)|  | [optional] |
+| **spy_ledger_account** | [**\Spy\MsbcRestClient\Model\SpyLedgerAccount**](../Model/SpyLedgerAccount.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editLedgerAccount()`
 
 ```php
-editLedgerAccount($no, $if_match, $spy_ledger_account): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
+editLedgerAccount($no, $if_match, $spy_ledger_account, $select): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerAccountPageApi(
 $no = 'no_example'; // string | The No of the LedgerAccount to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_ledger_account = new \Spy\MsbcRestClient\Model\SpyLedgerAccount(); // \Spy\MsbcRestClient\Model\SpyLedgerAccount
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editLedgerAccount($no, $if_match, $spy_ledger_account);
+    $result = $apiInstance->editLedgerAccount($no, $if_match, $spy_ledger_account, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerAccountPageApi->editLedgerAccount: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **no** | **string**| The No of the LedgerAccount to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_ledger_account** | [**\Spy\MsbcRestClient\Model\SpyLedgerAccount**](../Model/SpyLedgerAccount.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +195,7 @@ try {
 ## `getLedgerAccount()`
 
 ```php
-getLedgerAccount($no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
+getLedgerAccount($no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyLedgerAccountResponse
 ```
 
 
@@ -215,9 +219,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerAccountPageApi(
 );
 $no = 'no_example'; // string | The No of the LedgerAccount to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getLedgerAccount($no, $data_access_intent);
+    $result = $apiInstance->getLedgerAccount($no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerAccountPageApi->getLedgerAccount: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +235,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **no** | **string**| The No of the LedgerAccount to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createPaymentTerm()`
 
 ```php
-createPaymentTerm($spy_payment_term): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
+createPaymentTerm($spy_payment_term, $select): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyPaymentTermPageApi(
     $config
 );
 $spy_payment_term = new \Spy\MsbcRestClient\Model\SpyPaymentTerm(); // \Spy\MsbcRestClient\Model\SpyPaymentTerm
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createPaymentTerm($spy_payment_term);
+    $result = $apiInstance->createPaymentTerm($spy_payment_term, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPaymentTermPageApi->createPaymentTerm: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_payment_term** | [**\Spy\MsbcRestClient\Model\SpyPaymentTerm**](../Model/SpyPaymentTerm.md)|  | [optional] |
+| **spy_payment_term** | [**\Spy\MsbcRestClient\Model\SpyPaymentTerm**](../Model/SpyPaymentTerm.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editPaymentTerm()`
 
 ```php
-editPaymentTerm($code, $if_match, $spy_payment_term): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
+editPaymentTerm($code, $if_match, $spy_payment_term, $select): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyPaymentTermPageApi(
 $code = 'code_example'; // string | The code of the PaymentTerm to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_payment_term = new \Spy\MsbcRestClient\Model\SpyPaymentTerm(); // \Spy\MsbcRestClient\Model\SpyPaymentTerm
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editPaymentTerm($code, $if_match, $spy_payment_term);
+    $result = $apiInstance->editPaymentTerm($code, $if_match, $spy_payment_term, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPaymentTermPageApi->editPaymentTerm: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **code** | **string**| The code of the PaymentTerm to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_payment_term** | [**\Spy\MsbcRestClient\Model\SpyPaymentTerm**](../Model/SpyPaymentTerm.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +195,7 @@ try {
 ## `getPaymentTerm()`
 
 ```php
-getPaymentTerm($code, $data_access_intent): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
+getPaymentTerm($code, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyPaymentTermResponse
 ```
 
 
@@ -215,9 +219,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyPaymentTermPageApi(
 );
 $code = 'code_example'; // string | The code of the PaymentTerm to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getPaymentTerm($code, $data_access_intent);
+    $result = $apiInstance->getPaymentTerm($code, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyPaymentTermPageApi->getPaymentTerm: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +235,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **code** | **string**| The code of the PaymentTerm to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

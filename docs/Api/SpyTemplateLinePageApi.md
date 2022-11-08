@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createTemplateLine()`
 
 ```php
-createTemplateLine($spy_template_line): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
+createTemplateLine($spy_template_line, $select): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyTemplateLinePageApi(
     $config
 );
 $spy_template_line = new \Spy\MsbcRestClient\Model\SpyTemplateLine(); // \Spy\MsbcRestClient\Model\SpyTemplateLine
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createTemplateLine($spy_template_line);
+    $result = $apiInstance->createTemplateLine($spy_template_line, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyTemplateLinePageApi->createTemplateLine: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_template_line** | [**\Spy\MsbcRestClient\Model\SpyTemplateLine**](../Model/SpyTemplateLine.md)|  | [optional] |
+| **spy_template_line** | [**\Spy\MsbcRestClient\Model\SpyTemplateLine**](../Model/SpyTemplateLine.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +133,7 @@ void (empty response body)
 ## `editTemplateLine()`
 
 ```php
-editTemplateLine($template, $line_no, $if_match, $spy_template_line): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
+editTemplateLine($template, $line_no, $if_match, $spy_template_line, $select): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
 ```
 
 
@@ -157,9 +159,10 @@ $template = 'template_example'; // string | The Template of the TemplateLine to 
 $line_no = 56; // int | The Line No of the TemplateLine to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_template_line = new \Spy\MsbcRestClient\Model\SpyTemplateLine(); // \Spy\MsbcRestClient\Model\SpyTemplateLine
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editTemplateLine($template, $line_no, $if_match, $spy_template_line);
+    $result = $apiInstance->editTemplateLine($template, $line_no, $if_match, $spy_template_line, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyTemplateLinePageApi->editTemplateLine: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +177,7 @@ try {
 | **line_no** | **int**| The Line No of the TemplateLine to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_template_line** | [**\Spy\MsbcRestClient\Model\SpyTemplateLine**](../Model/SpyTemplateLine.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -195,7 +199,7 @@ try {
 ## `getTemplateLine()`
 
 ```php
-getTemplateLine($template, $line_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
+getTemplateLine($template, $line_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyTemplateLineResponse
 ```
 
 
@@ -220,9 +224,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyTemplateLinePageApi(
 $template = 'template_example'; // string | The Template of the TemplateLine to retrieve
 $line_no = 56; // int | The Line No of the TemplateLine to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getTemplateLine($template, $line_no, $data_access_intent);
+    $result = $apiInstance->getTemplateLine($template, $line_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyTemplateLinePageApi->getTemplateLine: ', $e->getMessage(), PHP_EOL;
@@ -236,6 +241,7 @@ try {
 | **template** | **string**| The Template of the TemplateLine to retrieve | |
 | **line_no** | **int**| The Line No of the TemplateLine to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

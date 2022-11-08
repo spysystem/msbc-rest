@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createCustomerLedgerEntry()`
 
 ```php
-createCustomerLedgerEntry($spy_cust_ledger): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
+createCustomerLedgerEntry($spy_cust_ledger, $select): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustLedgerPageApi(
     $config
 );
 $spy_cust_ledger = new \Spy\MsbcRestClient\Model\SpyCustLedger(); // \Spy\MsbcRestClient\Model\SpyCustLedger
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createCustomerLedgerEntry($spy_cust_ledger);
+    $result = $apiInstance->createCustomerLedgerEntry($spy_cust_ledger, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustLedgerPageApi->createCustomerLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_cust_ledger** | [**\Spy\MsbcRestClient\Model\SpyCustLedger**](../Model/SpyCustLedger.md)|  | [optional] |
+| **spy_cust_ledger** | [**\Spy\MsbcRestClient\Model\SpyCustLedger**](../Model/SpyCustLedger.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editCustomerLedgerEntry()`
 
 ```php
-editCustomerLedgerEntry($entry_no, $if_match, $spy_cust_ledger): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
+editCustomerLedgerEntry($entry_no, $if_match, $spy_cust_ledger, $select): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustLedgerPageApi(
 $entry_no = 'entry_no_example'; // string | The Entry_No of the CustomerLedgerEntry to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_cust_ledger = new \Spy\MsbcRestClient\Model\SpyCustLedger(); // \Spy\MsbcRestClient\Model\SpyCustLedger
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editCustomerLedgerEntry($entry_no, $if_match, $spy_cust_ledger);
+    $result = $apiInstance->editCustomerLedgerEntry($entry_no, $if_match, $spy_cust_ledger, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustLedgerPageApi->editCustomerLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **entry_no** | **string**| The Entry_No of the CustomerLedgerEntry to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_cust_ledger** | [**\Spy\MsbcRestClient\Model\SpyCustLedger**](../Model/SpyCustLedger.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -253,7 +257,7 @@ try {
 ## `getCustomerLedgerEntry()`
 
 ```php
-getCustomerLedgerEntry($entry_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
+getCustomerLedgerEntry($entry_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyCustLedgerResponse
 ```
 
 
@@ -277,9 +281,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustLedgerPageApi(
 );
 $entry_no = 'entry_no_example'; // string | The Entry_No of the CustomerLedgerEntry to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getCustomerLedgerEntry($entry_no, $data_access_intent);
+    $result = $apiInstance->getCustomerLedgerEntry($entry_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustLedgerPageApi->getCustomerLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -292,6 +297,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **entry_no** | **string**| The Entry_No of the CustomerLedgerEntry to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

@@ -88,7 +88,7 @@ void (empty response body)
 ## `createTempJournalLine()`
 
 ```php
-createTempJournalLine($create_journal_line): \Spy\MsbcRestClient\Model\JournalLineResponse
+createTempJournalLine($create_journal_line, $select): \Spy\MsbcRestClient\Model\JournalLineResponse
 ```
 ### URI(s):
 - https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID}) URL for code unit access to the Microsoft Business Center API.
@@ -122,6 +122,7 @@ $apiInstance = new Spy\MsbcRestClient\Api\TempJournalLinesPageApi(
     $config
 );
 $create_journal_line = new \Spy\MsbcRestClient\Model\CreateJournalLine(); // \Spy\MsbcRestClient\Model\CreateJournalLine
+$select = 'select_example'; // string
 
 $hostIndex = 0;
 $variables = [
@@ -131,7 +132,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->createTempJournalLine($create_journal_line, $hostIndex, $variables);
+    $result = $apiInstance->createTempJournalLine($create_journal_line, $select, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TempJournalLinesPageApi->createTempJournalLine: ', $e->getMessage(), PHP_EOL;
@@ -142,7 +143,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_journal_line** | [**\Spy\MsbcRestClient\Model\CreateJournalLine**](../Model/CreateJournalLine.md)|  | [optional] |
+| **create_journal_line** | [**\Spy\MsbcRestClient\Model\CreateJournalLine**](../Model/CreateJournalLine.md)|  | |
+| **select** | **string**|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
@@ -239,7 +241,7 @@ void (empty response body)
 ## `editTempJournalLine()`
 
 ```php
-editTempJournalLine($id, $if_match, $journal_line): \Spy\MsbcRestClient\Model\JournalLineResponse
+editTempJournalLine($id, $if_match, $journal_line, $select): \Spy\MsbcRestClient\Model\JournalLineResponse
 ```
 ### URI(s):
 - https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID}) URL for code unit access to the Microsoft Business Center API.
@@ -275,6 +277,7 @@ $apiInstance = new Spy\MsbcRestClient\Api\TempJournalLinesPageApi(
 $id = 'id_example'; // string | The id of the TempJournalLine to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $journal_line = new \Spy\MsbcRestClient\Model\JournalLine(); // \Spy\MsbcRestClient\Model\JournalLine
+$select = 'select_example'; // string
 
 $hostIndex = 0;
 $variables = [
@@ -284,7 +287,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->editTempJournalLine($id, $if_match, $journal_line, $hostIndex, $variables);
+    $result = $apiInstance->editTempJournalLine($id, $if_match, $journal_line, $select, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TempJournalLinesPageApi->editTempJournalLine: ', $e->getMessage(), PHP_EOL;
@@ -298,6 +301,7 @@ try {
 | **id** | **string**| The id of the TempJournalLine to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **journal_line** | [**\Spy\MsbcRestClient\Model\JournalLine**](../Model/JournalLine.md)|  | |
+| **select** | **string**|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
@@ -321,7 +325,7 @@ try {
 ## `getTempJournalLine()`
 
 ```php
-getTempJournalLine($id, $data_access_intent): \Spy\MsbcRestClient\Model\JournalLineResponse
+getTempJournalLine($id, $data_access_intent, $select): \Spy\MsbcRestClient\Model\JournalLineResponse
 ```
 ### URI(s):
 - https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/api/spy/integration/v1.0/companies({companyID}) URL for code unit access to the Microsoft Business Center API.
@@ -356,6 +360,7 @@ $apiInstance = new Spy\MsbcRestClient\Api\TempJournalLinesPageApi(
 );
 $id = 'id_example'; // string | The id of the TempJournalLine to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 $hostIndex = 0;
 $variables = [
@@ -365,7 +370,7 @@ $variables = [
 ];
 
 try {
-    $result = $apiInstance->getTempJournalLine($id, $data_access_intent, $hostIndex, $variables);
+    $result = $apiInstance->getTempJournalLine($id, $data_access_intent, $select, $hostIndex, $variables);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TempJournalLinesPageApi->getTempJournalLine: ', $e->getMessage(), PHP_EOL;
@@ -378,6 +383,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the TempJournalLine to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 

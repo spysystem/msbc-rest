@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createSupplier()`
 
 ```php
-createSupplier($spy_supplier): \Spy\MsbcRestClient\Model\SpySupplierResponse
+createSupplier($spy_supplier, $select): \Spy\MsbcRestClient\Model\SpySupplierResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpySupplierPageApi(
     $config
 );
 $spy_supplier = new \Spy\MsbcRestClient\Model\SpySupplier(); // \Spy\MsbcRestClient\Model\SpySupplier
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createSupplier($spy_supplier);
+    $result = $apiInstance->createSupplier($spy_supplier, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpySupplierPageApi->createSupplier: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_supplier** | [**\Spy\MsbcRestClient\Model\SpySupplier**](../Model/SpySupplier.md)|  | [optional] |
+| **spy_supplier** | [**\Spy\MsbcRestClient\Model\SpySupplier**](../Model/SpySupplier.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editSupplier()`
 
 ```php
-editSupplier($no, $if_match, $spy_supplier): \Spy\MsbcRestClient\Model\SpySupplierResponse
+editSupplier($no, $if_match, $spy_supplier, $select): \Spy\MsbcRestClient\Model\SpySupplierResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpySupplierPageApi(
 $no = 'no_example'; // string | The No of the Supplier to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_supplier = new \Spy\MsbcRestClient\Model\SpySupplier(); // \Spy\MsbcRestClient\Model\SpySupplier
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editSupplier($no, $if_match, $spy_supplier);
+    $result = $apiInstance->editSupplier($no, $if_match, $spy_supplier, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpySupplierPageApi->editSupplier: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **no** | **string**| The No of the Supplier to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_supplier** | [**\Spy\MsbcRestClient\Model\SpySupplier**](../Model/SpySupplier.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +195,7 @@ try {
 ## `getSupplier()`
 
 ```php
-getSupplier($no, $data_access_intent): \Spy\MsbcRestClient\Model\SpySupplierResponse
+getSupplier($no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpySupplierResponse
 ```
 
 
@@ -215,9 +219,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpySupplierPageApi(
 );
 $no = 'no_example'; // string | The No of the Supplier to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getSupplier($no, $data_access_intent);
+    $result = $apiInstance->getSupplier($no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpySupplierPageApi->getSupplier: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +235,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **no** | **string**| The No of the Supplier to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

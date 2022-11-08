@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createCustomerTransaction()`
 
 ```php
-createCustomerTransaction($spy_customer_trans): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
+createCustomerTransaction($spy_customer_trans, $select): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerTransPageApi(
     $config
 );
 $spy_customer_trans = new \Spy\MsbcRestClient\Model\SpyCustomerTrans(); // \Spy\MsbcRestClient\Model\SpyCustomerTrans
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createCustomerTransaction($spy_customer_trans);
+    $result = $apiInstance->createCustomerTransaction($spy_customer_trans, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerTransPageApi->createCustomerTransaction: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_customer_trans** | [**\Spy\MsbcRestClient\Model\SpyCustomerTrans**](../Model/SpyCustomerTrans.md)|  | [optional] |
+| **spy_customer_trans** | [**\Spy\MsbcRestClient\Model\SpyCustomerTrans**](../Model/SpyCustomerTrans.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editCustomerTransaction()`
 
 ```php
-editCustomerTransaction($entry_no, $if_match, $spy_customer_trans): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
+editCustomerTransaction($entry_no, $if_match, $spy_customer_trans, $select): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerTransPageApi(
 $entry_no = 56; // int | The Entry_No of the CustomerTransaction to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_customer_trans = new \Spy\MsbcRestClient\Model\SpyCustomerTrans(); // \Spy\MsbcRestClient\Model\SpyCustomerTrans
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editCustomerTransaction($entry_no, $if_match, $spy_customer_trans);
+    $result = $apiInstance->editCustomerTransaction($entry_no, $if_match, $spy_customer_trans, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerTransPageApi->editCustomerTransaction: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **entry_no** | **int**| The Entry_No of the CustomerTransaction to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_customer_trans** | [**\Spy\MsbcRestClient\Model\SpyCustomerTrans**](../Model/SpyCustomerTrans.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +195,7 @@ try {
 ## `getCustomerTransaction()`
 
 ```php
-getCustomerTransaction($entry_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
+getCustomerTransaction($entry_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyCustomerTransResponse
 ```
 
 
@@ -215,9 +219,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyCustomerTransPageApi(
 );
 $entry_no = 56; // int | The Entry_No of the CustomerTransaction to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getCustomerTransaction($entry_no, $data_access_intent);
+    $result = $apiInstance->getCustomerTransaction($entry_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyCustomerTransPageApi->getCustomerTransaction: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +235,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **entry_no** | **int**| The Entry_No of the CustomerTransaction to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

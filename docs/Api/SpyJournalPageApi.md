@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createJournalEntry()`
 
 ```php
-createJournalEntry($spy_journal_entry): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
+createJournalEntry($spy_journal_entry, $select): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyJournalPageApi(
     $config
 );
 $spy_journal_entry = new \Spy\MsbcRestClient\Model\SpyJournalEntry(); // \Spy\MsbcRestClient\Model\SpyJournalEntry
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createJournalEntry($spy_journal_entry);
+    $result = $apiInstance->createJournalEntry($spy_journal_entry, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyJournalPageApi->createJournalEntry: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_journal_entry** | [**\Spy\MsbcRestClient\Model\SpyJournalEntry**](../Model/SpyJournalEntry.md)|  | [optional] |
+| **spy_journal_entry** | [**\Spy\MsbcRestClient\Model\SpyJournalEntry**](../Model/SpyJournalEntry.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -133,7 +135,7 @@ void (empty response body)
 ## `editJournalEntry()`
 
 ```php
-editJournalEntry($journal_template_name, $journal_batch_name, $line_no, $if_match, $spy_journal_entry): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
+editJournalEntry($journal_template_name, $journal_batch_name, $line_no, $if_match, $spy_journal_entry, $select): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
 ```
 
 
@@ -160,9 +162,10 @@ $journal_batch_name = 'journal_batch_name_example'; // string | The Journal Batc
 $line_no = 56; // int | The Line No of the JournalEntry to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_journal_entry = new \Spy\MsbcRestClient\Model\SpyJournalEntry(); // \Spy\MsbcRestClient\Model\SpyJournalEntry
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editJournalEntry($journal_template_name, $journal_batch_name, $line_no, $if_match, $spy_journal_entry);
+    $result = $apiInstance->editJournalEntry($journal_template_name, $journal_batch_name, $line_no, $if_match, $spy_journal_entry, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyJournalPageApi->editJournalEntry: ', $e->getMessage(), PHP_EOL;
@@ -178,6 +181,7 @@ try {
 | **line_no** | **int**| The Line No of the JournalEntry to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_journal_entry** | [**\Spy\MsbcRestClient\Model\SpyJournalEntry**](../Model/SpyJournalEntry.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -261,7 +265,7 @@ try {
 ## `getJournalEntry()`
 
 ```php
-getJournalEntry($journal_template_name, $journal_batch_name, $line_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
+getJournalEntry($journal_template_name, $journal_batch_name, $line_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyJournalEntryResponse
 ```
 
 
@@ -287,9 +291,10 @@ $journal_template_name = 'journal_template_name_example'; // string | The Journa
 $journal_batch_name = 'journal_batch_name_example'; // string | The Journal Batch Name of the JournalEntry to retrieve
 $line_no = 56; // int | The Line No of the JournalEntry to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getJournalEntry($journal_template_name, $journal_batch_name, $line_no, $data_access_intent);
+    $result = $apiInstance->getJournalEntry($journal_template_name, $journal_batch_name, $line_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyJournalPageApi->getJournalEntry: ', $e->getMessage(), PHP_EOL;
@@ -304,6 +309,7 @@ try {
 | **journal_batch_name** | **string**| The Journal Batch Name of the JournalEntry to retrieve | |
 | **line_no** | **int**| The Line No of the JournalEntry to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createLedgerTransactionEntry()`
 
 ```php
-createLedgerTransactionEntry($spy_ledger_trans): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
+createLedgerTransactionEntry($spy_ledger_trans, $select): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerTransPageApi(
     $config
 );
 $spy_ledger_trans = new \Spy\MsbcRestClient\Model\SpyLedgerTrans(); // \Spy\MsbcRestClient\Model\SpyLedgerTrans
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createLedgerTransactionEntry($spy_ledger_trans);
+    $result = $apiInstance->createLedgerTransactionEntry($spy_ledger_trans, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerTransPageApi->createLedgerTransactionEntry: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_ledger_trans** | [**\Spy\MsbcRestClient\Model\SpyLedgerTrans**](../Model/SpyLedgerTrans.md)|  | [optional] |
+| **spy_ledger_trans** | [**\Spy\MsbcRestClient\Model\SpyLedgerTrans**](../Model/SpyLedgerTrans.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editLedgerTransactionEntry()`
 
 ```php
-editLedgerTransactionEntry($entry_no, $if_match, $spy_ledger_trans): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
+editLedgerTransactionEntry($entry_no, $if_match, $spy_ledger_trans, $select): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerTransPageApi(
 $entry_no = 56; // int | The Entry_No of the LedgerTransactionEntry to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_ledger_trans = new \Spy\MsbcRestClient\Model\SpyLedgerTrans(); // \Spy\MsbcRestClient\Model\SpyLedgerTrans
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editLedgerTransactionEntry($entry_no, $if_match, $spy_ledger_trans);
+    $result = $apiInstance->editLedgerTransactionEntry($entry_no, $if_match, $spy_ledger_trans, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerTransPageApi->editLedgerTransactionEntry: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **entry_no** | **int**| The Entry_No of the LedgerTransactionEntry to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_ledger_trans** | [**\Spy\MsbcRestClient\Model\SpyLedgerTrans**](../Model/SpyLedgerTrans.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -253,7 +257,7 @@ try {
 ## `getLedgerTransactionEntry()`
 
 ```php
-getLedgerTransactionEntry($entry_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
+getLedgerTransactionEntry($entry_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyLedgerTransResponse
 ```
 
 
@@ -277,9 +281,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyLedgerTransPageApi(
 );
 $entry_no = 56; // int | The Entry_No of the LedgerTransactionEntry to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getLedgerTransactionEntry($entry_no, $data_access_intent);
+    $result = $apiInstance->getLedgerTransactionEntry($entry_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyLedgerTransPageApi->getLedgerTransactionEntry: ', $e->getMessage(), PHP_EOL;
@@ -292,6 +297,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **entry_no** | **int**| The Entry_No of the LedgerTransactionEntry to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

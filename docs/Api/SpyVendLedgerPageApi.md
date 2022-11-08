@@ -14,7 +14,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `createSupplierLedgerEntry()`
 
 ```php
-createSupplierLedgerEntry($spy_vend_ledger): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
+createSupplierLedgerEntry($spy_vend_ledger, $select): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
 ```
 
 
@@ -37,9 +37,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyVendLedgerPageApi(
     $config
 );
 $spy_vend_ledger = new \Spy\MsbcRestClient\Model\SpyVendLedger(); // \Spy\MsbcRestClient\Model\SpyVendLedger
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->createSupplierLedgerEntry($spy_vend_ledger);
+    $result = $apiInstance->createSupplierLedgerEntry($spy_vend_ledger, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVendLedgerPageApi->createSupplierLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **spy_vend_ledger** | [**\Spy\MsbcRestClient\Model\SpyVendLedger**](../Model/SpyVendLedger.md)|  | [optional] |
+| **spy_vend_ledger** | [**\Spy\MsbcRestClient\Model\SpyVendLedger**](../Model/SpyVendLedger.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -129,7 +131,7 @@ void (empty response body)
 ## `editSupplierLedgerEntry()`
 
 ```php
-editSupplierLedgerEntry($entry_no, $if_match, $spy_vend_ledger): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
+editSupplierLedgerEntry($entry_no, $if_match, $spy_vend_ledger, $select): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
 ```
 
 
@@ -154,9 +156,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyVendLedgerPageApi(
 $entry_no = 56; // int | The Entry_No of the SupplierLedgerEntry to retrieve
 $if_match = 'if_match_example'; // string | The ETag of the Entity to update
 $spy_vend_ledger = new \Spy\MsbcRestClient\Model\SpyVendLedger(); // \Spy\MsbcRestClient\Model\SpyVendLedger
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->editSupplierLedgerEntry($entry_no, $if_match, $spy_vend_ledger);
+    $result = $apiInstance->editSupplierLedgerEntry($entry_no, $if_match, $spy_vend_ledger, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVendLedgerPageApi->editSupplierLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -170,6 +173,7 @@ try {
 | **entry_no** | **int**| The Entry_No of the SupplierLedgerEntry to retrieve | |
 | **if_match** | **string**| The ETag of the Entity to update | |
 | **spy_vend_ledger** | [**\Spy\MsbcRestClient\Model\SpyVendLedger**](../Model/SpyVendLedger.md)|  | |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 
@@ -253,7 +257,7 @@ try {
 ## `getSupplierLedgerEntry()`
 
 ```php
-getSupplierLedgerEntry($entry_no, $data_access_intent): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
+getSupplierLedgerEntry($entry_no, $data_access_intent, $select): \Spy\MsbcRestClient\Model\SpyVendLedgerResponse
 ```
 
 
@@ -277,9 +281,10 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyVendLedgerPageApi(
 );
 $entry_no = 56; // int | The Entry_No of the SupplierLedgerEntry to retrieve
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
+$select = 'select_example'; // string
 
 try {
-    $result = $apiInstance->getSupplierLedgerEntry($entry_no, $data_access_intent);
+    $result = $apiInstance->getSupplierLedgerEntry($entry_no, $data_access_intent, $select);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyVendLedgerPageApi->getSupplierLedgerEntry: ', $e->getMessage(), PHP_EOL;
@@ -292,6 +297,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **entry_no** | **int**| The Entry_No of the SupplierLedgerEntry to retrieve | |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
+| **select** | **string**|  | [optional] |
 
 ### Return type
 

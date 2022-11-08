@@ -61,7 +61,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **company** | **string**| Company ID | |
-| **spy_apply_customer_templates** | [**\Spy\MsbcRestClient\Model\SpyApplyCustomerTemplates**](../Model/SpyApplyCustomerTemplates.md)|  | [optional] |
+| **spy_apply_customer_templates** | [**\Spy\MsbcRestClient\Model\SpyApplyCustomerTemplates**](../Model/SpyApplyCustomerTemplates.md)|  | |
 | hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |
 
