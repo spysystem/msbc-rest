@@ -702,7 +702,7 @@ class SpyCustomerTransResponse implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('at_odata_etag', $data ?? [], null);
         $this->setIfExists('entry_no', $data ?? [], null);
         $this->setIfExists('posting_date', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('customer_no', $data ?? [], null);
         $this->setIfExists('customer_name', $data ?? [], null);
@@ -724,11 +724,11 @@ class SpyCustomerTransResponse implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('remaining_amount', $data ?? [], null);
         $this->setIfExists('remaining_amt_lcy', $data ?? [], null);
         $this->setIfExists('sales_lcy', $data ?? [], null);
-        $this->setIfExists('bal_account_type', $data ?? [], 'G/L Account');
+        $this->setIfExists('bal_account_type', $data ?? [], null);
         $this->setIfExists('bal_account_no', $data ?? [], null);
         $this->setIfExists('due_date', $data ?? [], null);
-        $this->setIfExists('payment_prediction', $data ?? [], ' ');
-        $this->setIfExists('prediction_confidence', $data ?? [], ' ');
+        $this->setIfExists('payment_prediction', $data ?? [], null);
+        $this->setIfExists('prediction_confidence', $data ?? [], null);
         $this->setIfExists('prediction_confidence_percent', $data ?? [], null);
         $this->setIfExists('pmt_discount_date', $data ?? [], null);
         $this->setIfExists('pmt_disc_tolerance_date', $data ?? [], null);

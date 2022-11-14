@@ -389,7 +389,7 @@ class SpyCustomerTemplateAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('contact_type', $data ?? [], 'Company');
+        $this->setIfExists('contact_type', $data ?? [], null);
         $this->setIfExists('country_region_code', $data ?? [], null);
         $this->setIfExists('territory_code', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);

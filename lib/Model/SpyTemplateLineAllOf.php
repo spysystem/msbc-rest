@@ -337,7 +337,7 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('template', $data ?? [], null);
         $this->setIfExists('line_no', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'Field');
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('field_id', $data ?? [], null);
         $this->setIfExists('field_name', $data ?? [], null);
         $this->setIfExists('table_id', $data ?? [], null);

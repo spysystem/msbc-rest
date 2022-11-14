@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **string** |  | [optional]
 **description** | **string** |  | [optional]
-**contact_type** | **string** |  | [optional] [default to 'Company']
+**contact_type** | **string** |  | [optional]
 **country_region_code** | **string** |  | [optional]
 **territory_code** | **string** |  | [optional]
 **currency_code** | **string** |  | [optional]

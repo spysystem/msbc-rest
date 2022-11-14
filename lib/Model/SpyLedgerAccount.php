@@ -568,13 +568,13 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('net_change', $data ?? [], null);
         $this->setIfExists('balance', $data ?? [], null);
-        $this->setIfExists('income_balance', $data ?? [], 'Income Statement');
-        $this->setIfExists('account_category', $data ?? [], ' ');
+        $this->setIfExists('income_balance', $data ?? [], null);
+        $this->setIfExists('account_category', $data ?? [], null);
         $this->setIfExists('account_subcategory_descript', $data ?? [], null);
-        $this->setIfExists('account_type', $data ?? [], 'Posting');
+        $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('direct_posting', $data ?? [], null);
         $this->setIfExists('totaling', $data ?? [], null);
-        $this->setIfExists('gen_posting_type', $data ?? [], ' ');
+        $this->setIfExists('gen_posting_type', $data ?? [], null);
         $this->setIfExists('gen_bus_posting_group', $data ?? [], null);
         $this->setIfExists('gen_prod_posting_group', $data ?? [], null);
         $this->setIfExists('vat_bus_posting_group', $data ?? [], null);
@@ -588,7 +588,7 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('consol_debit_acc', $data ?? [], null);
         $this->setIfExists('consol_credit_acc', $data ?? [], null);
         $this->setIfExists('cost_type_no', $data ?? [], null);
-        $this->setIfExists('consol_translation_method', $data ?? [], 'Average Rate (Manual)');
+        $this->setIfExists('consol_translation_method', $data ?? [], null);
         $this->setIfExists('default_ic_partner_g_l_acc_no', $data ?? [], null);
         $this->setIfExists('default_deferral_template_code', $data ?? [], null);
         $this->setIfExists('no_2', $data ?? [], null);

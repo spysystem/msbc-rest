@@ -361,7 +361,7 @@ class SpyVendLedger implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('external_document_no', $data ?? [], null);
         $this->setIfExists('vendor_no', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);
         $this->setIfExists('amount_lcy', $data ?? [], null);

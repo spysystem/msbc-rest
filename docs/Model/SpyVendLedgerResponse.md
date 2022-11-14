@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **document_no** | **string** |  | [optional]
 **external_document_no** | **string** |  | [optional]
 **vendor_no** | **string** |  | [optional]
-**document_type** | **string** |  | [optional] [default to ' ']
+**document_type** | **string** |  | [optional]
 **amount** | **float** |  | [optional]
 **currency_code** | **string** |  | [optional]
 **amount_lcy** | **float** |  | [optional]

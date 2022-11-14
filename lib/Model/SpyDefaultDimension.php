@@ -318,7 +318,7 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('no', $data ?? [], null);
         $this->setIfExists('dimension_code', $data ?? [], null);
         $this->setIfExists('dimension_value_code', $data ?? [], null);
-        $this->setIfExists('value_posting', $data ?? [], ' ');
+        $this->setIfExists('value_posting', $data ?? [], null);
     }
 
     /**

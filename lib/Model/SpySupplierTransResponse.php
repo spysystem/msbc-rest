@@ -654,7 +654,7 @@ class SpySupplierTransResponse implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('at_odata_etag', $data ?? [], null);
         $this->setIfExists('entry_no', $data ?? [], null);
         $this->setIfExists('posting_date', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('external_document_no', $data ?? [], null);
         $this->setIfExists('vendor_no', $data ?? [], null);
@@ -681,7 +681,7 @@ class SpySupplierTransResponse implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('credit_amount_lcy', $data ?? [], null);
         $this->setIfExists('remaining_amount', $data ?? [], null);
         $this->setIfExists('remaining_amt_lcy', $data ?? [], null);
-        $this->setIfExists('bal_account_type', $data ?? [], 'G/L Account');
+        $this->setIfExists('bal_account_type', $data ?? [], null);
         $this->setIfExists('bal_account_no', $data ?? [], null);
         $this->setIfExists('due_date', $data ?? [], null);
         $this->setIfExists('pmt_discount_date', $data ?? [], null);

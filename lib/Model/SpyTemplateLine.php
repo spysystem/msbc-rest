@@ -344,7 +344,7 @@ class SpyTemplateLine implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('at_odata_etag', $data ?? [], null);
         $this->setIfExists('template', $data ?? [], null);
         $this->setIfExists('line_no', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'Field');
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('field_id', $data ?? [], null);
         $this->setIfExists('field_name', $data ?? [], null);
         $this->setIfExists('table_id', $data ?? [], null);

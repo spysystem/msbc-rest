@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **template** | **string** |  | [optional]
 **line_no** | **int** |  | [optional]
-**type** | **string** |  | [optional] [default to 'Field']
+**type** | **string** |  | [optional]
 **field_id** | **int** |  | [optional]
 **field_name** | **string** |  | [optional]
 **table_id** | **int** |  | [optional]

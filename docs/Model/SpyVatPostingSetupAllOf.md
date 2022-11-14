@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **blocked** | **bool** |  | [optional]
 **vat_identifier** | **string** |  | [optional]
 **vat_percent** | **float** |  | [optional]
-**vat_calculation_type** | **string** |  | [optional] [default to 'Normal VAT']
+**vat_calculation_type** | **string** |  | [optional]
 **unrealized_vat_type** | **string** |  | [optional]
 **adjust_for_payment_discount** | **bool** |  | [optional]
 **sales_vat_account** | **string** |  | [optional]

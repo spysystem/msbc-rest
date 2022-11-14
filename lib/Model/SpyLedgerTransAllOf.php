@@ -611,7 +611,7 @@ class SpyLedgerTransAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('entry_no', $data ?? [], null);
         $this->setIfExists('posting_date', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('g_l_account_no', $data ?? [], null);
         $this->setIfExists('g_l_account_name', $data ?? [], null);
@@ -620,7 +620,7 @@ class SpyLedgerTransAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('global_dimension_1_code', $data ?? [], null);
         $this->setIfExists('global_dimension_2_code', $data ?? [], null);
         $this->setIfExists('ic_partner_code', $data ?? [], null);
-        $this->setIfExists('gen_posting_type', $data ?? [], ' ');
+        $this->setIfExists('gen_posting_type', $data ?? [], null);
         $this->setIfExists('gen_bus_posting_group', $data ?? [], null);
         $this->setIfExists('gen_prod_posting_group', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
@@ -629,17 +629,17 @@ class SpyLedgerTransAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('credit_amount', $data ?? [], null);
         $this->setIfExists('additional_currency_amount', $data ?? [], null);
         $this->setIfExists('vat_amount', $data ?? [], null);
-        $this->setIfExists('bal_account_type', $data ?? [], 'G/L Account');
+        $this->setIfExists('bal_account_type', $data ?? [], null);
         $this->setIfExists('bal_account_no', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('source_code', $data ?? [], null);
-        $this->setIfExists('source_type', $data ?? [], ' ');
+        $this->setIfExists('source_type', $data ?? [], null);
         $this->setIfExists('source_no', $data ?? [], null);
         $this->setIfExists('reason_code', $data ?? [], null);
         $this->setIfExists('reversed', $data ?? [], null);
         $this->setIfExists('reversed_by_entry_no', $data ?? [], null);
         $this->setIfExists('reversed_entry_no', $data ?? [], null);
-        $this->setIfExists('fa_entry_type', $data ?? [], ' ');
+        $this->setIfExists('fa_entry_type', $data ?? [], null);
         $this->setIfExists('fa_entry_no', $data ?? [], null);
         $this->setIfExists('dimension_set_id', $data ?? [], null);
         $this->setIfExists('external_document_no', $data ?? [], null);

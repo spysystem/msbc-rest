@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **at_odata_etag** | **string** | If-Match header for updates | [optional]
 **code** | **string** |  | [optional]
 **description** | **string** |  | [optional]
-**contact_type** | **string** |  | [optional] [default to 'Company']
+**contact_type** | **string** |  | [optional]
 **country_region_code** | **string** |  | [optional]
 **territory_code** | **string** |  | [optional]
 **currency_code** | **string** |  | [optional]

@@ -368,7 +368,7 @@ class SpyCustLedgerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('external_document_no', $data ?? [], null);
         $this->setIfExists('customer_no', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);
         $this->setIfExists('amount_lcy', $data ?? [], null);

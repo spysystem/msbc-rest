@@ -427,7 +427,7 @@ class SpyVatPostingSetup implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('blocked', $data ?? [], null);
         $this->setIfExists('vat_identifier', $data ?? [], null);
         $this->setIfExists('vat_percent', $data ?? [], null);
-        $this->setIfExists('vat_calculation_type', $data ?? [], 'Normal VAT');
+        $this->setIfExists('vat_calculation_type', $data ?? [], null);
         $this->setIfExists('unrealized_vat_type', $data ?? [], null);
         $this->setIfExists('adjust_for_payment_discount', $data ?? [], null);
         $this->setIfExists('sales_vat_account', $data ?? [], null);

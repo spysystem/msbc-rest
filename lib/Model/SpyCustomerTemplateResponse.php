@@ -403,7 +403,7 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('at_odata_etag', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('contact_type', $data ?? [], 'Company');
+        $this->setIfExists('contact_type', $data ?? [], null);
         $this->setIfExists('country_region_code', $data ?? [], null);
         $this->setIfExists('territory_code', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);

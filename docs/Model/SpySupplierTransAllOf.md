@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entry_no** | **int** |  | [optional]
 **posting_date** | **string** |  | [optional]
-**document_type** | **string** |  | [optional] [default to ' ']
+**document_type** | **string** |  | [optional]
 **document_no** | **string** |  | [optional]
 **external_document_no** | **string** |  | [optional]
 **vendor_no** | **string** |  | [optional]
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **credit_amount_lcy** | **float** |  | [optional]
 **remaining_amount** | **float** |  | [optional]
 **remaining_amt_lcy** | **float** |  | [optional]
-**bal_account_type** | **string** |  | [optional] [default to 'G/L Account']
+**bal_account_type** | **string** |  | [optional]
 **bal_account_no** | **string** |  | [optional]
 **due_date** | **string** |  | [optional]
 **pmt_discount_date** | **string** |  | [optional]

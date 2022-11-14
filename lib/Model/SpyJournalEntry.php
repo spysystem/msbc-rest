@@ -421,11 +421,11 @@ class SpyJournalEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('document_no', $data ?? [], null);
         $this->setIfExists('external_document_no', $data ?? [], null);
         $this->setIfExists('account_no', $data ?? [], null);
-        $this->setIfExists('account_type', $data ?? [], 'G/L Account');
+        $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('currency_code', $data ?? [], null);
         $this->setIfExists('amount_lcy', $data ?? [], null);
-        $this->setIfExists('document_type', $data ?? [], ' ');
+        $this->setIfExists('document_type', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
 

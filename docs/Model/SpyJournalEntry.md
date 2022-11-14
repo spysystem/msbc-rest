@@ -15,11 +15,11 @@ Name | Type | Description | Notes
 **document_no** | **string** |  | [optional]
 **external_document_no** | **string** |  | [optional]
 **account_no** | **string** |  | [optional]
-**account_type** | **string** |  | [optional] [default to 'G/L Account']
+**account_type** | **string** |  | [optional]
 **amount** | **float** |  | [optional]
 **currency_code** | **string** |  | [optional]
 **amount_lcy** | **float** |  | [optional]
-**document_type** | **string** |  | [optional] [default to ' ']
+**document_type** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
