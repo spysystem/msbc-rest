@@ -2765,13 +2765,6 @@ components:
               type: boolean
             'Description':
               type: string
-            'OIOUBL_Code':
-              type: string
-              enum:
-                - ' '
-                - 'Contract'
-                - 'Specific'
-              default: ' '
             'Coupled_to_CRM':
               type: boolean
 #endregion
