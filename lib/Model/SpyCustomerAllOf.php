@@ -1057,11 +1057,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNo($no)
     {
-
         if (is_null($no)) {
             throw new \InvalidArgumentException('non-nullable no cannot be null');
         }
-
         $this->container['no'] = $no;
 
         return $this;
@@ -1086,11 +1084,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -1115,11 +1111,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSearchName($search_name)
     {
-
         if (is_null($search_name)) {
             throw new \InvalidArgumentException('non-nullable search_name cannot be null');
         }
-
         $this->container['search_name'] = $search_name;
 
         return $this;
@@ -1144,11 +1138,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName2($name_2)
     {
-
         if (is_null($name_2)) {
             throw new \InvalidArgumentException('non-nullable name_2 cannot be null');
         }
-
         $this->container['name_2'] = $name_2;
 
         return $this;
@@ -1173,11 +1165,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress($address)
     {
-
         if (is_null($address)) {
             throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-
         $this->container['address'] = $address;
 
         return $this;
@@ -1202,11 +1192,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddress2($address_2)
     {
-
         if (is_null($address_2)) {
             throw new \InvalidArgumentException('non-nullable address_2 cannot be null');
         }
-
         $this->container['address_2'] = $address_2;
 
         return $this;
@@ -1231,11 +1219,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -1260,11 +1246,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setContactName($contact_name)
     {
-
         if (is_null($contact_name)) {
             throw new \InvalidArgumentException('non-nullable contact_name cannot be null');
         }
-
         $this->container['contact_name'] = $contact_name;
 
         return $this;
@@ -1289,11 +1273,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPhoneNo($phone_no)
     {
-
         if (is_null($phone_no)) {
             throw new \InvalidArgumentException('non-nullable phone_no cannot be null');
         }
-
         $this->container['phone_no'] = $phone_no;
 
         return $this;
@@ -1318,11 +1300,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDocumentSendingProfile($document_sending_profile)
     {
-
         if (is_null($document_sending_profile)) {
             throw new \InvalidArgumentException('non-nullable document_sending_profile cannot be null');
         }
-
         $this->container['document_sending_profile'] = $document_sending_profile;
 
         return $this;
@@ -1347,11 +1327,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipToCode($ship_to_code)
     {
-
         if (is_null($ship_to_code)) {
             throw new \InvalidArgumentException('non-nullable ship_to_code cannot be null');
         }
-
         $this->container['ship_to_code'] = $ship_to_code;
 
         return $this;
@@ -1376,11 +1354,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension1Code($global_dimension_1_code)
     {
-
         if (is_null($global_dimension_1_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_1_code cannot be null');
         }
-
         $this->container['global_dimension_1_code'] = $global_dimension_1_code;
 
         return $this;
@@ -1405,11 +1381,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension2Code($global_dimension_2_code)
     {
-
         if (is_null($global_dimension_2_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_2_code cannot be null');
         }
-
         $this->container['global_dimension_2_code'] = $global_dimension_2_code;
 
         return $this;
@@ -1434,11 +1408,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCreditLimitLcy($credit_limit_lcy)
     {
-
         if (is_null($credit_limit_lcy)) {
             throw new \InvalidArgumentException('non-nullable credit_limit_lcy cannot be null');
         }
-
         $this->container['credit_limit_lcy'] = $credit_limit_lcy;
 
         return $this;
@@ -1463,11 +1435,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustomerPostingGroup($customer_posting_group)
     {
-
         if (is_null($customer_posting_group)) {
             throw new \InvalidArgumentException('non-nullable customer_posting_group cannot be null');
         }
-
         $this->container['customer_posting_group'] = $customer_posting_group;
 
         return $this;
@@ -1492,11 +1462,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencyCode($currency_code)
     {
-
         if (is_null($currency_code)) {
             throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
-
         $this->container['currency_code'] = $currency_code;
 
         return $this;
@@ -1521,11 +1489,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustomerPriceGroup($customer_price_group)
     {
-
         if (is_null($customer_price_group)) {
             throw new \InvalidArgumentException('non-nullable customer_price_group cannot be null');
         }
-
         $this->container['customer_price_group'] = $customer_price_group;
 
         return $this;
@@ -1550,11 +1516,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLanguageCode($language_code)
     {
-
         if (is_null($language_code)) {
             throw new \InvalidArgumentException('non-nullable language_code cannot be null');
         }
-
         $this->container['language_code'] = $language_code;
 
         return $this;
@@ -1579,11 +1543,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPaymentTermsCode($payment_terms_code)
     {
-
         if (is_null($payment_terms_code)) {
             throw new \InvalidArgumentException('non-nullable payment_terms_code cannot be null');
         }
-
         $this->container['payment_terms_code'] = $payment_terms_code;
 
         return $this;
@@ -1608,11 +1570,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFinChargeTermsCode($fin_charge_terms_code)
     {
-
         if (is_null($fin_charge_terms_code)) {
             throw new \InvalidArgumentException('non-nullable fin_charge_terms_code cannot be null');
         }
-
         $this->container['fin_charge_terms_code'] = $fin_charge_terms_code;
 
         return $this;
@@ -1637,11 +1597,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSalespersonCode($salesperson_code)
     {
-
         if (is_null($salesperson_code)) {
             throw new \InvalidArgumentException('non-nullable salesperson_code cannot be null');
         }
-
         $this->container['salesperson_code'] = $salesperson_code;
 
         return $this;
@@ -1666,11 +1624,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShipmentMethodCode($shipment_method_code)
     {
-
         if (is_null($shipment_method_code)) {
             throw new \InvalidArgumentException('non-nullable shipment_method_code cannot be null');
         }
-
         $this->container['shipment_method_code'] = $shipment_method_code;
 
         return $this;
@@ -1695,11 +1651,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShippingAgentCode($shipping_agent_code)
     {
-
         if (is_null($shipping_agent_code)) {
             throw new \InvalidArgumentException('non-nullable shipping_agent_code cannot be null');
         }
-
         $this->container['shipping_agent_code'] = $shipping_agent_code;
 
         return $this;
@@ -1724,11 +1678,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceDiscCode($invoice_disc_code)
     {
-
         if (is_null($invoice_disc_code)) {
             throw new \InvalidArgumentException('non-nullable invoice_disc_code cannot be null');
         }
-
         $this->container['invoice_disc_code'] = $invoice_disc_code;
 
         return $this;
@@ -1753,11 +1705,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCustomerDiscGroup($customer_disc_group)
     {
-
         if (is_null($customer_disc_group)) {
             throw new \InvalidArgumentException('non-nullable customer_disc_group cannot be null');
         }
-
         $this->container['customer_disc_group'] = $customer_disc_group;
 
         return $this;
@@ -1782,11 +1732,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCountryRegionCode($country_region_code)
     {
-
         if (is_null($country_region_code)) {
             throw new \InvalidArgumentException('non-nullable country_region_code cannot be null');
         }
-
         $this->container['country_region_code'] = $country_region_code;
 
         return $this;
@@ -1811,8 +1759,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBlocked($blocked)
     {
+        if (is_null($blocked)) {
+            throw new \InvalidArgumentException('non-nullable blocked cannot be null');
+        }
         $allowedValues = $this->getBlockedAllowableValues();
-        if (!is_null($blocked) && !in_array($blocked, $allowedValues, true)) {
+        if (!in_array($blocked, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'blocked', must be one of '%s'",
@@ -1821,11 +1772,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($blocked)) {
-            throw new \InvalidArgumentException('non-nullable blocked cannot be null');
-        }
-
         $this->container['blocked'] = $blocked;
 
         return $this;
@@ -1850,11 +1796,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setInvoiceCopies($invoice_copies)
     {
-
         if (is_null($invoice_copies)) {
             throw new \InvalidArgumentException('non-nullable invoice_copies cannot be null');
         }
-
         $this->container['invoice_copies'] = $invoice_copies;
 
         return $this;
@@ -1879,11 +1823,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLastStatementNo($last_statement_no)
     {
-
         if (is_null($last_statement_no)) {
             throw new \InvalidArgumentException('non-nullable last_statement_no cannot be null');
         }
-
         $this->container['last_statement_no'] = $last_statement_no;
 
         return $this;
@@ -1908,11 +1850,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPrintStatements($print_statements)
     {
-
         if (is_null($print_statements)) {
             throw new \InvalidArgumentException('non-nullable print_statements cannot be null');
         }
-
         $this->container['print_statements'] = $print_statements;
 
         return $this;
@@ -1937,11 +1877,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBillToCustomerNo($bill_to_customer_no)
     {
-
         if (is_null($bill_to_customer_no)) {
             throw new \InvalidArgumentException('non-nullable bill_to_customer_no cannot be null');
         }
-
         $this->container['bill_to_customer_no'] = $bill_to_customer_no;
 
         return $this;
@@ -1966,11 +1904,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPaymentMethodCode($payment_method_code)
     {
-
         if (is_null($payment_method_code)) {
             throw new \InvalidArgumentException('non-nullable payment_method_code cannot be null');
         }
-
         $this->container['payment_method_code'] = $payment_method_code;
 
         return $this;
@@ -1995,11 +1931,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLastDateModified($last_date_modified)
     {
-
         if (is_null($last_date_modified)) {
             throw new \InvalidArgumentException('non-nullable last_date_modified cannot be null');
         }
-
         $this->container['last_date_modified'] = $last_date_modified;
 
         return $this;
@@ -2024,11 +1958,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalanceLcy($balance_lcy)
     {
-
         if (is_null($balance_lcy)) {
             throw new \InvalidArgumentException('non-nullable balance_lcy cannot be null');
         }
-
         $this->container['balance_lcy'] = $balance_lcy;
 
         return $this;
@@ -2053,11 +1985,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalanceDueLcy($balance_due_lcy)
     {
-
         if (is_null($balance_due_lcy)) {
             throw new \InvalidArgumentException('non-nullable balance_due_lcy cannot be null');
         }
-
         $this->container['balance_due_lcy'] = $balance_due_lcy;
 
         return $this;
@@ -2082,11 +2012,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCrMemoAmountsLcy($cr_memo_amounts_lcy)
     {
-
         if (is_null($cr_memo_amounts_lcy)) {
             throw new \InvalidArgumentException('non-nullable cr_memo_amounts_lcy cannot be null');
         }
-
         $this->container['cr_memo_amounts_lcy'] = $cr_memo_amounts_lcy;
 
         return $this;
@@ -2111,8 +2039,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setApplicationMethod($application_method)
     {
+        if (is_null($application_method)) {
+            throw new \InvalidArgumentException('non-nullable application_method cannot be null');
+        }
         $allowedValues = $this->getApplicationMethodAllowableValues();
-        if (!is_null($application_method) && !in_array($application_method, $allowedValues, true)) {
+        if (!in_array($application_method, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'application_method', must be one of '%s'",
@@ -2121,11 +2052,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($application_method)) {
-            throw new \InvalidArgumentException('non-nullable application_method cannot be null');
-        }
-
         $this->container['application_method'] = $application_method;
 
         return $this;
@@ -2150,11 +2076,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPricesIncludingVat($prices_including_vat)
     {
-
         if (is_null($prices_including_vat)) {
             throw new \InvalidArgumentException('non-nullable prices_including_vat cannot be null');
         }
-
         $this->container['prices_including_vat'] = $prices_including_vat;
 
         return $this;
@@ -2179,11 +2103,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setLocationCode($location_code)
     {
-
         if (is_null($location_code)) {
             throw new \InvalidArgumentException('non-nullable location_code cannot be null');
         }
-
         $this->container['location_code'] = $location_code;
 
         return $this;
@@ -2208,11 +2130,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFaxNo($fax_no)
     {
-
         if (is_null($fax_no)) {
             throw new \InvalidArgumentException('non-nullable fax_no cannot be null');
         }
-
         $this->container['fax_no'] = $fax_no;
 
         return $this;
@@ -2237,11 +2157,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatRegistrationNo($vat_registration_no)
     {
-
         if (is_null($vat_registration_no)) {
             throw new \InvalidArgumentException('non-nullable vat_registration_no cannot be null');
         }
-
         $this->container['vat_registration_no'] = $vat_registration_no;
 
         return $this;
@@ -2266,11 +2184,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCombineShipments($combine_shipments)
     {
-
         if (is_null($combine_shipments)) {
             throw new \InvalidArgumentException('non-nullable combine_shipments cannot be null');
         }
-
         $this->container['combine_shipments'] = $combine_shipments;
 
         return $this;
@@ -2295,11 +2211,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenBusPostingGroup($gen_bus_posting_group)
     {
-
         if (is_null($gen_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_bus_posting_group cannot be null');
         }
-
         $this->container['gen_bus_posting_group'] = $gen_bus_posting_group;
 
         return $this;
@@ -2324,11 +2238,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGln($gln)
     {
-
         if (is_null($gln)) {
             throw new \InvalidArgumentException('non-nullable gln cannot be null');
         }
-
         $this->container['gln'] = $gln;
 
         return $this;
@@ -2353,11 +2265,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPostCode($post_code)
     {
-
         if (is_null($post_code)) {
             throw new \InvalidArgumentException('non-nullable post_code cannot be null');
         }
-
         $this->container['post_code'] = $post_code;
 
         return $this;
@@ -2382,11 +2292,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCounty($county)
     {
-
         if (is_null($county)) {
             throw new \InvalidArgumentException('non-nullable county cannot be null');
         }
-
         $this->container['county'] = $county;
 
         return $this;
@@ -2411,11 +2319,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEoriNumber($eori_number)
     {
-
         if (is_null($eori_number)) {
             throw new \InvalidArgumentException('non-nullable eori_number cannot be null');
         }
-
         $this->container['eori_number'] = $eori_number;
 
         return $this;
@@ -2440,11 +2346,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUseGlnInElectronicDocument($use_gln_in_electronic_document)
     {
-
         if (is_null($use_gln_in_electronic_document)) {
             throw new \InvalidArgumentException('non-nullable use_gln_in_electronic_document cannot be null');
         }
-
         $this->container['use_gln_in_electronic_document'] = $use_gln_in_electronic_document;
 
         return $this;
@@ -2469,11 +2373,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEMail($e_mail)
     {
-
         if (is_null($e_mail)) {
             throw new \InvalidArgumentException('non-nullable e_mail cannot be null');
         }
-
         $this->container['e_mail'] = $e_mail;
 
         return $this;
@@ -2498,11 +2400,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setHomePage($home_page)
     {
-
         if (is_null($home_page)) {
             throw new \InvalidArgumentException('non-nullable home_page cannot be null');
         }
-
         $this->container['home_page'] = $home_page;
 
         return $this;
@@ -2527,11 +2427,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReminderTermsCode($reminder_terms_code)
     {
-
         if (is_null($reminder_terms_code)) {
             throw new \InvalidArgumentException('non-nullable reminder_terms_code cannot be null');
         }
-
         $this->container['reminder_terms_code'] = $reminder_terms_code;
 
         return $this;
@@ -2556,11 +2454,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTaxAreaCode($tax_area_code)
     {
-
         if (is_null($tax_area_code)) {
             throw new \InvalidArgumentException('non-nullable tax_area_code cannot be null');
         }
-
         $this->container['tax_area_code'] = $tax_area_code;
 
         return $this;
@@ -2585,11 +2481,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTaxLiable($tax_liable)
     {
-
         if (is_null($tax_liable)) {
             throw new \InvalidArgumentException('non-nullable tax_liable cannot be null');
         }
-
         $this->container['tax_liable'] = $tax_liable;
 
         return $this;
@@ -2614,11 +2508,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatBusPostingGroup($vat_bus_posting_group)
     {
-
         if (is_null($vat_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_bus_posting_group cannot be null');
         }
-
         $this->container['vat_bus_posting_group'] = $vat_bus_posting_group;
 
         return $this;
@@ -2643,8 +2535,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReserve($reserve)
     {
+        if (is_null($reserve)) {
+            throw new \InvalidArgumentException('non-nullable reserve cannot be null');
+        }
         $allowedValues = $this->getReserveAllowableValues();
-        if (!is_null($reserve) && !in_array($reserve, $allowedValues, true)) {
+        if (!in_array($reserve, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'reserve', must be one of '%s'",
@@ -2653,11 +2548,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($reserve)) {
-            throw new \InvalidArgumentException('non-nullable reserve cannot be null');
-        }
-
         $this->container['reserve'] = $reserve;
 
         return $this;
@@ -2682,11 +2572,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBlockPaymentTolerance($block_payment_tolerance)
     {
-
         if (is_null($block_payment_tolerance)) {
             throw new \InvalidArgumentException('non-nullable block_payment_tolerance cannot be null');
         }
-
         $this->container['block_payment_tolerance'] = $block_payment_tolerance;
 
         return $this;
@@ -2711,11 +2599,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setIcPartnerCode($ic_partner_code)
     {
-
         if (is_null($ic_partner_code)) {
             throw new \InvalidArgumentException('non-nullable ic_partner_code cannot be null');
         }
-
         $this->container['ic_partner_code'] = $ic_partner_code;
 
         return $this;
@@ -2740,11 +2626,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPrepaymentPercent($prepayment_percent)
     {
-
         if (is_null($prepayment_percent)) {
             throw new \InvalidArgumentException('non-nullable prepayment_percent cannot be null');
         }
-
         $this->container['prepayment_percent'] = $prepayment_percent;
 
         return $this;
@@ -2769,11 +2653,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setOutstandingInvoicesLcy($outstanding_invoices_lcy)
     {
-
         if (is_null($outstanding_invoices_lcy)) {
             throw new \InvalidArgumentException('non-nullable outstanding_invoices_lcy cannot be null');
         }
-
         $this->container['outstanding_invoices_lcy'] = $outstanding_invoices_lcy;
 
         return $this;
@@ -2798,8 +2680,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPartnerType($partner_type)
     {
+        if (is_null($partner_type)) {
+            throw new \InvalidArgumentException('non-nullable partner_type cannot be null');
+        }
         $allowedValues = $this->getPartnerTypeAllowableValues();
-        if (!is_null($partner_type) && !in_array($partner_type, $allowedValues, true)) {
+        if (!in_array($partner_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'partner_type', must be one of '%s'",
@@ -2808,11 +2693,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($partner_type)) {
-            throw new \InvalidArgumentException('non-nullable partner_type cannot be null');
-        }
-
         $this->container['partner_type'] = $partner_type;
 
         return $this;
@@ -2837,11 +2717,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPrivacyBlocked($privacy_blocked)
     {
-
         if (is_null($privacy_blocked)) {
             throw new \InvalidArgumentException('non-nullable privacy_blocked cannot be null');
         }
-
         $this->container['privacy_blocked'] = $privacy_blocked;
 
         return $this;
@@ -2866,11 +2744,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDisableSearchByName($disable_search_by_name)
     {
-
         if (is_null($disable_search_by_name)) {
             throw new \InvalidArgumentException('non-nullable disable_search_by_name cannot be null');
         }
-
         $this->container['disable_search_by_name'] = $disable_search_by_name;
 
         return $this;
@@ -2895,11 +2771,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPreferredBankAccountCode($preferred_bank_account_code)
     {
-
         if (is_null($preferred_bank_account_code)) {
             throw new \InvalidArgumentException('non-nullable preferred_bank_account_code cannot be null');
         }
-
         $this->container['preferred_bank_account_code'] = $preferred_bank_account_code;
 
         return $this;
@@ -2924,11 +2798,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCashFlowPaymentTermsCode($cash_flow_payment_terms_code)
     {
-
         if (is_null($cash_flow_payment_terms_code)) {
             throw new \InvalidArgumentException('non-nullable cash_flow_payment_terms_code cannot be null');
         }
-
         $this->container['cash_flow_payment_terms_code'] = $cash_flow_payment_terms_code;
 
         return $this;
@@ -2953,11 +2825,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPrimaryContactNo($primary_contact_no)
     {
-
         if (is_null($primary_contact_no)) {
             throw new \InvalidArgumentException('non-nullable primary_contact_no cannot be null');
         }
-
         $this->container['primary_contact_no'] = $primary_contact_no;
 
         return $this;
@@ -2982,11 +2852,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMobilePhoneNo($mobile_phone_no)
     {
-
         if (is_null($mobile_phone_no)) {
             throw new \InvalidArgumentException('non-nullable mobile_phone_no cannot be null');
         }
-
         $this->container['mobile_phone_no'] = $mobile_phone_no;
 
         return $this;
@@ -3011,11 +2879,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setResponsibilityCenter($responsibility_center)
     {
-
         if (is_null($responsibility_center)) {
             throw new \InvalidArgumentException('non-nullable responsibility_center cannot be null');
         }
-
         $this->container['responsibility_center'] = $responsibility_center;
 
         return $this;
@@ -3040,8 +2906,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShippingAdvice($shipping_advice)
     {
+        if (is_null($shipping_advice)) {
+            throw new \InvalidArgumentException('non-nullable shipping_advice cannot be null');
+        }
         $allowedValues = $this->getShippingAdviceAllowableValues();
-        if (!is_null($shipping_advice) && !in_array($shipping_advice, $allowedValues, true)) {
+        if (!in_array($shipping_advice, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'shipping_advice', must be one of '%s'",
@@ -3050,11 +2919,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($shipping_advice)) {
-            throw new \InvalidArgumentException('non-nullable shipping_advice cannot be null');
-        }
-
         $this->container['shipping_advice'] = $shipping_advice;
 
         return $this;
@@ -3079,11 +2943,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShippingTime($shipping_time)
     {
-
         if (is_null($shipping_time)) {
             throw new \InvalidArgumentException('non-nullable shipping_time cannot be null');
         }
-
         $this->container['shipping_time'] = $shipping_time;
 
         return $this;
@@ -3108,11 +2970,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setServiceZoneCode($service_zone_code)
     {
-
         if (is_null($service_zone_code)) {
             throw new \InvalidArgumentException('non-nullable service_zone_code cannot be null');
         }
-
         $this->container['service_zone_code'] = $service_zone_code;
 
         return $this;
@@ -3137,8 +2997,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPriceCalculationMethod($price_calculation_method)
     {
+        if (is_null($price_calculation_method)) {
+            throw new \InvalidArgumentException('non-nullable price_calculation_method cannot be null');
+        }
         $allowedValues = $this->getPriceCalculationMethodAllowableValues();
-        if (!is_null($price_calculation_method) && !in_array($price_calculation_method, $allowedValues, true)) {
+        if (!in_array($price_calculation_method, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'price_calculation_method', must be one of '%s'",
@@ -3147,11 +3010,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($price_calculation_method)) {
-            throw new \InvalidArgumentException('non-nullable price_calculation_method cannot be null');
-        }
-
         $this->container['price_calculation_method'] = $price_calculation_method;
 
         return $this;
@@ -3176,11 +3034,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAllowLineDisc($allow_line_disc)
     {
-
         if (is_null($allow_line_disc)) {
             throw new \InvalidArgumentException('non-nullable allow_line_disc cannot be null');
         }
-
         $this->container['allow_line_disc'] = $allow_line_disc;
 
         return $this;
@@ -3205,11 +3061,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBaseCalendarCode($base_calendar_code)
     {
-
         if (is_null($base_calendar_code)) {
             throw new \InvalidArgumentException('non-nullable base_calendar_code cannot be null');
         }
-
         $this->container['base_calendar_code'] = $base_calendar_code;
 
         return $this;
@@ -3234,8 +3088,11 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCopySellToAddrToQteFrom($copy_sell_to_addr_to_qte_from)
     {
+        if (is_null($copy_sell_to_addr_to_qte_from)) {
+            throw new \InvalidArgumentException('non-nullable copy_sell_to_addr_to_qte_from cannot be null');
+        }
         $allowedValues = $this->getCopySellToAddrToQteFromAllowableValues();
-        if (!is_null($copy_sell_to_addr_to_qte_from) && !in_array($copy_sell_to_addr_to_qte_from, $allowedValues, true)) {
+        if (!in_array($copy_sell_to_addr_to_qte_from, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'copy_sell_to_addr_to_qte_from', must be one of '%s'",
@@ -3244,11 +3101,6 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($copy_sell_to_addr_to_qte_from)) {
-            throw new \InvalidArgumentException('non-nullable copy_sell_to_addr_to_qte_from cannot be null');
-        }
-
         $this->container['copy_sell_to_addr_to_qte_from'] = $copy_sell_to_addr_to_qte_from;
 
         return $this;
@@ -3273,11 +3125,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalanceDue($balance_due)
     {
-
         if (is_null($balance_due)) {
             throw new \InvalidArgumentException('non-nullable balance_due cannot be null');
         }
-
         $this->container['balance_due'] = $balance_due;
 
         return $this;
@@ -3302,11 +3152,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShippingAgentServiceCode($shipping_agent_service_code)
     {
-
         if (is_null($shipping_agent_service_code)) {
             throw new \InvalidArgumentException('non-nullable shipping_agent_service_code cannot be null');
         }
-
         $this->container['shipping_agent_service_code'] = $shipping_agent_service_code;
 
         return $this;
@@ -3331,11 +3179,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension1Filter($global_dimension_1_filter)
     {
-
         if (is_null($global_dimension_1_filter)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_1_filter cannot be null');
         }
-
         $this->container['global_dimension_1_filter'] = $global_dimension_1_filter;
 
         return $this;
@@ -3360,11 +3206,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension2Filter($global_dimension_2_filter)
     {
-
         if (is_null($global_dimension_2_filter)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_2_filter cannot be null');
         }
-
         $this->container['global_dimension_2_filter'] = $global_dimension_2_filter;
 
         return $this;
@@ -3389,11 +3233,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCurrencyFilter($currency_filter)
     {
-
         if (is_null($currency_filter)) {
             throw new \InvalidArgumentException('non-nullable currency_filter cannot be null');
         }
-
         $this->container['currency_filter'] = $currency_filter;
 
         return $this;
@@ -3418,11 +3260,9 @@ class SpyCustomerAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateFilter($date_filter)
     {
-
         if (is_null($date_filter)) {
             throw new \InvalidArgumentException('non-nullable date_filter cannot be null');
         }
-
         $this->container['date_filter'] = $date_filter;
 
         return $this;

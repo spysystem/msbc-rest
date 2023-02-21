@@ -356,11 +356,9 @@ class SpyPostCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -385,11 +383,9 @@ class SpyPostCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -414,11 +410,9 @@ class SpyPostCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -443,11 +437,9 @@ class SpyPostCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -472,11 +464,9 @@ class SpyPostCodeResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCountryRegionCode($country_region_code)
     {
-
         if (is_null($country_region_code)) {
             throw new \InvalidArgumentException('non-nullable country_region_code cannot be null');
         }
-
         $this->container['country_region_code'] = $country_region_code;
 
         return $this;

@@ -328,11 +328,9 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setError($error)
     {
-
         if (is_null($error)) {
             throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
-
         $this->container['error'] = $error;
 
         return $this;

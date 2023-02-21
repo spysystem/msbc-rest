@@ -417,11 +417,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -446,11 +444,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -475,11 +471,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setCurrencyCode($currency_code)
     {
-
         if (is_null($currency_code)) {
             throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
-
         $this->container['currency_code'] = $currency_code;
 
         return $this;
@@ -504,11 +498,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setStartingDate($starting_date)
     {
-
         if (is_null($starting_date)) {
             throw new \InvalidArgumentException('non-nullable starting_date cannot be null');
         }
-
         $this->container['starting_date'] = $starting_date;
 
         return $this;
@@ -533,11 +525,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setRelationalCurrencyCode($relational_currency_code)
     {
-
         if (is_null($relational_currency_code)) {
             throw new \InvalidArgumentException('non-nullable relational_currency_code cannot be null');
         }
-
         $this->container['relational_currency_code'] = $relational_currency_code;
 
         return $this;
@@ -562,11 +552,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setExchangeRateAmount($exchange_rate_amount)
     {
-
         if (is_null($exchange_rate_amount)) {
             throw new \InvalidArgumentException('non-nullable exchange_rate_amount cannot be null');
         }
-
         $this->container['exchange_rate_amount'] = $exchange_rate_amount;
 
         return $this;
@@ -591,11 +579,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setRelationalExchRateAmount($relational_exch_rate_amount)
     {
-
         if (is_null($relational_exch_rate_amount)) {
             throw new \InvalidArgumentException('non-nullable relational_exch_rate_amount cannot be null');
         }
-
         $this->container['relational_exch_rate_amount'] = $relational_exch_rate_amount;
 
         return $this;
@@ -620,11 +606,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setAdjustmentExchRateAmount($adjustment_exch_rate_amount)
     {
-
         if (is_null($adjustment_exch_rate_amount)) {
             throw new \InvalidArgumentException('non-nullable adjustment_exch_rate_amount cannot be null');
         }
-
         $this->container['adjustment_exch_rate_amount'] = $adjustment_exch_rate_amount;
 
         return $this;
@@ -649,11 +633,9 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setRelationalAdjmtExchRateAmt($relational_adjmt_exch_rate_amt)
     {
-
         if (is_null($relational_adjmt_exch_rate_amt)) {
             throw new \InvalidArgumentException('non-nullable relational_adjmt_exch_rate_amt cannot be null');
         }
-
         $this->container['relational_adjmt_exch_rate_amt'] = $relational_adjmt_exch_rate_amt;
 
         return $this;
@@ -678,8 +660,11 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function setFixExchangeRateAmount($fix_exchange_rate_amount)
     {
+        if (is_null($fix_exchange_rate_amount)) {
+            throw new \InvalidArgumentException('non-nullable fix_exchange_rate_amount cannot be null');
+        }
         $allowedValues = $this->getFixExchangeRateAmountAllowableValues();
-        if (!is_null($fix_exchange_rate_amount) && !in_array($fix_exchange_rate_amount, $allowedValues, true)) {
+        if (!in_array($fix_exchange_rate_amount, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'fix_exchange_rate_amount', must be one of '%s'",
@@ -688,11 +673,6 @@ class SpyExchangeRatesResponse implements ModelInterface, ArrayAccess, \JsonSeri
                 )
             );
         }
-
-        if (is_null($fix_exchange_rate_amount)) {
-            throw new \InvalidArgumentException('non-nullable fix_exchange_rate_amount cannot be null');
-        }
-
         $this->container['fix_exchange_rate_amount'] = $fix_exchange_rate_amount;
 
         return $this;

@@ -351,11 +351,9 @@ class SpyInsertPostCode implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCountry($country)
     {
-
         if (is_null($country)) {
             throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
-
         $this->container['country'] = $country;
 
         return $this;
@@ -380,11 +378,9 @@ class SpyInsertPostCode implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCity($city)
     {
-
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
-
         $this->container['city'] = $city;
 
         return $this;
@@ -409,11 +405,9 @@ class SpyInsertPostCode implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setPostCode($post_code)
     {
-
         if (is_null($post_code)) {
             throw new \InvalidArgumentException('non-nullable post_code cannot be null');
         }
-
         $this->container['post_code'] = $post_code;
 
         return $this;

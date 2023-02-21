@@ -492,11 +492,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -521,11 +519,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -550,11 +546,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -579,11 +573,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -608,8 +600,11 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setContactType($contact_type)
     {
+        if (is_null($contact_type)) {
+            throw new \InvalidArgumentException('non-nullable contact_type cannot be null');
+        }
         $allowedValues = $this->getContactTypeAllowableValues();
-        if (!is_null($contact_type) && !in_array($contact_type, $allowedValues, true)) {
+        if (!in_array($contact_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'contact_type', must be one of '%s'",
@@ -618,11 +613,6 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
                 )
             );
         }
-
-        if (is_null($contact_type)) {
-            throw new \InvalidArgumentException('non-nullable contact_type cannot be null');
-        }
-
         $this->container['contact_type'] = $contact_type;
 
         return $this;
@@ -647,11 +637,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCountryRegionCode($country_region_code)
     {
-
         if (is_null($country_region_code)) {
             throw new \InvalidArgumentException('non-nullable country_region_code cannot be null');
         }
-
         $this->container['country_region_code'] = $country_region_code;
 
         return $this;
@@ -676,11 +664,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setTerritoryCode($territory_code)
     {
-
         if (is_null($territory_code)) {
             throw new \InvalidArgumentException('non-nullable territory_code cannot be null');
         }
-
         $this->container['territory_code'] = $territory_code;
 
         return $this;
@@ -705,11 +691,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCurrencyCode($currency_code)
     {
-
         if (is_null($currency_code)) {
             throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
-
         $this->container['currency_code'] = $currency_code;
 
         return $this;
@@ -734,11 +718,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setGenBusPostingGroup($gen_bus_posting_group)
     {
-
         if (is_null($gen_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_bus_posting_group cannot be null');
         }
-
         $this->container['gen_bus_posting_group'] = $gen_bus_posting_group;
 
         return $this;
@@ -763,11 +745,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setVatBusPostingGroup($vat_bus_posting_group)
     {
-
         if (is_null($vat_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_bus_posting_group cannot be null');
         }
-
         $this->container['vat_bus_posting_group'] = $vat_bus_posting_group;
 
         return $this;
@@ -792,11 +772,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCustomerPostingGroup($customer_posting_group)
     {
-
         if (is_null($customer_posting_group)) {
             throw new \InvalidArgumentException('non-nullable customer_posting_group cannot be null');
         }
-
         $this->container['customer_posting_group'] = $customer_posting_group;
 
         return $this;
@@ -821,11 +799,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCustomerPriceGroup($customer_price_group)
     {
-
         if (is_null($customer_price_group)) {
             throw new \InvalidArgumentException('non-nullable customer_price_group cannot be null');
         }
-
         $this->container['customer_price_group'] = $customer_price_group;
 
         return $this;
@@ -850,11 +826,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setCustomerDiscGroup($customer_disc_group)
     {
-
         if (is_null($customer_disc_group)) {
             throw new \InvalidArgumentException('non-nullable customer_disc_group cannot be null');
         }
-
         $this->container['customer_disc_group'] = $customer_disc_group;
 
         return $this;
@@ -879,11 +853,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setAllowLineDisc($allow_line_disc)
     {
-
         if (is_null($allow_line_disc)) {
             throw new \InvalidArgumentException('non-nullable allow_line_disc cannot be null');
         }
-
         $this->container['allow_line_disc'] = $allow_line_disc;
 
         return $this;
@@ -908,11 +880,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setInvoiceDiscCode($invoice_disc_code)
     {
-
         if (is_null($invoice_disc_code)) {
             throw new \InvalidArgumentException('non-nullable invoice_disc_code cannot be null');
         }
-
         $this->container['invoice_disc_code'] = $invoice_disc_code;
 
         return $this;
@@ -937,11 +907,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPricesIncludingVat($prices_including_vat)
     {
-
         if (is_null($prices_including_vat)) {
             throw new \InvalidArgumentException('non-nullable prices_including_vat cannot be null');
         }
-
         $this->container['prices_including_vat'] = $prices_including_vat;
 
         return $this;
@@ -966,11 +934,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPaymentTermsCode($payment_terms_code)
     {
-
         if (is_null($payment_terms_code)) {
             throw new \InvalidArgumentException('non-nullable payment_terms_code cannot be null');
         }
-
         $this->container['payment_terms_code'] = $payment_terms_code;
 
         return $this;
@@ -995,11 +961,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPaymentMethodCode($payment_method_code)
     {
-
         if (is_null($payment_method_code)) {
             throw new \InvalidArgumentException('non-nullable payment_method_code cannot be null');
         }
-
         $this->container['payment_method_code'] = $payment_method_code;
 
         return $this;
@@ -1024,11 +988,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setShipmentMethodCode($shipment_method_code)
     {
-
         if (is_null($shipment_method_code)) {
             throw new \InvalidArgumentException('non-nullable shipment_method_code cannot be null');
         }
-
         $this->container['shipment_method_code'] = $shipment_method_code;
 
         return $this;
@@ -1053,11 +1015,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setGlobalDimension1Code($global_dimension_1_code)
     {
-
         if (is_null($global_dimension_1_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_1_code cannot be null');
         }
-
         $this->container['global_dimension_1_code'] = $global_dimension_1_code;
 
         return $this;
@@ -1082,11 +1042,9 @@ class SpyCustomerTemplateResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setGlobalDimension2Code($global_dimension_2_code)
     {
-
         if (is_null($global_dimension_2_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_2_code cannot be null');
         }
-
         $this->container['global_dimension_2_code'] = $global_dimension_2_code;
 
         return $this;

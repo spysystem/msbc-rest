@@ -363,11 +363,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -392,11 +390,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -421,11 +417,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setTableNo($table_no)
     {
-
         if (is_null($table_no)) {
             throw new \InvalidArgumentException('non-nullable table_no cannot be null');
         }
-
         $this->container['table_no'] = $table_no;
 
         return $this;
@@ -450,11 +444,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setFieldNo($field_no)
     {
-
         if (is_null($field_no)) {
             throw new \InvalidArgumentException('non-nullable field_no cannot be null');
         }
-
         $this->container['field_no'] = $field_no;
 
         return $this;
@@ -479,11 +471,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setTableName($table_name)
     {
-
         if (is_null($table_name)) {
             throw new \InvalidArgumentException('non-nullable table_name cannot be null');
         }
-
         $this->container['table_name'] = $table_name;
 
         return $this;
@@ -508,11 +498,9 @@ class SpyFieldsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setFieldName($field_name)
     {
-
         if (is_null($field_name)) {
             throw new \InvalidArgumentException('non-nullable field_name cannot be null');
         }
-
         $this->container['field_name'] = $field_name;
 
         return $this;

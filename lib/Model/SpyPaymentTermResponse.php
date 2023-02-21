@@ -85,7 +85,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'discount_percent' => 'float',
         'calc_pmt_disc_on_cr_memos' => 'bool',
         'description' => 'string',
-        'oioubl_code' => 'string',
         'coupled_to_crm' => 'bool'
     ];
 
@@ -105,7 +104,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'discount_percent' => null,
         'calc_pmt_disc_on_cr_memos' => null,
         'description' => null,
-        'oioubl_code' => null,
         'coupled_to_crm' => null
     ];
 
@@ -123,7 +121,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
 		'discount_percent' => false,
 		'calc_pmt_disc_on_cr_memos' => false,
 		'description' => false,
-		'oioubl_code' => false,
 		'coupled_to_crm' => false
     ];
 
@@ -221,7 +218,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'discount_percent' => 'Discount_Percent',
         'calc_pmt_disc_on_cr_memos' => 'Calc_Pmt_Disc_on_Cr_Memos',
         'description' => 'Description',
-        'oioubl_code' => 'OIOUBL_Code',
         'coupled_to_crm' => 'Coupled_to_CRM'
     ];
 
@@ -239,7 +235,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'discount_percent' => 'setDiscountPercent',
         'calc_pmt_disc_on_cr_memos' => 'setCalcPmtDiscOnCrMemos',
         'description' => 'setDescription',
-        'oioubl_code' => 'setOioublCode',
         'coupled_to_crm' => 'setCoupledToCrm'
     ];
 
@@ -257,7 +252,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'discount_percent' => 'getDiscountPercent',
         'calc_pmt_disc_on_cr_memos' => 'getCalcPmtDiscOnCrMemos',
         'description' => 'getDescription',
-        'oioubl_code' => 'getOioublCode',
         'coupled_to_crm' => 'getCoupledToCrm'
     ];
 
@@ -302,23 +296,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const OIOUBL_CODE_SPACE_1 = ' ';
-    public const OIOUBL_CODE_CONTRACT = 'Contract';
-    public const OIOUBL_CODE_SPECIFIC = 'Specific';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOioublCodeAllowableValues()
-    {
-        return [
-            self::OIOUBL_CODE_SPACE_1,
-            self::OIOUBL_CODE_CONTRACT,
-            self::OIOUBL_CODE_SPECIFIC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -343,7 +320,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('discount_percent', $data ?? [], null);
         $this->setIfExists('calc_pmt_disc_on_cr_memos', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('oioubl_code', $data ?? [], ' ');
         $this->setIfExists('coupled_to_crm', $data ?? [], null);
     }
 
@@ -373,15 +349,6 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getOioublCodeAllowableValues();
-        if (!is_null($this->container['oioubl_code']) && !in_array($this->container['oioubl_code'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'oioubl_code', must be one of '%s'",
-                $this->container['oioubl_code'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -417,11 +384,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -446,11 +411,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -475,11 +438,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -504,11 +465,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDueDateCalculation($due_date_calculation)
     {
-
         if (is_null($due_date_calculation)) {
             throw new \InvalidArgumentException('non-nullable due_date_calculation cannot be null');
         }
-
         $this->container['due_date_calculation'] = $due_date_calculation;
 
         return $this;
@@ -533,11 +492,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDiscountDateCalculation($discount_date_calculation)
     {
-
         if (is_null($discount_date_calculation)) {
             throw new \InvalidArgumentException('non-nullable discount_date_calculation cannot be null');
         }
-
         $this->container['discount_date_calculation'] = $discount_date_calculation;
 
         return $this;
@@ -562,11 +519,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDiscountPercent($discount_percent)
     {
-
         if (is_null($discount_percent)) {
             throw new \InvalidArgumentException('non-nullable discount_percent cannot be null');
         }
-
         $this->container['discount_percent'] = $discount_percent;
 
         return $this;
@@ -591,11 +546,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setCalcPmtDiscOnCrMemos($calc_pmt_disc_on_cr_memos)
     {
-
         if (is_null($calc_pmt_disc_on_cr_memos)) {
             throw new \InvalidArgumentException('non-nullable calc_pmt_disc_on_cr_memos cannot be null');
         }
-
         $this->container['calc_pmt_disc_on_cr_memos'] = $calc_pmt_disc_on_cr_memos;
 
         return $this;
@@ -620,51 +573,10 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets oioubl_code
-     *
-     * @return string|null
-     */
-    public function getOioublCode()
-    {
-        return $this->container['oioubl_code'];
-    }
-
-    /**
-     * Sets oioubl_code
-     *
-     * @param string|null $oioubl_code oioubl_code
-     *
-     * @return self
-     */
-    public function setOioublCode($oioubl_code)
-    {
-        $allowedValues = $this->getOioublCodeAllowableValues();
-        if (!is_null($oioubl_code) && !in_array($oioubl_code, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'oioubl_code', must be one of '%s'",
-                    $oioubl_code,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-
-        if (is_null($oioubl_code)) {
-            throw new \InvalidArgumentException('non-nullable oioubl_code cannot be null');
-        }
-
-        $this->container['oioubl_code'] = $oioubl_code;
 
         return $this;
     }
@@ -688,11 +600,9 @@ class SpyPaymentTermResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setCoupledToCrm($coupled_to_crm)
     {
-
         if (is_null($coupled_to_crm)) {
             throw new \InvalidArgumentException('non-nullable coupled_to_crm cannot be null');
         }
-
         $this->container['coupled_to_crm'] = $coupled_to_crm;
 
         return $this;

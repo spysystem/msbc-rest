@@ -349,11 +349,9 @@ class SpyFieldsAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTableNo($table_no)
     {
-
         if (is_null($table_no)) {
             throw new \InvalidArgumentException('non-nullable table_no cannot be null');
         }
-
         $this->container['table_no'] = $table_no;
 
         return $this;
@@ -378,11 +376,9 @@ class SpyFieldsAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFieldNo($field_no)
     {
-
         if (is_null($field_no)) {
             throw new \InvalidArgumentException('non-nullable field_no cannot be null');
         }
-
         $this->container['field_no'] = $field_no;
 
         return $this;
@@ -407,11 +403,9 @@ class SpyFieldsAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTableName($table_name)
     {
-
         if (is_null($table_name)) {
             throw new \InvalidArgumentException('non-nullable table_name cannot be null');
         }
-
         $this->container['table_name'] = $table_name;
 
         return $this;
@@ -436,11 +430,9 @@ class SpyFieldsAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFieldName($field_name)
     {
-
         if (is_null($field_name)) {
             throw new \InvalidArgumentException('non-nullable field_name cannot be null');
         }
-
         $this->container['field_name'] = $field_name;
 
         return $this;

@@ -46,7 +46,6 @@ class SpyPaymentTermResponseModelFields
     public string $strDiscountPercent = 'Discount_Percent';
     public string $strCalcPmtDiscOnCrMemos = 'Calc_Pmt_Disc_on_Cr_Memos';
     public string $strDescription = 'Description';
-    public string $strOioublCode = 'OIOUBL_Code';
     public string $strCoupledToCrm = 'Coupled_to_CRM';
 }
 

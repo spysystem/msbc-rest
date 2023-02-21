@@ -355,11 +355,9 @@ class BatchResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -384,11 +382,9 @@ class BatchResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setStatus($status)
     {
-
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-
         $this->container['status'] = $status;
 
         return $this;
@@ -413,11 +409,9 @@ class BatchResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setHeaders($headers)
     {
-
         if (is_null($headers)) {
             throw new \InvalidArgumentException('non-nullable headers cannot be null');
         }
-
         $this->container['headers'] = $headers;
 
         return $this;
@@ -442,11 +436,9 @@ class BatchResponseItem implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setBody($body)
     {
-
         if (is_null($body)) {
             throw new \InvalidArgumentException('non-nullable body cannot be null');
         }
-
         $this->container['body'] = $body;
 
         return $this;

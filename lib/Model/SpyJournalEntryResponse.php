@@ -515,11 +515,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -544,11 +542,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -573,11 +569,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setJournalTemplateName($journal_template_name)
     {
-
         if (is_null($journal_template_name)) {
             throw new \InvalidArgumentException('non-nullable journal_template_name cannot be null');
         }
-
         $this->container['journal_template_name'] = $journal_template_name;
 
         return $this;
@@ -602,11 +596,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setJournalBatchName($journal_batch_name)
     {
-
         if (is_null($journal_batch_name)) {
             throw new \InvalidArgumentException('non-nullable journal_batch_name cannot be null');
         }
-
         $this->container['journal_batch_name'] = $journal_batch_name;
 
         return $this;
@@ -631,11 +623,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDueDate($due_date)
     {
-
         if (is_null($due_date)) {
             throw new \InvalidArgumentException('non-nullable due_date cannot be null');
         }
-
         $this->container['due_date'] = $due_date;
 
         return $this;
@@ -660,11 +650,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPaymentTermsCode($payment_terms_code)
     {
-
         if (is_null($payment_terms_code)) {
             throw new \InvalidArgumentException('non-nullable payment_terms_code cannot be null');
         }
-
         $this->container['payment_terms_code'] = $payment_terms_code;
 
         return $this;
@@ -689,11 +677,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPmtDiscountDate($pmt_discount_date)
     {
-
         if (is_null($pmt_discount_date)) {
             throw new \InvalidArgumentException('non-nullable pmt_discount_date cannot be null');
         }
-
         $this->container['pmt_discount_date'] = $pmt_discount_date;
 
         return $this;
@@ -718,11 +704,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setLineNo($line_no)
     {
-
         if (is_null($line_no)) {
             throw new \InvalidArgumentException('non-nullable line_no cannot be null');
         }
-
         $this->container['line_no'] = $line_no;
 
         return $this;
@@ -747,11 +731,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPostingDate($posting_date)
     {
-
         if (is_null($posting_date)) {
             throw new \InvalidArgumentException('non-nullable posting_date cannot be null');
         }
-
         $this->container['posting_date'] = $posting_date;
 
         return $this;
@@ -776,11 +758,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDocumentNo($document_no)
     {
-
         if (is_null($document_no)) {
             throw new \InvalidArgumentException('non-nullable document_no cannot be null');
         }
-
         $this->container['document_no'] = $document_no;
 
         return $this;
@@ -805,11 +785,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setExternalDocumentNo($external_document_no)
     {
-
         if (is_null($external_document_no)) {
             throw new \InvalidArgumentException('non-nullable external_document_no cannot be null');
         }
-
         $this->container['external_document_no'] = $external_document_no;
 
         return $this;
@@ -834,11 +812,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAccountNo($account_no)
     {
-
         if (is_null($account_no)) {
             throw new \InvalidArgumentException('non-nullable account_no cannot be null');
         }
-
         $this->container['account_no'] = $account_no;
 
         return $this;
@@ -863,8 +839,11 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAccountType($account_type)
     {
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        }
         $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!is_null($account_type) && !in_array($account_type, $allowedValues, true)) {
+        if (!in_array($account_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'account_type', must be one of '%s'",
@@ -873,11 +852,6 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
                 )
             );
         }
-
-        if (is_null($account_type)) {
-            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
-        }
-
         $this->container['account_type'] = $account_type;
 
         return $this;
@@ -902,11 +876,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAmount($amount)
     {
-
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
         $this->container['amount'] = $amount;
 
         return $this;
@@ -931,11 +903,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCurrencyCode($currency_code)
     {
-
         if (is_null($currency_code)) {
             throw new \InvalidArgumentException('non-nullable currency_code cannot be null');
         }
-
         $this->container['currency_code'] = $currency_code;
 
         return $this;
@@ -960,11 +930,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setAmountLcy($amount_lcy)
     {
-
         if (is_null($amount_lcy)) {
             throw new \InvalidArgumentException('non-nullable amount_lcy cannot be null');
         }
-
         $this->container['amount_lcy'] = $amount_lcy;
 
         return $this;
@@ -989,8 +957,11 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDocumentType($document_type)
     {
+        if (is_null($document_type)) {
+            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+        }
         $allowedValues = $this->getDocumentTypeAllowableValues();
-        if (!is_null($document_type) && !in_array($document_type, $allowedValues, true)) {
+        if (!in_array($document_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'document_type', must be one of '%s'",
@@ -999,11 +970,6 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
                 )
             );
         }
-
-        if (is_null($document_type)) {
-            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
-        }
-
         $this->container['document_type'] = $document_type;
 
         return $this;
@@ -1028,11 +994,9 @@ class SpyJournalEntryResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;

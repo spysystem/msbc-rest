@@ -528,11 +528,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -557,11 +555,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -586,11 +582,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatBusPostingGroup($vat_bus_posting_group)
     {
-
         if (is_null($vat_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_bus_posting_group cannot be null');
         }
-
         $this->container['vat_bus_posting_group'] = $vat_bus_posting_group;
 
         return $this;
@@ -615,11 +609,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatProdPostingGroup($vat_prod_posting_group)
     {
-
         if (is_null($vat_prod_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_prod_posting_group cannot be null');
         }
-
         $this->container['vat_prod_posting_group'] = $vat_prod_posting_group;
 
         return $this;
@@ -644,11 +636,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -673,11 +663,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setBlocked($blocked)
     {
-
         if (is_null($blocked)) {
             throw new \InvalidArgumentException('non-nullable blocked cannot be null');
         }
-
         $this->container['blocked'] = $blocked;
 
         return $this;
@@ -702,11 +690,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatIdentifier($vat_identifier)
     {
-
         if (is_null($vat_identifier)) {
             throw new \InvalidArgumentException('non-nullable vat_identifier cannot be null');
         }
-
         $this->container['vat_identifier'] = $vat_identifier;
 
         return $this;
@@ -731,11 +717,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatPercent($vat_percent)
     {
-
         if (is_null($vat_percent)) {
             throw new \InvalidArgumentException('non-nullable vat_percent cannot be null');
         }
-
         $this->container['vat_percent'] = $vat_percent;
 
         return $this;
@@ -760,8 +744,11 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatCalculationType($vat_calculation_type)
     {
+        if (is_null($vat_calculation_type)) {
+            throw new \InvalidArgumentException('non-nullable vat_calculation_type cannot be null');
+        }
         $allowedValues = $this->getVatCalculationTypeAllowableValues();
-        if (!is_null($vat_calculation_type) && !in_array($vat_calculation_type, $allowedValues, true)) {
+        if (!in_array($vat_calculation_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'vat_calculation_type', must be one of '%s'",
@@ -770,11 +757,6 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
                 )
             );
         }
-
-        if (is_null($vat_calculation_type)) {
-            throw new \InvalidArgumentException('non-nullable vat_calculation_type cannot be null');
-        }
-
         $this->container['vat_calculation_type'] = $vat_calculation_type;
 
         return $this;
@@ -799,8 +781,11 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setUnrealizedVatType($unrealized_vat_type)
     {
+        if (is_null($unrealized_vat_type)) {
+            throw new \InvalidArgumentException('non-nullable unrealized_vat_type cannot be null');
+        }
         $allowedValues = $this->getUnrealizedVatTypeAllowableValues();
-        if (!is_null($unrealized_vat_type) && !in_array($unrealized_vat_type, $allowedValues, true)) {
+        if (!in_array($unrealized_vat_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'unrealized_vat_type', must be one of '%s'",
@@ -809,11 +794,6 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
                 )
             );
         }
-
-        if (is_null($unrealized_vat_type)) {
-            throw new \InvalidArgumentException('non-nullable unrealized_vat_type cannot be null');
-        }
-
         $this->container['unrealized_vat_type'] = $unrealized_vat_type;
 
         return $this;
@@ -838,11 +818,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setAdjustForPaymentDiscount($adjust_for_payment_discount)
     {
-
         if (is_null($adjust_for_payment_discount)) {
             throw new \InvalidArgumentException('non-nullable adjust_for_payment_discount cannot be null');
         }
-
         $this->container['adjust_for_payment_discount'] = $adjust_for_payment_discount;
 
         return $this;
@@ -867,11 +845,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setSalesVatAccount($sales_vat_account)
     {
-
         if (is_null($sales_vat_account)) {
             throw new \InvalidArgumentException('non-nullable sales_vat_account cannot be null');
         }
-
         $this->container['sales_vat_account'] = $sales_vat_account;
 
         return $this;
@@ -896,11 +872,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setSalesVatUnrealAccount($sales_vat_unreal_account)
     {
-
         if (is_null($sales_vat_unreal_account)) {
             throw new \InvalidArgumentException('non-nullable sales_vat_unreal_account cannot be null');
         }
-
         $this->container['sales_vat_unreal_account'] = $sales_vat_unreal_account;
 
         return $this;
@@ -925,11 +899,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setPurchaseVatAccount($purchase_vat_account)
     {
-
         if (is_null($purchase_vat_account)) {
             throw new \InvalidArgumentException('non-nullable purchase_vat_account cannot be null');
         }
-
         $this->container['purchase_vat_account'] = $purchase_vat_account;
 
         return $this;
@@ -954,11 +926,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setPurchVatUnrealAccount($purch_vat_unreal_account)
     {
-
         if (is_null($purch_vat_unreal_account)) {
             throw new \InvalidArgumentException('non-nullable purch_vat_unreal_account cannot be null');
         }
-
         $this->container['purch_vat_unreal_account'] = $purch_vat_unreal_account;
 
         return $this;
@@ -983,11 +953,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setReverseChrgVatAcc($reverse_chrg_vat_acc)
     {
-
         if (is_null($reverse_chrg_vat_acc)) {
             throw new \InvalidArgumentException('non-nullable reverse_chrg_vat_acc cannot be null');
         }
-
         $this->container['reverse_chrg_vat_acc'] = $reverse_chrg_vat_acc;
 
         return $this;
@@ -1012,11 +980,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setReverseChrgVatUnrealAcc($reverse_chrg_vat_unreal_acc)
     {
-
         if (is_null($reverse_chrg_vat_unreal_acc)) {
             throw new \InvalidArgumentException('non-nullable reverse_chrg_vat_unreal_acc cannot be null');
         }
-
         $this->container['reverse_chrg_vat_unreal_acc'] = $reverse_chrg_vat_unreal_acc;
 
         return $this;
@@ -1041,11 +1007,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setVatClauseCode($vat_clause_code)
     {
-
         if (is_null($vat_clause_code)) {
             throw new \InvalidArgumentException('non-nullable vat_clause_code cannot be null');
         }
-
         $this->container['vat_clause_code'] = $vat_clause_code;
 
         return $this;
@@ -1070,11 +1034,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setEuService($eu_service)
     {
-
         if (is_null($eu_service)) {
             throw new \InvalidArgumentException('non-nullable eu_service cannot be null');
         }
-
         $this->container['eu_service'] = $eu_service;
 
         return $this;
@@ -1099,11 +1061,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setCertificateOfSupplyRequired($certificate_of_supply_required)
     {
-
         if (is_null($certificate_of_supply_required)) {
             throw new \InvalidArgumentException('non-nullable certificate_of_supply_required cannot be null');
         }
-
         $this->container['certificate_of_supply_required'] = $certificate_of_supply_required;
 
         return $this;
@@ -1128,11 +1088,9 @@ class SpyVatPostingSetupResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setTaxCategory($tax_category)
     {
-
         if (is_null($tax_category)) {
             throw new \InvalidArgumentException('non-nullable tax_category cannot be null');
         }
-
         $this->container['tax_category'] = $tax_category;
 
         return $this;

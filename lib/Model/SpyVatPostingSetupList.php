@@ -328,11 +328,9 @@ class SpyVatPostingSetupList implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setValue($value)
     {
-
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-
         $this->container['value'] = $value;
 
         return $this;

@@ -328,11 +328,9 @@ class BatchRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setRequests($requests)
     {
-
         if (is_null($requests)) {
             throw new \InvalidArgumentException('non-nullable requests cannot be null');
         }
-
         $this->container['requests'] = $requests;
 
         return $this;

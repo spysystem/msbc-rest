@@ -356,11 +356,9 @@ class JournalLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -385,11 +383,9 @@ class JournalLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemCreatedAt($system_created_at)
     {
-
         if (is_null($system_created_at)) {
             throw new \InvalidArgumentException('non-nullable system_created_at cannot be null');
         }
-
         $this->container['system_created_at'] = $system_created_at;
 
         return $this;
@@ -414,11 +410,9 @@ class JournalLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemCreatedBy($system_created_by)
     {
-
         if (is_null($system_created_by)) {
             throw new \InvalidArgumentException('non-nullable system_created_by cannot be null');
         }
-
         $this->container['system_created_by'] = $system_created_by;
 
         return $this;
@@ -443,11 +437,9 @@ class JournalLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemModifiedAt($system_modified_at)
     {
-
         if (is_null($system_modified_at)) {
             throw new \InvalidArgumentException('non-nullable system_modified_at cannot be null');
         }
-
         $this->container['system_modified_at'] = $system_modified_at;
 
         return $this;
@@ -472,11 +464,9 @@ class JournalLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemModifiedBy($system_modified_by)
     {
-
         if (is_null($system_modified_by)) {
             throw new \InvalidArgumentException('non-nullable system_modified_by cannot be null');
         }
-
         $this->container['system_modified_by'] = $system_modified_by;
 
         return $this;

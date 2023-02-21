@@ -705,11 +705,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -734,11 +732,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNo($no)
     {
-
         if (is_null($no)) {
             throw new \InvalidArgumentException('non-nullable no cannot be null');
         }
-
         $this->container['no'] = $no;
 
         return $this;
@@ -763,11 +759,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -792,11 +786,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNetChange($net_change)
     {
-
         if (is_null($net_change)) {
             throw new \InvalidArgumentException('non-nullable net_change cannot be null');
         }
-
         $this->container['net_change'] = $net_change;
 
         return $this;
@@ -821,11 +813,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalance($balance)
     {
-
         if (is_null($balance)) {
             throw new \InvalidArgumentException('non-nullable balance cannot be null');
         }
-
         $this->container['balance'] = $balance;
 
         return $this;
@@ -850,8 +840,11 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setIncomeBalance($income_balance)
     {
+        if (is_null($income_balance)) {
+            throw new \InvalidArgumentException('non-nullable income_balance cannot be null');
+        }
         $allowedValues = $this->getIncomeBalanceAllowableValues();
-        if (!is_null($income_balance) && !in_array($income_balance, $allowedValues, true)) {
+        if (!in_array($income_balance, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'income_balance', must be one of '%s'",
@@ -860,11 +853,6 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($income_balance)) {
-            throw new \InvalidArgumentException('non-nullable income_balance cannot be null');
-        }
-
         $this->container['income_balance'] = $income_balance;
 
         return $this;
@@ -889,8 +877,11 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAccountCategory($account_category)
     {
+        if (is_null($account_category)) {
+            throw new \InvalidArgumentException('non-nullable account_category cannot be null');
+        }
         $allowedValues = $this->getAccountCategoryAllowableValues();
-        if (!is_null($account_category) && !in_array($account_category, $allowedValues, true)) {
+        if (!in_array($account_category, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'account_category', must be one of '%s'",
@@ -899,11 +890,6 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($account_category)) {
-            throw new \InvalidArgumentException('non-nullable account_category cannot be null');
-        }
-
         $this->container['account_category'] = $account_category;
 
         return $this;
@@ -928,11 +914,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAccountSubcategoryDescript($account_subcategory_descript)
     {
-
         if (is_null($account_subcategory_descript)) {
             throw new \InvalidArgumentException('non-nullable account_subcategory_descript cannot be null');
         }
-
         $this->container['account_subcategory_descript'] = $account_subcategory_descript;
 
         return $this;
@@ -957,8 +941,11 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAccountType($account_type)
     {
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        }
         $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!is_null($account_type) && !in_array($account_type, $allowedValues, true)) {
+        if (!in_array($account_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'account_type', must be one of '%s'",
@@ -967,11 +954,6 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($account_type)) {
-            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
-        }
-
         $this->container['account_type'] = $account_type;
 
         return $this;
@@ -996,11 +978,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDirectPosting($direct_posting)
     {
-
         if (is_null($direct_posting)) {
             throw new \InvalidArgumentException('non-nullable direct_posting cannot be null');
         }
-
         $this->container['direct_posting'] = $direct_posting;
 
         return $this;
@@ -1025,11 +1005,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTotaling($totaling)
     {
-
         if (is_null($totaling)) {
             throw new \InvalidArgumentException('non-nullable totaling cannot be null');
         }
-
         $this->container['totaling'] = $totaling;
 
         return $this;
@@ -1054,8 +1032,11 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenPostingType($gen_posting_type)
     {
+        if (is_null($gen_posting_type)) {
+            throw new \InvalidArgumentException('non-nullable gen_posting_type cannot be null');
+        }
         $allowedValues = $this->getGenPostingTypeAllowableValues();
-        if (!is_null($gen_posting_type) && !in_array($gen_posting_type, $allowedValues, true)) {
+        if (!in_array($gen_posting_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'gen_posting_type', must be one of '%s'",
@@ -1064,11 +1045,6 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($gen_posting_type)) {
-            throw new \InvalidArgumentException('non-nullable gen_posting_type cannot be null');
-        }
-
         $this->container['gen_posting_type'] = $gen_posting_type;
 
         return $this;
@@ -1093,11 +1069,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenBusPostingGroup($gen_bus_posting_group)
     {
-
         if (is_null($gen_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_bus_posting_group cannot be null');
         }
-
         $this->container['gen_bus_posting_group'] = $gen_bus_posting_group;
 
         return $this;
@@ -1122,11 +1096,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenProdPostingGroup($gen_prod_posting_group)
     {
-
         if (is_null($gen_prod_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_prod_posting_group cannot be null');
         }
-
         $this->container['gen_prod_posting_group'] = $gen_prod_posting_group;
 
         return $this;
@@ -1151,11 +1123,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatBusPostingGroup($vat_bus_posting_group)
     {
-
         if (is_null($vat_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_bus_posting_group cannot be null');
         }
-
         $this->container['vat_bus_posting_group'] = $vat_bus_posting_group;
 
         return $this;
@@ -1180,11 +1150,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatProdPostingGroup($vat_prod_posting_group)
     {
-
         if (is_null($vat_prod_posting_group)) {
             throw new \InvalidArgumentException('non-nullable vat_prod_posting_group cannot be null');
         }
-
         $this->container['vat_prod_posting_group'] = $vat_prod_posting_group;
 
         return $this;
@@ -1209,11 +1177,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDebitAmount($debit_amount)
     {
-
         if (is_null($debit_amount)) {
             throw new \InvalidArgumentException('non-nullable debit_amount cannot be null');
         }
-
         $this->container['debit_amount'] = $debit_amount;
 
         return $this;
@@ -1238,11 +1204,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCreditAmount($credit_amount)
     {
-
         if (is_null($credit_amount)) {
             throw new \InvalidArgumentException('non-nullable credit_amount cannot be null');
         }
-
         $this->container['credit_amount'] = $credit_amount;
 
         return $this;
@@ -1267,11 +1231,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalanceAtDate($balance_at_date)
     {
-
         if (is_null($balance_at_date)) {
             throw new \InvalidArgumentException('non-nullable balance_at_date cannot be null');
         }
-
         $this->container['balance_at_date'] = $balance_at_date;
 
         return $this;
@@ -1296,11 +1258,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAdditionalCurrencyNetChange($additional_currency_net_change)
     {
-
         if (is_null($additional_currency_net_change)) {
             throw new \InvalidArgumentException('non-nullable additional_currency_net_change cannot be null');
         }
-
         $this->container['additional_currency_net_change'] = $additional_currency_net_change;
 
         return $this;
@@ -1325,11 +1285,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAddCurrencyBalanceAtDate($add_currency_balance_at_date)
     {
-
         if (is_null($add_currency_balance_at_date)) {
             throw new \InvalidArgumentException('non-nullable add_currency_balance_at_date cannot be null');
         }
-
         $this->container['add_currency_balance_at_date'] = $add_currency_balance_at_date;
 
         return $this;
@@ -1354,11 +1312,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAdditionalCurrencyBalance($additional_currency_balance)
     {
-
         if (is_null($additional_currency_balance)) {
             throw new \InvalidArgumentException('non-nullable additional_currency_balance cannot be null');
         }
-
         $this->container['additional_currency_balance'] = $additional_currency_balance;
 
         return $this;
@@ -1383,11 +1339,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setConsolDebitAcc($consol_debit_acc)
     {
-
         if (is_null($consol_debit_acc)) {
             throw new \InvalidArgumentException('non-nullable consol_debit_acc cannot be null');
         }
-
         $this->container['consol_debit_acc'] = $consol_debit_acc;
 
         return $this;
@@ -1412,11 +1366,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setConsolCreditAcc($consol_credit_acc)
     {
-
         if (is_null($consol_credit_acc)) {
             throw new \InvalidArgumentException('non-nullable consol_credit_acc cannot be null');
         }
-
         $this->container['consol_credit_acc'] = $consol_credit_acc;
 
         return $this;
@@ -1441,11 +1393,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCostTypeNo($cost_type_no)
     {
-
         if (is_null($cost_type_no)) {
             throw new \InvalidArgumentException('non-nullable cost_type_no cannot be null');
         }
-
         $this->container['cost_type_no'] = $cost_type_no;
 
         return $this;
@@ -1470,8 +1420,11 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setConsolTranslationMethod($consol_translation_method)
     {
+        if (is_null($consol_translation_method)) {
+            throw new \InvalidArgumentException('non-nullable consol_translation_method cannot be null');
+        }
         $allowedValues = $this->getConsolTranslationMethodAllowableValues();
-        if (!is_null($consol_translation_method) && !in_array($consol_translation_method, $allowedValues, true)) {
+        if (!in_array($consol_translation_method, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'consol_translation_method', must be one of '%s'",
@@ -1480,11 +1433,6 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($consol_translation_method)) {
-            throw new \InvalidArgumentException('non-nullable consol_translation_method cannot be null');
-        }
-
         $this->container['consol_translation_method'] = $consol_translation_method;
 
         return $this;
@@ -1509,11 +1457,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDefaultIcPartnerGLAccNo($default_ic_partner_g_l_acc_no)
     {
-
         if (is_null($default_ic_partner_g_l_acc_no)) {
             throw new \InvalidArgumentException('non-nullable default_ic_partner_g_l_acc_no cannot be null');
         }
-
         $this->container['default_ic_partner_g_l_acc_no'] = $default_ic_partner_g_l_acc_no;
 
         return $this;
@@ -1538,11 +1484,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDefaultDeferralTemplateCode($default_deferral_template_code)
     {
-
         if (is_null($default_deferral_template_code)) {
             throw new \InvalidArgumentException('non-nullable default_deferral_template_code cannot be null');
         }
-
         $this->container['default_deferral_template_code'] = $default_deferral_template_code;
 
         return $this;
@@ -1567,11 +1511,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setNo2($no_2)
     {
-
         if (is_null($no_2)) {
             throw new \InvalidArgumentException('non-nullable no_2 cannot be null');
         }
-
         $this->container['no_2'] = $no_2;
 
         return $this;
@@ -1596,11 +1538,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBusinessUnitFilter($business_unit_filter)
     {
-
         if (is_null($business_unit_filter)) {
             throw new \InvalidArgumentException('non-nullable business_unit_filter cannot be null');
         }
-
         $this->container['business_unit_filter'] = $business_unit_filter;
 
         return $this;
@@ -1625,11 +1565,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension1Filter($global_dimension_1_filter)
     {
-
         if (is_null($global_dimension_1_filter)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_1_filter cannot be null');
         }
-
         $this->container['global_dimension_1_filter'] = $global_dimension_1_filter;
 
         return $this;
@@ -1654,11 +1592,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension2Filter($global_dimension_2_filter)
     {
-
         if (is_null($global_dimension_2_filter)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_2_filter cannot be null');
         }
-
         $this->container['global_dimension_2_filter'] = $global_dimension_2_filter;
 
         return $this;
@@ -1683,11 +1619,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDateFilter($date_filter)
     {
-
         if (is_null($date_filter)) {
             throw new \InvalidArgumentException('non-nullable date_filter cannot be null');
         }
-
         $this->container['date_filter'] = $date_filter;
 
         return $this;
@@ -1712,11 +1646,9 @@ class SpyLedgerAccount implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDimensionSetIdFilter($dimension_set_id_filter)
     {
-
         if (is_null($dimension_set_id_filter)) {
             throw new \InvalidArgumentException('non-nullable dimension_set_id_filter cannot be null');
         }
-
         $this->container['dimension_set_id_filter'] = $dimension_set_id_filter;
 
         return $this;

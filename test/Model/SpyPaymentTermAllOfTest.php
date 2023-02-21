@@ -134,15 +134,6 @@ class SpyPaymentTermAllOfTest extends TestCase
     }
 
     /**
-     * Test attribute "oioubl_code"
-     */
-    public function testPropertyOioublCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "coupled_to_crm"
      */
     public function testPropertyCoupledToCrm()

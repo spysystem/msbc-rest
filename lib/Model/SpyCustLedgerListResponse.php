@@ -335,11 +335,9 @@ class SpyCustLedgerListResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -364,11 +362,9 @@ class SpyCustLedgerListResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setValue($value)
     {
-
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-
         $this->container['value'] = $value;
 
         return $this;

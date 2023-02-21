@@ -335,11 +335,9 @@ class SpyDimension implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDimensionName($dimension_name)
     {
-
         if (is_null($dimension_name)) {
             throw new \InvalidArgumentException('non-nullable dimension_name cannot be null');
         }
-
         $this->container['dimension_name'] = $dimension_name;
 
         return $this;
@@ -364,11 +362,9 @@ class SpyDimension implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDimensionValue($dimension_value)
     {
-
         if (is_null($dimension_value)) {
             throw new \InvalidArgumentException('non-nullable dimension_value cannot be null');
         }
-
         $this->container['dimension_value'] = $dimension_value;
 
         return $this;

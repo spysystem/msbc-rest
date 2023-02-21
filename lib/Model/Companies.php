@@ -384,11 +384,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -413,11 +411,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemVersion($system_version)
     {
-
         if (is_null($system_version)) {
             throw new \InvalidArgumentException('non-nullable system_version cannot be null');
         }
-
         $this->container['system_version'] = $system_version;
 
         return $this;
@@ -442,11 +438,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -471,11 +465,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDisplayName($display_name)
     {
-
         if (is_null($display_name)) {
             throw new \InvalidArgumentException('non-nullable display_name cannot be null');
         }
-
         $this->container['display_name'] = $display_name;
 
         return $this;
@@ -500,11 +492,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBusinessProfileId($business_profile_id)
     {
-
         if (is_null($business_profile_id)) {
             throw new \InvalidArgumentException('non-nullable business_profile_id cannot be null');
         }
-
         $this->container['business_profile_id'] = $business_profile_id;
 
         return $this;
@@ -529,11 +519,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemCreatedAt($system_created_at)
     {
-
         if (is_null($system_created_at)) {
             throw new \InvalidArgumentException('non-nullable system_created_at cannot be null');
         }
-
         $this->container['system_created_at'] = $system_created_at;
 
         return $this;
@@ -558,11 +546,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemCreatedBy($system_created_by)
     {
-
         if (is_null($system_created_by)) {
             throw new \InvalidArgumentException('non-nullable system_created_by cannot be null');
         }
-
         $this->container['system_created_by'] = $system_created_by;
 
         return $this;
@@ -587,11 +573,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemModifiedAt($system_modified_at)
     {
-
         if (is_null($system_modified_at)) {
             throw new \InvalidArgumentException('non-nullable system_modified_at cannot be null');
         }
-
         $this->container['system_modified_at'] = $system_modified_at;
 
         return $this;
@@ -616,11 +600,9 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSystemModifiedBy($system_modified_by)
     {
-
         if (is_null($system_modified_by)) {
             throw new \InvalidArgumentException('non-nullable system_modified_by cannot be null');
         }
-
         $this->container['system_modified_by'] = $system_modified_by;
 
         return $this;

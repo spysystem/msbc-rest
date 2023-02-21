@@ -365,11 +365,9 @@ class BatchRequestItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -394,11 +392,9 @@ class BatchRequestItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMethod($method)
     {
-
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
         }
-
         $this->container['method'] = $method;
 
         return $this;
@@ -423,11 +419,9 @@ class BatchRequestItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUrl($url)
     {
-
         if (is_null($url)) {
             throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-
         $this->container['url'] = $url;
 
         return $this;
@@ -452,11 +446,9 @@ class BatchRequestItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setHeaders($headers)
     {
-
         if (is_null($headers)) {
             throw new \InvalidArgumentException('non-nullable headers cannot be null');
         }
-
         $this->container['headers'] = $headers;
 
         return $this;
@@ -481,11 +473,9 @@ class BatchRequestItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBody($body)
     {
-
         if (is_null($body)) {
             throw new \InvalidArgumentException('non-nullable body cannot be null');
         }
-
         $this->container['body'] = $body;
 
         return $this;

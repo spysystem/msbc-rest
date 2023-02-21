@@ -552,11 +552,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -581,11 +579,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -610,11 +606,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setTemplateName($template_name)
     {
-
         if (is_null($template_name)) {
             throw new \InvalidArgumentException('non-nullable template_name cannot be null');
         }
-
         $this->container['template_name'] = $template_name;
 
         return $this;
@@ -639,11 +633,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setJournalName($journal_name)
     {
-
         if (is_null($journal_name)) {
             throw new \InvalidArgumentException('non-nullable journal_name cannot be null');
         }
-
         $this->container['journal_name'] = $journal_name;
 
         return $this;
@@ -668,11 +660,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDocumentNumber($document_number)
     {
-
         if (is_null($document_number)) {
             throw new \InvalidArgumentException('non-nullable document_number cannot be null');
         }
-
         $this->container['document_number'] = $document_number;
 
         return $this;
@@ -697,11 +687,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDocumentType($document_type)
     {
-
         if (is_null($document_type)) {
             throw new \InvalidArgumentException('non-nullable document_type cannot be null');
         }
-
         $this->container['document_type'] = $document_type;
 
         return $this;
@@ -726,11 +714,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCountryType($country_type)
     {
-
         if (is_null($country_type)) {
             throw new \InvalidArgumentException('non-nullable country_type cannot be null');
         }
-
         $this->container['country_type'] = $country_type;
 
         return $this;
@@ -755,11 +741,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAccount($account)
     {
-
         if (is_null($account)) {
             throw new \InvalidArgumentException('non-nullable account cannot be null');
         }
-
         $this->container['account'] = $account;
 
         return $this;
@@ -784,11 +768,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -813,11 +795,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAmount($amount)
     {
-
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
         $this->container['amount'] = $amount;
 
         return $this;
@@ -842,11 +822,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setEntryType($entry_type)
     {
-
         if (is_null($entry_type)) {
             throw new \InvalidArgumentException('non-nullable entry_type cannot be null');
         }
-
         $this->container['entry_type'] = $entry_type;
 
         return $this;
@@ -871,11 +849,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setPostingDate($posting_date)
     {
-
         if (is_null($posting_date)) {
             throw new \InvalidArgumentException('non-nullable posting_date cannot be null');
         }
-
         $this->container['posting_date'] = $posting_date;
 
         return $this;
@@ -900,11 +876,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDeliveryAccount($delivery_account)
     {
-
         if (is_null($delivery_account)) {
             throw new \InvalidArgumentException('non-nullable delivery_account cannot be null');
         }
-
         $this->container['delivery_account'] = $delivery_account;
 
         return $this;
@@ -929,11 +903,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setPostType($post_type)
     {
-
         if (is_null($post_type)) {
             throw new \InvalidArgumentException('non-nullable post_type cannot be null');
         }
-
         $this->container['post_type'] = $post_type;
 
         return $this;
@@ -958,11 +930,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setInvoiceNo($invoice_no)
     {
-
         if (is_null($invoice_no)) {
             throw new \InvalidArgumentException('non-nullable invoice_no cannot be null');
         }
-
         $this->container['invoice_no'] = $invoice_no;
 
         return $this;
@@ -987,11 +957,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCurrency($currency)
     {
-
         if (is_null($currency)) {
             throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
-
         $this->container['currency'] = $currency;
 
         return $this;
@@ -1016,11 +984,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAmountBaseCurrency($amount_base_currency)
     {
-
         if (is_null($amount_base_currency)) {
             throw new \InvalidArgumentException('non-nullable amount_base_currency cannot be null');
         }
-
         $this->container['amount_base_currency'] = $amount_base_currency;
 
         return $this;
@@ -1045,11 +1011,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCountyUsTaxAccount($county_us_tax_account)
     {
-
         if (is_null($county_us_tax_account)) {
             throw new \InvalidArgumentException('non-nullable county_us_tax_account cannot be null');
         }
-
         $this->container['county_us_tax_account'] = $county_us_tax_account;
 
         return $this;
@@ -1074,11 +1038,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setStateUsTaxAccount($state_us_tax_account)
     {
-
         if (is_null($state_us_tax_account)) {
             throw new \InvalidArgumentException('non-nullable state_us_tax_account cannot be null');
         }
-
         $this->container['state_us_tax_account'] = $state_us_tax_account;
 
         return $this;
@@ -1103,11 +1065,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setVatCode($vat_code)
     {
-
         if (is_null($vat_code)) {
             throw new \InvalidArgumentException('non-nullable vat_code cannot be null');
         }
-
         $this->container['vat_code'] = $vat_code;
 
         return $this;
@@ -1132,11 +1092,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setVatArea($vat_area)
     {
-
         if (is_null($vat_area)) {
             throw new \InvalidArgumentException('non-nullable vat_area cannot be null');
         }
-
         $this->container['vat_area'] = $vat_area;
 
         return $this;
@@ -1161,11 +1119,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setTaxTitle($tax_title)
     {
-
         if (is_null($tax_title)) {
             throw new \InvalidArgumentException('non-nullable tax_title cannot be null');
         }
-
         $this->container['tax_title'] = $tax_title;
 
         return $this;
@@ -1190,11 +1146,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setTaxPercentage($tax_percentage)
     {
-
         if (is_null($tax_percentage)) {
             throw new \InvalidArgumentException('non-nullable tax_percentage cannot be null');
         }
-
         $this->container['tax_percentage'] = $tax_percentage;
 
         return $this;
@@ -1219,11 +1173,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDueDate($due_date)
     {
-
         if (is_null($due_date)) {
             throw new \InvalidArgumentException('non-nullable due_date cannot be null');
         }
-
         $this->container['due_date'] = $due_date;
 
         return $this;
@@ -1248,11 +1200,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setPaymentTerm($payment_term)
     {
-
         if (is_null($payment_term)) {
             throw new \InvalidArgumentException('non-nullable payment_term cannot be null');
         }
-
         $this->container['payment_term'] = $payment_term;
 
         return $this;
@@ -1277,11 +1227,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCashDiscountDate($cash_discount_date)
     {
-
         if (is_null($cash_discount_date)) {
             throw new \InvalidArgumentException('non-nullable cash_discount_date cannot be null');
         }
-
         $this->container['cash_discount_date'] = $cash_discount_date;
 
         return $this;
@@ -1306,11 +1254,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setCustGroup($cust_group)
     {
-
         if (is_null($cust_group)) {
             throw new \InvalidArgumentException('non-nullable cust_group cannot be null');
         }
-
         $this->container['cust_group'] = $cust_group;
 
         return $this;
@@ -1335,11 +1281,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setSpyDimensions($spy_dimensions)
     {
-
         if (is_null($spy_dimensions)) {
             throw new \InvalidArgumentException('non-nullable spy_dimensions cannot be null');
         }
-
         $this->container['spy_dimensions'] = $spy_dimensions;
 
         return $this;
@@ -1364,11 +1308,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setId($id)
     {
-
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-
         $this->container['id'] = $id;
 
         return $this;
@@ -1393,11 +1335,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setSystemCreatedAt($system_created_at)
     {
-
         if (is_null($system_created_at)) {
             throw new \InvalidArgumentException('non-nullable system_created_at cannot be null');
         }
-
         $this->container['system_created_at'] = $system_created_at;
 
         return $this;
@@ -1422,11 +1362,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setSystemCreatedBy($system_created_by)
     {
-
         if (is_null($system_created_by)) {
             throw new \InvalidArgumentException('non-nullable system_created_by cannot be null');
         }
-
         $this->container['system_created_by'] = $system_created_by;
 
         return $this;
@@ -1451,11 +1389,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setSystemModifiedAt($system_modified_at)
     {
-
         if (is_null($system_modified_at)) {
             throw new \InvalidArgumentException('non-nullable system_modified_at cannot be null');
         }
-
         $this->container['system_modified_at'] = $system_modified_at;
 
         return $this;
@@ -1480,11 +1416,9 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setSystemModifiedBy($system_modified_by)
     {
-
         if (is_null($system_modified_by)) {
             throw new \InvalidArgumentException('non-nullable system_modified_by cannot be null');
         }
-
         $this->container['system_modified_by'] = $system_modified_by;
 
         return $this;

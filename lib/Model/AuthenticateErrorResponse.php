@@ -370,11 +370,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setError($error)
     {
-
         if (is_null($error)) {
             throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
-
         $this->container['error'] = $error;
 
         return $this;
@@ -399,11 +397,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setErrorDescription($error_description)
     {
-
         if (is_null($error_description)) {
             throw new \InvalidArgumentException('non-nullable error_description cannot be null');
         }
-
         $this->container['error_description'] = $error_description;
 
         return $this;
@@ -428,11 +424,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setErrorCodes($error_codes)
     {
-
         if (is_null($error_codes)) {
             throw new \InvalidArgumentException('non-nullable error_codes cannot be null');
         }
-
         $this->container['error_codes'] = $error_codes;
 
         return $this;
@@ -457,11 +451,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setTimestamp($timestamp)
     {
-
         if (is_null($timestamp)) {
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
-
         $this->container['timestamp'] = $timestamp;
 
         return $this;
@@ -486,11 +478,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setTraceId($trace_id)
     {
-
         if (is_null($trace_id)) {
             throw new \InvalidArgumentException('non-nullable trace_id cannot be null');
         }
-
         $this->container['trace_id'] = $trace_id;
 
         return $this;
@@ -515,11 +505,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setCorrelationId($correlation_id)
     {
-
         if (is_null($correlation_id)) {
             throw new \InvalidArgumentException('non-nullable correlation_id cannot be null');
         }
-
         $this->container['correlation_id'] = $correlation_id;
 
         return $this;
@@ -544,11 +532,9 @@ class AuthenticateErrorResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setErrorUri($error_uri)
     {
-
         if (is_null($error_uri)) {
             throw new \InvalidArgumentException('non-nullable error_uri cannot be null');
         }
-
         $this->container['error_uri'] = $error_uri;
 
         return $this;

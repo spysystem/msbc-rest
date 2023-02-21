@@ -328,11 +328,9 @@ class ODataEnvelope implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;

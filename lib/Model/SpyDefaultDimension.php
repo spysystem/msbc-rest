@@ -391,11 +391,9 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -420,11 +418,9 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setTableId($table_id)
     {
-
         if (is_null($table_id)) {
             throw new \InvalidArgumentException('non-nullable table_id cannot be null');
         }
-
         $this->container['table_id'] = $table_id;
 
         return $this;
@@ -449,11 +445,9 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setNo($no)
     {
-
         if (is_null($no)) {
             throw new \InvalidArgumentException('non-nullable no cannot be null');
         }
-
         $this->container['no'] = $no;
 
         return $this;
@@ -478,11 +472,9 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDimensionCode($dimension_code)
     {
-
         if (is_null($dimension_code)) {
             throw new \InvalidArgumentException('non-nullable dimension_code cannot be null');
         }
-
         $this->container['dimension_code'] = $dimension_code;
 
         return $this;
@@ -507,11 +499,9 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setDimensionValueCode($dimension_value_code)
     {
-
         if (is_null($dimension_value_code)) {
             throw new \InvalidArgumentException('non-nullable dimension_value_code cannot be null');
         }
-
         $this->container['dimension_value_code'] = $dimension_value_code;
 
         return $this;
@@ -536,8 +526,11 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function setValuePosting($value_posting)
     {
+        if (is_null($value_posting)) {
+            throw new \InvalidArgumentException('non-nullable value_posting cannot be null');
+        }
         $allowedValues = $this->getValuePostingAllowableValues();
-        if (!is_null($value_posting) && !in_array($value_posting, $allowedValues, true)) {
+        if (!in_array($value_posting, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'value_posting', must be one of '%s'",
@@ -546,11 +539,6 @@ class SpyDefaultDimension implements ModelInterface, ArrayAccess, \JsonSerializa
                 )
             );
         }
-
-        if (is_null($value_posting)) {
-            throw new \InvalidArgumentException('non-nullable value_posting cannot be null');
-        }
-
         $this->container['value_posting'] = $value_posting;
 
         return $this;

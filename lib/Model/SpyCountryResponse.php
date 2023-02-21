@@ -468,11 +468,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setAtOdataContext($at_odata_context)
     {
-
         if (is_null($at_odata_context)) {
             throw new \InvalidArgumentException('non-nullable at_odata_context cannot be null');
         }
-
         $this->container['at_odata_context'] = $at_odata_context;
 
         return $this;
@@ -497,11 +495,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -526,11 +522,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setCode($code)
     {
-
         if (is_null($code)) {
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-
         $this->container['code'] = $code;
 
         return $this;
@@ -555,11 +549,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setName($name)
     {
-
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -584,11 +576,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setIsoCode($iso_code)
     {
-
         if (is_null($iso_code)) {
             throw new \InvalidArgumentException('non-nullable iso_code cannot be null');
         }
-
         $this->container['iso_code'] = $iso_code;
 
         return $this;
@@ -613,11 +603,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setIsoNumericCode($iso_numeric_code)
     {
-
         if (is_null($iso_numeric_code)) {
             throw new \InvalidArgumentException('non-nullable iso_numeric_code cannot be null');
         }
-
         $this->container['iso_numeric_code'] = $iso_numeric_code;
 
         return $this;
@@ -642,8 +630,11 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setAddressFormat($address_format)
     {
+        if (is_null($address_format)) {
+            throw new \InvalidArgumentException('non-nullable address_format cannot be null');
+        }
         $allowedValues = $this->getAddressFormatAllowableValues();
-        if (!is_null($address_format) && !in_array($address_format, $allowedValues, true)) {
+        if (!in_array($address_format, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'address_format', must be one of '%s'",
@@ -652,11 +643,6 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
                 )
             );
         }
-
-        if (is_null($address_format)) {
-            throw new \InvalidArgumentException('non-nullable address_format cannot be null');
-        }
-
         $this->container['address_format'] = $address_format;
 
         return $this;
@@ -681,8 +667,11 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setContactAddressFormat($contact_address_format)
     {
+        if (is_null($contact_address_format)) {
+            throw new \InvalidArgumentException('non-nullable contact_address_format cannot be null');
+        }
         $allowedValues = $this->getContactAddressFormatAllowableValues();
-        if (!is_null($contact_address_format) && !in_array($contact_address_format, $allowedValues, true)) {
+        if (!in_array($contact_address_format, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'contact_address_format', must be one of '%s'",
@@ -691,11 +680,6 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
                 )
             );
         }
-
-        if (is_null($contact_address_format)) {
-            throw new \InvalidArgumentException('non-nullable contact_address_format cannot be null');
-        }
-
         $this->container['contact_address_format'] = $contact_address_format;
 
         return $this;
@@ -720,11 +704,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setCountyName($county_name)
     {
-
         if (is_null($county_name)) {
             throw new \InvalidArgumentException('non-nullable county_name cannot be null');
         }
-
         $this->container['county_name'] = $county_name;
 
         return $this;
@@ -749,11 +731,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setEuCountryRegionCode($eu_country_region_code)
     {
-
         if (is_null($eu_country_region_code)) {
             throw new \InvalidArgumentException('non-nullable eu_country_region_code cannot be null');
         }
-
         $this->container['eu_country_region_code'] = $eu_country_region_code;
 
         return $this;
@@ -778,11 +758,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setIntrastatCode($intrastat_code)
     {
-
         if (is_null($intrastat_code)) {
             throw new \InvalidArgumentException('non-nullable intrastat_code cannot be null');
         }
-
         $this->container['intrastat_code'] = $intrastat_code;
 
         return $this;
@@ -807,11 +785,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setOioublCountryRegionCode($oioubl_country_region_code)
     {
-
         if (is_null($oioubl_country_region_code)) {
             throw new \InvalidArgumentException('non-nullable oioubl_country_region_code cannot be null');
         }
-
         $this->container['oioubl_country_region_code'] = $oioubl_country_region_code;
 
         return $this;
@@ -836,11 +812,9 @@ class SpyCountryResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setVatScheme($vat_scheme)
     {
-
         if (is_null($vat_scheme)) {
             throw new \InvalidArgumentException('non-nullable vat_scheme cannot be null');
         }
-
         $this->container['vat_scheme'] = $vat_scheme;
 
         return $this;

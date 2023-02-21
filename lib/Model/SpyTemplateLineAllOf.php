@@ -417,11 +417,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTemplate($template)
     {
-
         if (is_null($template)) {
             throw new \InvalidArgumentException('non-nullable template cannot be null');
         }
-
         $this->container['template'] = $template;
 
         return $this;
@@ -446,11 +444,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setLineNo($line_no)
     {
-
         if (is_null($line_no)) {
             throw new \InvalidArgumentException('non-nullable line_no cannot be null');
         }
-
         $this->container['line_no'] = $line_no;
 
         return $this;
@@ -475,8 +471,11 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setType($type)
     {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+        if (!in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -485,11 +484,6 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
                 )
             );
         }
-
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-
         $this->container['type'] = $type;
 
         return $this;
@@ -514,11 +508,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setFieldId($field_id)
     {
-
         if (is_null($field_id)) {
             throw new \InvalidArgumentException('non-nullable field_id cannot be null');
         }
-
         $this->container['field_id'] = $field_id;
 
         return $this;
@@ -543,11 +535,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setFieldName($field_name)
     {
-
         if (is_null($field_name)) {
             throw new \InvalidArgumentException('non-nullable field_name cannot be null');
         }
-
         $this->container['field_name'] = $field_name;
 
         return $this;
@@ -572,11 +562,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTableId($table_id)
     {
-
         if (is_null($table_id)) {
             throw new \InvalidArgumentException('non-nullable table_id cannot be null');
         }
-
         $this->container['table_id'] = $table_id;
 
         return $this;
@@ -601,11 +589,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTableName($table_name)
     {
-
         if (is_null($table_name)) {
             throw new \InvalidArgumentException('non-nullable table_name cannot be null');
         }
-
         $this->container['table_name'] = $table_name;
 
         return $this;
@@ -630,11 +616,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTemplateCode($template_code)
     {
-
         if (is_null($template_code)) {
             throw new \InvalidArgumentException('non-nullable template_code cannot be null');
         }
-
         $this->container['template_code'] = $template_code;
 
         return $this;
@@ -659,11 +643,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setTemplateDescription($template_description)
     {
-
         if (is_null($template_description)) {
             throw new \InvalidArgumentException('non-nullable template_description cannot be null');
         }
-
         $this->container['template_description'] = $template_description;
 
         return $this;
@@ -688,11 +670,9 @@ class SpyTemplateLineAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function setDefaultValue($default_value)
     {
-
         if (is_null($default_value)) {
             throw new \InvalidArgumentException('non-nullable default_value cannot be null');
         }
-
         $this->container['default_value'] = $default_value;
 
         return $this;

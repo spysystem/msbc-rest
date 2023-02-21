@@ -341,11 +341,9 @@ class SpyApplyCustomerTemplates implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setCustomer($customer)
     {
-
         if (is_null($customer)) {
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
-
         $this->container['customer'] = $customer;
 
         return $this;
@@ -370,11 +368,9 @@ class SpyApplyCustomerTemplates implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setCountryType($country_type)
     {
-
         if (is_null($country_type)) {
             throw new \InvalidArgumentException('non-nullable country_type cannot be null');
         }
-
         $this->container['country_type'] = $country_type;
 
         return $this;

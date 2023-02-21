@@ -764,11 +764,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAtOdataEtag($at_odata_etag)
     {
-
         if (is_null($at_odata_etag)) {
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
-
         $this->container['at_odata_etag'] = $at_odata_etag;
 
         return $this;
@@ -793,11 +791,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setEntryNo($entry_no)
     {
-
         if (is_null($entry_no)) {
             throw new \InvalidArgumentException('non-nullable entry_no cannot be null');
         }
-
         $this->container['entry_no'] = $entry_no;
 
         return $this;
@@ -822,11 +818,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setPostingDate($posting_date)
     {
-
         if (is_null($posting_date)) {
             throw new \InvalidArgumentException('non-nullable posting_date cannot be null');
         }
-
         $this->container['posting_date'] = $posting_date;
 
         return $this;
@@ -851,8 +845,11 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDocumentType($document_type)
     {
+        if (is_null($document_type)) {
+            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+        }
         $allowedValues = $this->getDocumentTypeAllowableValues();
-        if (!is_null($document_type) && !in_array($document_type, $allowedValues, true)) {
+        if (!in_array($document_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'document_type', must be one of '%s'",
@@ -861,11 +858,6 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($document_type)) {
-            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
-        }
-
         $this->container['document_type'] = $document_type;
 
         return $this;
@@ -890,11 +882,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDocumentNo($document_no)
     {
-
         if (is_null($document_no)) {
             throw new \InvalidArgumentException('non-nullable document_no cannot be null');
         }
-
         $this->container['document_no'] = $document_no;
 
         return $this;
@@ -919,11 +909,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGLAccountNo($g_l_account_no)
     {
-
         if (is_null($g_l_account_no)) {
             throw new \InvalidArgumentException('non-nullable g_l_account_no cannot be null');
         }
-
         $this->container['g_l_account_no'] = $g_l_account_no;
 
         return $this;
@@ -948,11 +936,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGLAccountName($g_l_account_name)
     {
-
         if (is_null($g_l_account_name)) {
             throw new \InvalidArgumentException('non-nullable g_l_account_name cannot be null');
         }
-
         $this->container['g_l_account_name'] = $g_l_account_name;
 
         return $this;
@@ -977,11 +963,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDescription($description)
     {
-
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
         $this->container['description'] = $description;
 
         return $this;
@@ -1006,11 +990,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setJobNo($job_no)
     {
-
         if (is_null($job_no)) {
             throw new \InvalidArgumentException('non-nullable job_no cannot be null');
         }
-
         $this->container['job_no'] = $job_no;
 
         return $this;
@@ -1035,11 +1017,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension1Code($global_dimension_1_code)
     {
-
         if (is_null($global_dimension_1_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_1_code cannot be null');
         }
-
         $this->container['global_dimension_1_code'] = $global_dimension_1_code;
 
         return $this;
@@ -1064,11 +1044,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGlobalDimension2Code($global_dimension_2_code)
     {
-
         if (is_null($global_dimension_2_code)) {
             throw new \InvalidArgumentException('non-nullable global_dimension_2_code cannot be null');
         }
-
         $this->container['global_dimension_2_code'] = $global_dimension_2_code;
 
         return $this;
@@ -1093,11 +1071,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setIcPartnerCode($ic_partner_code)
     {
-
         if (is_null($ic_partner_code)) {
             throw new \InvalidArgumentException('non-nullable ic_partner_code cannot be null');
         }
-
         $this->container['ic_partner_code'] = $ic_partner_code;
 
         return $this;
@@ -1122,8 +1098,11 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenPostingType($gen_posting_type)
     {
+        if (is_null($gen_posting_type)) {
+            throw new \InvalidArgumentException('non-nullable gen_posting_type cannot be null');
+        }
         $allowedValues = $this->getGenPostingTypeAllowableValues();
-        if (!is_null($gen_posting_type) && !in_array($gen_posting_type, $allowedValues, true)) {
+        if (!in_array($gen_posting_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'gen_posting_type', must be one of '%s'",
@@ -1132,11 +1111,6 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($gen_posting_type)) {
-            throw new \InvalidArgumentException('non-nullable gen_posting_type cannot be null');
-        }
-
         $this->container['gen_posting_type'] = $gen_posting_type;
 
         return $this;
@@ -1161,11 +1135,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenBusPostingGroup($gen_bus_posting_group)
     {
-
         if (is_null($gen_bus_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_bus_posting_group cannot be null');
         }
-
         $this->container['gen_bus_posting_group'] = $gen_bus_posting_group;
 
         return $this;
@@ -1190,11 +1162,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setGenProdPostingGroup($gen_prod_posting_group)
     {
-
         if (is_null($gen_prod_posting_group)) {
             throw new \InvalidArgumentException('non-nullable gen_prod_posting_group cannot be null');
         }
-
         $this->container['gen_prod_posting_group'] = $gen_prod_posting_group;
 
         return $this;
@@ -1219,11 +1189,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setQuantity($quantity)
     {
-
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         $this->container['quantity'] = $quantity;
 
         return $this;
@@ -1248,11 +1216,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAmount($amount)
     {
-
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
         $this->container['amount'] = $amount;
 
         return $this;
@@ -1277,11 +1243,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDebitAmount($debit_amount)
     {
-
         if (is_null($debit_amount)) {
             throw new \InvalidArgumentException('non-nullable debit_amount cannot be null');
         }
-
         $this->container['debit_amount'] = $debit_amount;
 
         return $this;
@@ -1306,11 +1270,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setCreditAmount($credit_amount)
     {
-
         if (is_null($credit_amount)) {
             throw new \InvalidArgumentException('non-nullable credit_amount cannot be null');
         }
-
         $this->container['credit_amount'] = $credit_amount;
 
         return $this;
@@ -1335,11 +1297,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setAdditionalCurrencyAmount($additional_currency_amount)
     {
-
         if (is_null($additional_currency_amount)) {
             throw new \InvalidArgumentException('non-nullable additional_currency_amount cannot be null');
         }
-
         $this->container['additional_currency_amount'] = $additional_currency_amount;
 
         return $this;
@@ -1364,11 +1324,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setVatAmount($vat_amount)
     {
-
         if (is_null($vat_amount)) {
             throw new \InvalidArgumentException('non-nullable vat_amount cannot be null');
         }
-
         $this->container['vat_amount'] = $vat_amount;
 
         return $this;
@@ -1393,8 +1351,11 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalAccountType($bal_account_type)
     {
+        if (is_null($bal_account_type)) {
+            throw new \InvalidArgumentException('non-nullable bal_account_type cannot be null');
+        }
         $allowedValues = $this->getBalAccountTypeAllowableValues();
-        if (!is_null($bal_account_type) && !in_array($bal_account_type, $allowedValues, true)) {
+        if (!in_array($bal_account_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'bal_account_type', must be one of '%s'",
@@ -1403,11 +1364,6 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($bal_account_type)) {
-            throw new \InvalidArgumentException('non-nullable bal_account_type cannot be null');
-        }
-
         $this->container['bal_account_type'] = $bal_account_type;
 
         return $this;
@@ -1432,11 +1388,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBalAccountNo($bal_account_no)
     {
-
         if (is_null($bal_account_no)) {
             throw new \InvalidArgumentException('non-nullable bal_account_no cannot be null');
         }
-
         $this->container['bal_account_no'] = $bal_account_no;
 
         return $this;
@@ -1461,11 +1415,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setUserId($user_id)
     {
-
         if (is_null($user_id)) {
             throw new \InvalidArgumentException('non-nullable user_id cannot be null');
         }
-
         $this->container['user_id'] = $user_id;
 
         return $this;
@@ -1490,11 +1442,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSourceCode($source_code)
     {
-
         if (is_null($source_code)) {
             throw new \InvalidArgumentException('non-nullable source_code cannot be null');
         }
-
         $this->container['source_code'] = $source_code;
 
         return $this;
@@ -1519,8 +1469,11 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSourceType($source_type)
     {
+        if (is_null($source_type)) {
+            throw new \InvalidArgumentException('non-nullable source_type cannot be null');
+        }
         $allowedValues = $this->getSourceTypeAllowableValues();
-        if (!is_null($source_type) && !in_array($source_type, $allowedValues, true)) {
+        if (!in_array($source_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'source_type', must be one of '%s'",
@@ -1529,11 +1482,6 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($source_type)) {
-            throw new \InvalidArgumentException('non-nullable source_type cannot be null');
-        }
-
         $this->container['source_type'] = $source_type;
 
         return $this;
@@ -1558,11 +1506,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setSourceNo($source_no)
     {
-
         if (is_null($source_no)) {
             throw new \InvalidArgumentException('non-nullable source_no cannot be null');
         }
-
         $this->container['source_no'] = $source_no;
 
         return $this;
@@ -1587,11 +1533,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReasonCode($reason_code)
     {
-
         if (is_null($reason_code)) {
             throw new \InvalidArgumentException('non-nullable reason_code cannot be null');
         }
-
         $this->container['reason_code'] = $reason_code;
 
         return $this;
@@ -1616,11 +1560,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReversed($reversed)
     {
-
         if (is_null($reversed)) {
             throw new \InvalidArgumentException('non-nullable reversed cannot be null');
         }
-
         $this->container['reversed'] = $reversed;
 
         return $this;
@@ -1645,11 +1587,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReversedByEntryNo($reversed_by_entry_no)
     {
-
         if (is_null($reversed_by_entry_no)) {
             throw new \InvalidArgumentException('non-nullable reversed_by_entry_no cannot be null');
         }
-
         $this->container['reversed_by_entry_no'] = $reversed_by_entry_no;
 
         return $this;
@@ -1674,11 +1614,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setReversedEntryNo($reversed_entry_no)
     {
-
         if (is_null($reversed_entry_no)) {
             throw new \InvalidArgumentException('non-nullable reversed_entry_no cannot be null');
         }
-
         $this->container['reversed_entry_no'] = $reversed_entry_no;
 
         return $this;
@@ -1703,8 +1641,11 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFaEntryType($fa_entry_type)
     {
+        if (is_null($fa_entry_type)) {
+            throw new \InvalidArgumentException('non-nullable fa_entry_type cannot be null');
+        }
         $allowedValues = $this->getFaEntryTypeAllowableValues();
-        if (!is_null($fa_entry_type) && !in_array($fa_entry_type, $allowedValues, true)) {
+        if (!in_array($fa_entry_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'fa_entry_type', must be one of '%s'",
@@ -1713,11 +1654,6 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
-
-        if (is_null($fa_entry_type)) {
-            throw new \InvalidArgumentException('non-nullable fa_entry_type cannot be null');
-        }
-
         $this->container['fa_entry_type'] = $fa_entry_type;
 
         return $this;
@@ -1742,11 +1678,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setFaEntryNo($fa_entry_no)
     {
-
         if (is_null($fa_entry_no)) {
             throw new \InvalidArgumentException('non-nullable fa_entry_no cannot be null');
         }
-
         $this->container['fa_entry_no'] = $fa_entry_no;
 
         return $this;
@@ -1771,11 +1705,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setDimensionSetId($dimension_set_id)
     {
-
         if (is_null($dimension_set_id)) {
             throw new \InvalidArgumentException('non-nullable dimension_set_id cannot be null');
         }
-
         $this->container['dimension_set_id'] = $dimension_set_id;
 
         return $this;
@@ -1800,11 +1732,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setExternalDocumentNo($external_document_no)
     {
-
         if (is_null($external_document_no)) {
             throw new \InvalidArgumentException('non-nullable external_document_no cannot be null');
         }
-
         $this->container['external_document_no'] = $external_document_no;
 
         return $this;
@@ -1829,11 +1759,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension3Code($shortcut_dimension_3_code)
     {
-
         if (is_null($shortcut_dimension_3_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_3_code cannot be null');
         }
-
         $this->container['shortcut_dimension_3_code'] = $shortcut_dimension_3_code;
 
         return $this;
@@ -1858,11 +1786,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension4Code($shortcut_dimension_4_code)
     {
-
         if (is_null($shortcut_dimension_4_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_4_code cannot be null');
         }
-
         $this->container['shortcut_dimension_4_code'] = $shortcut_dimension_4_code;
 
         return $this;
@@ -1887,11 +1813,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension5Code($shortcut_dimension_5_code)
     {
-
         if (is_null($shortcut_dimension_5_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_5_code cannot be null');
         }
-
         $this->container['shortcut_dimension_5_code'] = $shortcut_dimension_5_code;
 
         return $this;
@@ -1916,11 +1840,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension6Code($shortcut_dimension_6_code)
     {
-
         if (is_null($shortcut_dimension_6_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_6_code cannot be null');
         }
-
         $this->container['shortcut_dimension_6_code'] = $shortcut_dimension_6_code;
 
         return $this;
@@ -1945,11 +1867,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension7Code($shortcut_dimension_7_code)
     {
-
         if (is_null($shortcut_dimension_7_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_7_code cannot be null');
         }
-
         $this->container['shortcut_dimension_7_code'] = $shortcut_dimension_7_code;
 
         return $this;
@@ -1974,11 +1894,9 @@ class SpyLedgerTrans implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setShortcutDimension8Code($shortcut_dimension_8_code)
     {
-
         if (is_null($shortcut_dimension_8_code)) {
             throw new \InvalidArgumentException('non-nullable shortcut_dimension_8_code cannot be null');
         }
-
         $this->container['shortcut_dimension_8_code'] = $shortcut_dimension_8_code;
 
         return $this;
