@@ -2461,8 +2461,12 @@ paths:
               description: "Environment: something like Production or Sandbox"
               default: Production
       responses:
-        204:
+        '200':
           description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCreateJournalLine_commitToJournalLineResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -4393,6 +4397,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/spyDimension'
+#endregion
+
+#region SpyCreateJournalLine_commitToJournalLine
+    SpyCreateJournalLine_commitToJournalLineResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - type: object
+          properties:
+            'value':
+              type: string
 #endregion
 
 #region Batch
