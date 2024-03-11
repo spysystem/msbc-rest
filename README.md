@@ -207,6 +207,8 @@ Class | Method | HTTP request | Description
 - [SpyCountryList](docs/Model/SpyCountryList.md)
 - [SpyCountryListResponse](docs/Model/SpyCountryListResponse.md)
 - [SpyCountryResponse](docs/Model/SpyCountryResponse.md)
+- [SpyCreateJournalLineCommitToJournalLineResponse](docs/Model/SpyCreateJournalLineCommitToJournalLineResponse.md)
+- [SpyCreateJournalLineCommitToJournalLineResponseAllOf](docs/Model/SpyCreateJournalLineCommitToJournalLineResponseAllOf.md)
 - [SpyCustLedger](docs/Model/SpyCustLedger.md)
 - [SpyCustLedgerAllOf](docs/Model/SpyCustLedgerAllOf.md)
 - [SpyCustLedgerList](docs/Model/SpyCustLedgerList.md)

@@ -15,7 +15,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `commitToJournalLine()`
 
 ```php
-commitToJournalLine($company)
+commitToJournalLine($company): \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse
 ```
 ### URI(s):
 - https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4 URL for code unit access to the Microsoft Business Center API.
@@ -54,7 +54,8 @@ $variables = [
 ];
 
 try {
-    $apiInstance->commitToJournalLine($company, $hostIndex, $variables);
+    $result = $apiInstance->commitToJournalLine($company, $hostIndex, $variables);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TempJournalLinesPageApi->commitToJournalLine: ', $e->getMessage(), PHP_EOL;
 }
@@ -70,7 +71,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse**](../Model/SpyCreateJournalLineCommitToJournalLineResponse.md)
 
 ### Authorization
 

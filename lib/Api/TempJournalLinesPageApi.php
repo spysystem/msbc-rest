@@ -194,11 +194,12 @@ class TempJournalLinesPageApi
      *
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
      */
     public function commitToJournalLine($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
-        $this->commitToJournalLineWithHttpInfo($company, $hostIndex, $variables, $contentType);
+        list($response) = $this->commitToJournalLineWithHttpInfo($company, $hostIndex, $variables, $contentType);
+        return $response;
     }
 
     /**
@@ -218,7 +219,7 @@ class TempJournalLinesPageApi
      *
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function commitToJournalLineWithHttpInfo($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
@@ -259,10 +260,95 @@ class TempJournalLinesPageApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -340,14 +426,27 @@ class TempJournalLinesPageApi
      */
     public function commitToJournalLineAsyncWithHttpInfo($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
-        $returnType = '';
+        $returnType = '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse';
         $request = $this->commitToJournalLineRequest($company, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
