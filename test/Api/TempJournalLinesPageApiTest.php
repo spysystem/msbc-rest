@@ -84,6 +84,18 @@ class TempJournalLinesPageApiTest extends TestCase
     }
 
     /**
+     * Test case for commitToJournalLineWithBatch
+     *
+     * .
+     *
+     */
+    public function testCommitToJournalLineWithBatch()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createTempJournalLine
      *
      * .

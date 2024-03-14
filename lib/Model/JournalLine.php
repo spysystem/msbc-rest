@@ -78,6 +78,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'at_odata_etag' => 'string',
+        'batch_id' => 'string',
         'template_name' => 'string',
         'journal_name' => 'string',
         'document_number' => 'string',
@@ -120,6 +121,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'at_odata_etag' => null,
+        'batch_id' => null,
         'template_name' => null,
         'journal_name' => null,
         'document_number' => null,
@@ -160,6 +162,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'at_odata_etag' => false,
+		'batch_id' => false,
 		'template_name' => false,
 		'journal_name' => false,
 		'document_number' => false,
@@ -280,6 +283,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'at_odata_etag' => '@odata.etag',
+        'batch_id' => 'BatchId',
         'template_name' => 'templateName',
         'journal_name' => 'journalName',
         'document_number' => 'documentNumber',
@@ -320,6 +324,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'at_odata_etag' => 'setAtOdataEtag',
+        'batch_id' => 'setBatchId',
         'template_name' => 'setTemplateName',
         'journal_name' => 'setJournalName',
         'document_number' => 'setDocumentNumber',
@@ -360,6 +365,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'at_odata_etag' => 'getAtOdataEtag',
+        'batch_id' => 'getBatchId',
         'template_name' => 'getTemplateName',
         'journal_name' => 'getJournalName',
         'document_number' => 'getDocumentNumber',
@@ -451,6 +457,7 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('at_odata_etag', $data ?? [], null);
+        $this->setIfExists('batch_id', $data ?? [], null);
         $this->setIfExists('template_name', $data ?? [], null);
         $this->setIfExists('journal_name', $data ?? [], null);
         $this->setIfExists('document_number', $data ?? [], null);
@@ -511,6 +518,10 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['batch_id']) && (mb_strlen($this->container['batch_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'batch_id', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalidProperties;
     }
 
@@ -549,6 +560,37 @@ class JournalLine implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
         $this->container['at_odata_etag'] = $at_odata_etag;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_id
+     *
+     * @return string|null
+     */
+    public function getBatchId()
+    {
+        return $this->container['batch_id'];
+    }
+
+    /**
+     * Sets batch_id
+     *
+     * @param string|null $batch_id batch_id
+     *
+     * @return self
+     */
+    public function setBatchId($batch_id)
+    {
+        if (is_null($batch_id)) {
+            throw new \InvalidArgumentException('non-nullable batch_id cannot be null');
+        }
+        if ((mb_strlen($batch_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $batch_id when calling JournalLine., must be smaller than or equal to 20.');
+        }
+
+        $this->container['batch_id'] = $batch_id;
 
         return $this;
     }

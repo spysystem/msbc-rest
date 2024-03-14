@@ -40,6 +40,7 @@ class JournalLineResponseModelAttributes
 {
     public string $strAtOdataContext = 'at_odata_context';
     public string $strAtOdataEtag = 'at_odata_etag';
+    public string $strBatchId = 'batch_id';
     public string $strTemplateName = 'template_name';
     public string $strJournalName = 'journal_name';
     public string $strDocumentNumber = 'document_number';

@@ -98,6 +98,15 @@ class JournalLineResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "batch_id"
+     */
+    public function testPropertyBatchId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "template_name"
      */
     public function testPropertyTemplateName()

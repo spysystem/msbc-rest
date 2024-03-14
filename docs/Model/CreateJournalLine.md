@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**batch_id** | **string** |  | [optional]
 **template_name** | **string** |  | [optional]
 **journal_name** | **string** |  | [optional]
 **document_number** | **string** |  | [optional]

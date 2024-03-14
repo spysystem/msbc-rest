@@ -38,6 +38,7 @@ namespace Spy\MsbcRestClient\Model;
  */
 class CreateJournalLineModelAttributes
 {
+    public string $strBatchId = 'batch_id';
     public string $strTemplateName = 'template_name';
     public string $strJournalName = 'journal_name';
     public string $strDocumentNumber = 'document_number';

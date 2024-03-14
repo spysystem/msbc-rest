@@ -77,6 +77,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'batch_id' => 'string',
         'template_name' => 'string',
         'journal_name' => 'string',
         'document_number' => 'string',
@@ -113,6 +114,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'batch_id' => null,
         'template_name' => null,
         'journal_name' => null,
         'document_number' => null,
@@ -147,7 +149,8 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'template_name' => false,
+        'batch_id' => false,
+		'template_name' => false,
 		'journal_name' => false,
 		'document_number' => false,
 		'document_type' => false,
@@ -261,6 +264,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'batch_id' => 'BatchId',
         'template_name' => 'templateName',
         'journal_name' => 'journalName',
         'document_number' => 'documentNumber',
@@ -295,6 +299,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'batch_id' => 'setBatchId',
         'template_name' => 'setTemplateName',
         'journal_name' => 'setJournalName',
         'document_number' => 'setDocumentNumber',
@@ -329,6 +334,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'batch_id' => 'getBatchId',
         'template_name' => 'getTemplateName',
         'journal_name' => 'getJournalName',
         'document_number' => 'getDocumentNumber',
@@ -414,6 +420,7 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('batch_id', $data ?? [], null);
         $this->setIfExists('template_name', $data ?? [], null);
         $this->setIfExists('journal_name', $data ?? [], null);
         $this->setIfExists('document_number', $data ?? [], null);
@@ -469,6 +476,10 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['batch_id']) && (mb_strlen($this->container['batch_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'batch_id', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalidProperties;
     }
 
@@ -483,6 +494,37 @@ class CreateJournalLine implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets batch_id
+     *
+     * @return string|null
+     */
+    public function getBatchId()
+    {
+        return $this->container['batch_id'];
+    }
+
+    /**
+     * Sets batch_id
+     *
+     * @param string|null $batch_id batch_id
+     *
+     * @return self
+     */
+    public function setBatchId($batch_id)
+    {
+        if (is_null($batch_id)) {
+            throw new \InvalidArgumentException('non-nullable batch_id cannot be null');
+        }
+        if ((mb_strlen($batch_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $batch_id when calling CreateJournalLine., must be smaller than or equal to 20.');
+        }
+
+        $this->container['batch_id'] = $batch_id;
+
+        return $this;
+    }
 
     /**
      * Gets template_name
