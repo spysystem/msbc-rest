@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
 *SpyVendLedgerPageApi* | [**getSupplierLedgerEntries**](docs/Api/SpyVendLedgerPageApi.md#getsupplierledgerentries) | **GET** /SpyVendLedgerPage | 
 *SpyVendLedgerPageApi* | [**getSupplierLedgerEntry**](docs/Api/SpyVendLedgerPageApi.md#getsupplierledgerentry) | **GET** /SpyVendLedgerPage({Entry_No}) | 
 *TempJournalLinesPageApi* | [**commitToJournalLine**](docs/Api/TempJournalLinesPageApi.md#committojournalline) | **POST** /SpyCreateJournalLine_commitToJournalLine | 
+*TempJournalLinesPageApi* | [**commitToJournalLineWithBatch**](docs/Api/TempJournalLinesPageApi.md#committojournallinewithbatch) | **POST** /SpyCreateJournalLine_commitToJournalLineWithBatch | 
 *TempJournalLinesPageApi* | [**createTempJournalLine**](docs/Api/TempJournalLinesPageApi.md#createtempjournalline) | **POST** /journalLines | 
 *TempJournalLinesPageApi* | [**deleteAllTempJournalLines**](docs/Api/TempJournalLinesPageApi.md#deletealltempjournallines) | **POST** /SpyCreateJournalLine_deleteAllEntries | 
 *TempJournalLinesPageApi* | [**editTempJournalLine**](docs/Api/TempJournalLinesPageApi.md#edittempjournalline) | **PATCH** /journalLines(\&#39;{id}\&#39;) | 
@@ -189,6 +190,7 @@ Class | Method | HTTP request | Description
 - [BatchRequestItem](docs/Model/BatchRequestItem.md)
 - [BatchResponse](docs/Model/BatchResponse.md)
 - [BatchResponseItem](docs/Model/BatchResponseItem.md)
+- [CommitToJournalLineWithBatch](docs/Model/CommitToJournalLineWithBatch.md)
 - [Companies](docs/Model/Companies.md)
 - [CompaniesList](docs/Model/CompaniesList.md)
 - [CompaniesListResponse](docs/Model/CompaniesListResponse.md)

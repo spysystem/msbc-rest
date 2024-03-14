@@ -80,6 +80,24 @@ class CreateJournalLineTest extends TestCase
     }
 
     /**
+     * Test attribute "spy_batch_id"
+     */
+    public function testPropertySpyBatchId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "spy_status"
+     */
+    public function testPropertySpyStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "template_name"
      */
     public function testPropertyTemplateName()

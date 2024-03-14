@@ -40,6 +40,8 @@ class JournalLineResponseModelFields
 {
     public string $strAtOdataContext = '@odata.context';
     public string $strAtOdataEtag = '@odata.etag';
+    public string $strSpyBatchId = 'spyBatchId';
+    public string $strSpyStatus = 'spyStatus';
     public string $strTemplateName = 'templateName';
     public string $strJournalName = 'journalName';
     public string $strDocumentNumber = 'documentNumber';

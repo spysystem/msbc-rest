@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**spy_batch_id** | **string** |  | [optional]
+**spy_status** | **string** |  | [optional]
 **template_name** | **string** |  | [optional]
 **journal_name** | **string** |  | [optional]
 **document_number** | **string** |  | [optional]

@@ -114,6 +114,9 @@ class TempJournalLinesPageApi
         'commitToJournalLine' => [
             'application/json',
         ],
+        'commitToJournalLineWithBatch' => [
+            'application/json',
+        ],
         'createTempJournalLine' => [
             'application/json',
         ],
@@ -587,6 +590,454 @@ class TempJournalLinesPageApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForcommitToJournalLine(): array
+    {
+        return [
+            [
+                "url" => "https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4",
+                "description" => "URL for code unit access to the Microsoft Business Center API.",
+                "variables" => [
+                    "tenantID" => [
+                    "description" => "Tenant ID",
+                    "default_value" => "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    ],
+                    "environment" => [
+                    "description" => "Environment: something like Production or Sandbox",
+                    "default_value" => "Production",
+                    ]
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * Operation commitToJournalLineWithBatch
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+     *  Variables:
+     *    - tenantID: Tenant ID
+     *    - environment: Environment: something like Production or Sandbox
+     *
+     * @param  string $company Company ID (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch commit_to_journal_line_with_batch (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     */
+    public function commitToJournalLineWithBatch($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    {
+        list($response) = $this->commitToJournalLineWithBatchWithHttpInfo($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation commitToJournalLineWithBatchWithHttpInfo
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+     *  Variables:
+     *    - tenantID: Tenant ID
+     *    - environment: Environment: something like Production or Sandbox
+     *
+     * @param  string $company Company ID (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function commitToJournalLineWithBatchWithHttpInfo($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    {
+        $request = $this->commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation commitToJournalLineWithBatchAsync
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+     *  Variables:
+     *    - tenantID: Tenant ID
+     *    - environment: Environment: something like Production or Sandbox
+     *
+     * @param  string $company Company ID (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function commitToJournalLineWithBatchAsync($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    {
+        return $this->commitToJournalLineWithBatchAsyncWithHttpInfo($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation commitToJournalLineWithBatchAsyncWithHttpInfo
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+     *  Variables:
+     *    - tenantID: Tenant ID
+     *    - environment: Environment: something like Production or Sandbox
+     *
+     * @param  string $company Company ID (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function commitToJournalLineWithBatchAsyncWithHttpInfo($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    {
+        $returnType = '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse';
+        $request = $this->commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'commitToJournalLineWithBatch'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+     *  Variables:
+    *    - tenantID: Tenant ID
+    *    - environment: Environment: something like Production or Sandbox
+     *
+     * @param  string $company Company ID (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    {
+
+        // verify the required parameter 'company' is set
+        if ($company === null || (is_array($company) && count($company) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company when calling commitToJournalLineWithBatch'
+            );
+        }
+
+        // verify the required parameter 'commit_to_journal_line_with_batch' is set
+        if ($commit_to_journal_line_with_batch === null || (is_array($commit_to_journal_line_with_batch) && count($commit_to_journal_line_with_batch) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $commit_to_journal_line_with_batch when calling commitToJournalLineWithBatch'
+            );
+        }
+
+
+        $resourcePath = '/SpyCreateJournalLine_commitToJournalLineWithBatch';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $company,
+            'company', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($commit_to_journal_line_with_batch)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($commit_to_journal_line_with_batch));
+            } else {
+                $httpBody = $commit_to_journal_line_with_batch;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForcommitToJournalLineWithBatch();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation commitToJournalLineWithBatch
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForcommitToJournalLineWithBatch(): array
     {
         return [
             [

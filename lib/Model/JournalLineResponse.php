@@ -79,6 +79,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'at_odata_context' => 'string',
         'at_odata_etag' => 'string',
+        'spy_batch_id' => 'string',
+        'spy_status' => 'string',
         'template_name' => 'string',
         'journal_name' => 'string',
         'document_number' => 'string',
@@ -122,6 +124,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'at_odata_context' => null,
         'at_odata_etag' => null,
+        'spy_batch_id' => null,
+        'spy_status' => null,
         'template_name' => null,
         'journal_name' => null,
         'document_number' => null,
@@ -163,6 +167,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'at_odata_context' => false,
 		'at_odata_etag' => false,
+		'spy_batch_id' => false,
+		'spy_status' => false,
 		'template_name' => false,
 		'journal_name' => false,
 		'document_number' => false,
@@ -284,6 +290,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'at_odata_context' => '@odata.context',
         'at_odata_etag' => '@odata.etag',
+        'spy_batch_id' => 'spyBatchId',
+        'spy_status' => 'spyStatus',
         'template_name' => 'templateName',
         'journal_name' => 'journalName',
         'document_number' => 'documentNumber',
@@ -325,6 +333,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'at_odata_context' => 'setAtOdataContext',
         'at_odata_etag' => 'setAtOdataEtag',
+        'spy_batch_id' => 'setSpyBatchId',
+        'spy_status' => 'setSpyStatus',
         'template_name' => 'setTemplateName',
         'journal_name' => 'setJournalName',
         'document_number' => 'setDocumentNumber',
@@ -366,6 +376,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'at_odata_context' => 'getAtOdataContext',
         'at_odata_etag' => 'getAtOdataEtag',
+        'spy_batch_id' => 'getSpyBatchId',
+        'spy_status' => 'getSpyStatus',
         'template_name' => 'getTemplateName',
         'journal_name' => 'getJournalName',
         'document_number' => 'getDocumentNumber',
@@ -440,6 +452,23 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const SPY_STATUS__NEW = 'New';
+    public const SPY_STATUS_COMMITTED = 'Committed';
+    public const SPY_STATUS_DELETED = 'Deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpyStatusAllowableValues()
+    {
+        return [
+            self::SPY_STATUS__NEW,
+            self::SPY_STATUS_COMMITTED,
+            self::SPY_STATUS_DELETED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -458,6 +487,8 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('at_odata_context', $data ?? [], null);
         $this->setIfExists('at_odata_etag', $data ?? [], null);
+        $this->setIfExists('spy_batch_id', $data ?? [], null);
+        $this->setIfExists('spy_status', $data ?? [], null);
         $this->setIfExists('template_name', $data ?? [], null);
         $this->setIfExists('journal_name', $data ?? [], null);
         $this->setIfExists('document_number', $data ?? [], null);
@@ -517,6 +548,19 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['spy_batch_id']) && (mb_strlen($this->container['spy_batch_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'spy_batch_id', the character length must be smaller than or equal to 20.";
+        }
+
+        $allowedValues = $this->getSpyStatusAllowableValues();
+        if (!is_null($this->container['spy_status']) && !in_array($this->container['spy_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'spy_status', must be one of '%s'",
+                $this->container['spy_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -583,6 +627,74 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable at_odata_etag cannot be null');
         }
         $this->container['at_odata_etag'] = $at_odata_etag;
+
+        return $this;
+    }
+
+    /**
+     * Gets spy_batch_id
+     *
+     * @return string|null
+     */
+    public function getSpyBatchId()
+    {
+        return $this->container['spy_batch_id'];
+    }
+
+    /**
+     * Sets spy_batch_id
+     *
+     * @param string|null $spy_batch_id spy_batch_id
+     *
+     * @return self
+     */
+    public function setSpyBatchId($spy_batch_id)
+    {
+        if (is_null($spy_batch_id)) {
+            throw new \InvalidArgumentException('non-nullable spy_batch_id cannot be null');
+        }
+        if ((mb_strlen($spy_batch_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $spy_batch_id when calling JournalLineResponse., must be smaller than or equal to 20.');
+        }
+
+        $this->container['spy_batch_id'] = $spy_batch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets spy_status
+     *
+     * @return string|null
+     */
+    public function getSpyStatus()
+    {
+        return $this->container['spy_status'];
+    }
+
+    /**
+     * Sets spy_status
+     *
+     * @param string|null $spy_status spy_status
+     *
+     * @return self
+     */
+    public function setSpyStatus($spy_status)
+    {
+        if (is_null($spy_status)) {
+            throw new \InvalidArgumentException('non-nullable spy_status cannot be null');
+        }
+        $allowedValues = $this->getSpyStatusAllowableValues();
+        if (!in_array($spy_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'spy_status', must be one of '%s'",
+                    $spy_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['spy_status'] = $spy_status;
 
         return $this;
     }
