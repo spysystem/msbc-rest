@@ -2474,6 +2474,51 @@ paths:
         default:
           $ref: '#/components/responses/Default'
 
+  /SpyCreateJournalLine_commitToJournalLineWithBatch:
+    description: |
+      This Codeunit is used to commit data in the Temporary Journal Lines table to the real Journal
+    post:
+      operationId: CommitToJournalLineWithBatch
+      security:
+        - bearerAuth: [ ]
+      tags: [ TempJournalLinesPage ]
+      parameters:
+        - in: query
+          name: company
+          required: true
+          description: Company ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitToJournalLineWithBatch'
+      servers:
+        - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
+          description: URL for code unit access to the Microsoft Business Center API.
+          variables:
+            'tenantID':
+              description: Tenant ID
+              default: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+            'environment':
+              description: "Environment: something like Production or Sandbox"
+              default: Production
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyCreateJournalLine_commitToJournalLineResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
   /SpyCreateJournalLine_deleteAllEntries:
     description: |
       This Codeunit is used to delete all entries in the Temporary Journal Lines table
@@ -4343,6 +4388,15 @@ components:
     createJournalLine:
       type: object
       properties:
+        'spyBatchId':
+          type: string
+          maxLength: 20
+        'spyStatus':
+            type: string
+            enum:
+              - 'New'
+              - 'Committed'
+              - 'Deleted'
         'templateName':
           type: string
         'journalName':
@@ -4407,6 +4461,17 @@ components:
           properties:
             'value':
               type: string
+#endregion
+
+#region SpyCreateJournalLine_commitToJournalLineWithBatch
+    CommitToJournalLineWithBatch:
+      type: object
+      required:
+        - batchId
+      properties:
+        'batchId':
+          type: string
+          maxLength: 20
 #endregion
 
 #region Batch
