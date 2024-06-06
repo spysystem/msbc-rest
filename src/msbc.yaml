@@ -2474,11 +2474,11 @@ paths:
         default:
           $ref: '#/components/responses/Default'
 
-  /SpyCreateJournalLine_commitToJournalLineWithBatch:
+  /SpyCreateJournalLine_commitToJournalLineWithFileData:
     description: |
       This Codeunit is used to commit data in the Temporary Journal Lines table to the real Journal
     post:
-      operationId: CommitToJournalLineWithBatch
+      operationId: CommitToJournalLineWithFileData
       security:
         - bearerAuth: [ ]
       tags: [ TempJournalLinesPage ]
@@ -2494,7 +2494,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CommitToJournalLineWithBatch'
+              $ref: '#/components/schemas/CommitToJournalLineWithFileData'
       servers:
         - url: https://api.businesscentral.dynamics.com/v2.0/{tenantID}/{environment}/ODataV4
           description: URL for code unit access to the Microsoft Business Center API.
@@ -4465,7 +4465,7 @@ components:
 #endregion
 
 #region SpyCreateJournalLine_commitToJournalLineWithBatch
-    CommitToJournalLineWithBatch:
+    CommitToJournalLineWithFileData:
       type: object
       required:
         - batchId
@@ -4473,6 +4473,12 @@ components:
         'batchId':
           type: string
           maxLength: 20
+        'base64EncodedFileData':
+          type: string
+          default: ''
+        'fileName':
+          type: string
+          default: ''
 #endregion
 
 #region Batch
