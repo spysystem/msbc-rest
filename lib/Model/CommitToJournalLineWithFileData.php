@@ -1,6 +1,6 @@
 <?php
 /**
- * CommitToJournalLineWithBatch
+ * CommitToJournalLineWithFileData
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Spy\MsbcRestClient\ObjectSerializer;
 
 /**
- * CommitToJournalLineWithBatch Class Doc Comment
+ * CommitToJournalLineWithFileData Class Doc Comment
  *
  * @category Class
  * @package  Spy\MsbcRestClient
@@ -40,28 +40,28 @@ use \Spy\MsbcRestClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \JsonSerializable
+class CommitToJournalLineWithFileData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
       * Return an object with the Model Fields
       *
-      * @return CommitToJournalLineWithBatchModelFields
+      * @return CommitToJournalLineWithFileDataModelFields
       */
-    public static function GetModelFields(): CommitToJournalLineWithBatchModelFields
+    public static function GetModelFields(): CommitToJournalLineWithFileDataModelFields
     {
-        return new CommitToJournalLineWithBatchModelFields();
+        return new CommitToJournalLineWithFileDataModelFields();
     }
 
     /**
       * Return an object with the Model Attributes
       *
-      * @return CommitToJournalLineWithBatchModelAttributes
+      * @return CommitToJournalLineWithFileDataModelAttributes
       */
-    public static function GetModelAttributes(): CommitToJournalLineWithBatchModelAttributes
+    public static function GetModelAttributes(): CommitToJournalLineWithFileDataModelAttributes
     {
-        return new CommitToJournalLineWithBatchModelAttributes();
+        return new CommitToJournalLineWithFileDataModelAttributes();
     }
 
     /**
@@ -69,7 +69,7 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CommitToJournalLineWithBatch';
+    protected static $openAPIModelName = 'CommitToJournalLineWithFileData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -77,7 +77,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'batch_id' => 'string'
+        'batch_id' => 'string',
+        'base64_encoded_file_data' => 'string',
+        'file_name' => 'string'
     ];
 
     /**
@@ -88,7 +90,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'batch_id' => null
+        'batch_id' => null,
+        'base64_encoded_file_data' => null,
+        'file_name' => null
     ];
 
     /**
@@ -97,7 +101,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'batch_id' => false
+        'batch_id' => false,
+        'base64_encoded_file_data' => false,
+        'file_name' => false
     ];
 
     /**
@@ -186,7 +192,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'batch_id' => 'batchId'
+        'batch_id' => 'batchId',
+        'base64_encoded_file_data' => 'base64EncodedFileData',
+        'file_name' => 'fileName'
     ];
 
     /**
@@ -195,7 +203,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'batch_id' => 'setBatchId'
+        'batch_id' => 'setBatchId',
+        'base64_encoded_file_data' => 'setBase64EncodedFileData',
+        'file_name' => 'setFileName'
     ];
 
     /**
@@ -204,7 +214,9 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'batch_id' => 'getBatchId'
+        'batch_id' => 'getBatchId',
+        'base64_encoded_file_data' => 'getBase64EncodedFileData',
+        'file_name' => 'getFileName'
     ];
 
     /**
@@ -265,6 +277,8 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->setIfExists('batch_id', $data ?? [], null);
+        $this->setIfExists('base64_encoded_file_data', $data ?? [], '');
+        $this->setIfExists('file_name', $data ?? [], '');
     }
 
     /**
@@ -339,10 +353,64 @@ class CommitToJournalLineWithBatch implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable batch_id cannot be null');
         }
         if ((mb_strlen($batch_id) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $batch_id when calling CommitToJournalLineWithBatch., must be smaller than or equal to 20.');
+            throw new \InvalidArgumentException('invalid length for $batch_id when calling CommitToJournalLineWithFileData., must be smaller than or equal to 20.');
         }
 
         $this->container['batch_id'] = $batch_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets base64_encoded_file_data
+     *
+     * @return string|null
+     */
+    public function getBase64EncodedFileData()
+    {
+        return $this->container['base64_encoded_file_data'];
+    }
+
+    /**
+     * Sets base64_encoded_file_data
+     *
+     * @param string|null $base64_encoded_file_data base64_encoded_file_data
+     *
+     * @return self
+     */
+    public function setBase64EncodedFileData($base64_encoded_file_data)
+    {
+        if (is_null($base64_encoded_file_data)) {
+            throw new \InvalidArgumentException('non-nullable base64_encoded_file_data cannot be null');
+        }
+        $this->container['base64_encoded_file_data'] = $base64_encoded_file_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string|null
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string|null $file_name file_name
+     *
+     * @return self
+     */
+    public function setFileName($file_name)
+    {
+        if (is_null($file_name)) {
+            throw new \InvalidArgumentException('non-nullable file_name cannot be null');
+        }
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }

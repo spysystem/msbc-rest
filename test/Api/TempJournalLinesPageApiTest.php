@@ -84,12 +84,12 @@ class TempJournalLinesPageApiTest extends TestCase
     }
 
     /**
-     * Test case for commitToJournalLineWithBatch
+     * Test case for commitToJournalLineWithFileData
      *
      * .
      *
      */
-    public function testCommitToJournalLineWithBatch()
+    public function testCommitToJournalLineWithFileData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

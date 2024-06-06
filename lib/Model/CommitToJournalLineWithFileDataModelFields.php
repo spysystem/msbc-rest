@@ -1,6 +1,6 @@
 <?php
 /**
- * CommitToJournalLineWithBatchModelAttributes
+ * CommitToJournalLineWithFileDataModelFields
  *
  * PHP version 7.2
  *
@@ -29,15 +29,17 @@
 namespace Spy\MsbcRestClient\Model;
 
 /**
- * CommitToJournalLineWithBatchModelAttributes Class Doc Comment
+ * CommitToJournalLineWithFileDataModelFields Class Doc Comment
  *
  * @category Class
  * @package  Spy\MsbcRestClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CommitToJournalLineWithBatchModelAttributes
+class CommitToJournalLineWithFileDataModelFields
 {
-    public string $strBatchId = 'batch_id';
+    public string $strBatchId = 'batchId';
+    public string $strBase64EncodedFileData = 'base64EncodedFileData';
+    public string $strFileName = 'fileName';
 }
 

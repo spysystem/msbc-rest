@@ -114,7 +114,7 @@ class TempJournalLinesPageApi
         'commitToJournalLine' => [
             'application/json',
         ],
-        'commitToJournalLineWithBatch' => [
+        'commitToJournalLineWithFileData' => [
             'application/json',
         ],
         'createTempJournalLine' => [
@@ -670,7 +670,7 @@ class TempJournalLinesPageApi
     }
 
     /**
-     * Operation commitToJournalLineWithBatch
+     * Operation commitToJournalLineWithFileData
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -680,23 +680,23 @@ class TempJournalLinesPageApi
      *    - environment: Environment: something like Production or Sandbox
      *
      * @param  string $company Company ID (required)
-     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch commit_to_journal_line_with_batch (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithFileData $commit_to_journal_line_with_file_data commit_to_journal_line_with_file_data (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithFileData'] to see the possible values for this operation
      *
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
      */
-    public function commitToJournalLineWithBatch($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    public function commitToJournalLineWithFileData($company, $commit_to_journal_line_with_file_data, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithFileData'][0])
     {
-        list($response) = $this->commitToJournalLineWithBatchWithHttpInfo($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+        list($response) = $this->commitToJournalLineWithFileDataWithHttpInfo($company, $commit_to_journal_line_with_file_data, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation commitToJournalLineWithBatchWithHttpInfo
+     * Operation commitToJournalLineWithFileDataWithHttpInfo
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -706,18 +706,18 @@ class TempJournalLinesPageApi
      *    - environment: Environment: something like Production or Sandbox
      *
      * @param  string $company Company ID (required)
-     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithFileData $commit_to_journal_line_with_file_data (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithFileData'] to see the possible values for this operation
      *
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function commitToJournalLineWithBatchWithHttpInfo($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    public function commitToJournalLineWithFileDataWithHttpInfo($company, $commit_to_journal_line_with_file_data, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithFileData'][0])
     {
-        $request = $this->commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+        $request = $this->commitToJournalLineWithFileDataRequest($company, $commit_to_journal_line_with_file_data, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -933,7 +933,7 @@ class TempJournalLinesPageApi
     }
 
     /**
-     * Operation commitToJournalLineWithBatchAsync
+     * Operation commitToJournalLineWithFileDataAsync
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -943,17 +943,17 @@ class TempJournalLinesPageApi
      *    - environment: Environment: something like Production or Sandbox
      *
      * @param  string $company Company ID (required)
-     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithFileData $commit_to_journal_line_with_file_data (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithFileData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commitToJournalLineWithBatchAsync($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    public function commitToJournalLineWithFileDataAsync($company, $commit_to_journal_line_with_file_data, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithFileData'][0])
     {
-        return $this->commitToJournalLineWithBatchAsyncWithHttpInfo($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType)
+        return $this->commitToJournalLineWithFileDataAsyncWithHttpInfo($company, $commit_to_journal_line_with_file_data, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -962,7 +962,7 @@ class TempJournalLinesPageApi
     }
 
     /**
-     * Operation commitToJournalLineWithBatchAsyncWithHttpInfo
+     * Operation commitToJournalLineWithFileDataAsyncWithHttpInfo
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -972,18 +972,18 @@ class TempJournalLinesPageApi
      *    - environment: Environment: something like Production or Sandbox
      *
      * @param  string $company Company ID (required)
-     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithFileData $commit_to_journal_line_with_file_data (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithFileData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commitToJournalLineWithBatchAsyncWithHttpInfo($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    public function commitToJournalLineWithFileDataAsyncWithHttpInfo($company, $commit_to_journal_line_with_file_data, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithFileData'][0])
     {
         $returnType = '\Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse';
-        $request = $this->commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, $hostIndex, $variables, $contentType);
+        $request = $this->commitToJournalLineWithFileDataRequest($company, $commit_to_journal_line_with_file_data, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1022,7 +1022,7 @@ class TempJournalLinesPageApi
     }
 
     /**
-     * Create request for operation 'commitToJournalLineWithBatch'
+     * Create request for operation 'commitToJournalLineWithFileData'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -1032,33 +1032,33 @@ class TempJournalLinesPageApi
     *    - environment: Environment: something like Production or Sandbox
      *
      * @param  string $company Company ID (required)
-     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithBatch $commit_to_journal_line_with_batch (required)
+     * @param  \Spy\MsbcRestClient\Model\CommitToJournalLineWithFileData $commit_to_journal_line_with_file_data (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['commitToJournalLineWithFileData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function commitToJournalLineWithBatchRequest($company, $commit_to_journal_line_with_batch, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithBatch'][0])
+    public function commitToJournalLineWithFileDataRequest($company, $commit_to_journal_line_with_file_data, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLineWithFileData'][0])
     {
 
         // verify the required parameter 'company' is set
         if ($company === null || (is_array($company) && count($company) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company when calling commitToJournalLineWithBatch'
+                'Missing the required parameter $company when calling commitToJournalLineWithFileData'
             );
         }
 
-        // verify the required parameter 'commit_to_journal_line_with_batch' is set
-        if ($commit_to_journal_line_with_batch === null || (is_array($commit_to_journal_line_with_batch) && count($commit_to_journal_line_with_batch) === 0)) {
+        // verify the required parameter 'commit_to_journal_line_with_file_data' is set
+        if ($commit_to_journal_line_with_file_data === null || (is_array($commit_to_journal_line_with_file_data) && count($commit_to_journal_line_with_file_data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $commit_to_journal_line_with_batch when calling commitToJournalLineWithBatch'
+                'Missing the required parameter $commit_to_journal_line_with_file_data when calling commitToJournalLineWithFileData'
             );
         }
 
 
-        $resourcePath = '/SpyCreateJournalLine_commitToJournalLineWithBatch';
+        $resourcePath = '/SpyCreateJournalLine_commitToJournalLineWithFileData';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1085,12 +1085,12 @@ class TempJournalLinesPageApi
         );
 
         // for model (json/xml)
-        if (isset($commit_to_journal_line_with_batch)) {
+        if (isset($commit_to_journal_line_with_file_data)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($commit_to_journal_line_with_batch));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($commit_to_journal_line_with_file_data));
             } else {
-                $httpBody = $commit_to_journal_line_with_batch;
+                $httpBody = $commit_to_journal_line_with_file_data;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1137,7 +1137,7 @@ class TempJournalLinesPageApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForcommitToJournalLineWithBatch();
+        $hostSettings = $this->getHostSettingsForcommitToJournalLineWithFileData();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -1153,11 +1153,11 @@ class TempJournalLinesPageApi
     }
 
     /**
-     * Returns an array of host settings for Operation commitToJournalLineWithBatch
+     * Returns an array of host settings for Operation commitToJournalLineWithFileData
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForcommitToJournalLineWithBatch(): array
+    protected function getHostSettingsForcommitToJournalLineWithFileData(): array
     {
         return [
             [

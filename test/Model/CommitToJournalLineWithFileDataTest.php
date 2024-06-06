@@ -1,6 +1,6 @@
 <?php
 /**
- * CommitToJournalLineWithBatchTest
+ * CommitToJournalLineWithFileDataTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace Spy\MsbcRestClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CommitToJournalLineWithBatchTest Class Doc Comment
+ * CommitToJournalLineWithFileDataTest Class Doc Comment
  *
  * @category    Class
- * @description CommitToJournalLineWithBatch
+ * @description CommitToJournalLineWithFileData
  * @package     Spy\MsbcRestClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CommitToJournalLineWithBatchTest extends TestCase
+class CommitToJournalLineWithFileDataTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class CommitToJournalLineWithBatchTest extends TestCase
     }
 
     /**
-     * Test "CommitToJournalLineWithBatch"
+     * Test "CommitToJournalLineWithFileData"
      */
-    public function testCommitToJournalLineWithBatch()
+    public function testCommitToJournalLineWithFileData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -83,6 +83,24 @@ class CommitToJournalLineWithBatchTest extends TestCase
      * Test attribute "batch_id"
      */
     public function testPropertyBatchId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "base64_encoded_file_data"
+     */
+    public function testPropertyBase64EncodedFileData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file_name"
+     */
+    public function testPropertyFileName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
