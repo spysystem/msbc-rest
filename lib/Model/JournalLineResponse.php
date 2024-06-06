@@ -455,6 +455,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public const SPY_STATUS__NEW = 'New';
     public const SPY_STATUS_COMMITTED = 'Committed';
     public const SPY_STATUS_DELETED = 'Deleted';
+    public const SPY_STATUS_ERROR = 'Error';
 
     /**
      * Gets allowable values of the enum
@@ -467,6 +468,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             self::SPY_STATUS__NEW,
             self::SPY_STATUS_COMMITTED,
             self::SPY_STATUS_DELETED,
+            self::SPY_STATUS_ERROR,
         ];
     }
 
