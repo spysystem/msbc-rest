@@ -107,11 +107,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => 'string',
         'cust_group' => 'string',
         'spy_dimensions' => '\Spy\MsbcRestClient\Model\SpyDimension[]',
-        'id' => 'string',
         'system_created_at' => 'string',
         'system_created_by' => 'string',
         'system_modified_at' => 'string',
-        'system_modified_by' => 'string'
+        'system_modified_by' => 'string',
+        'id' => 'string'
     ];
 
     /**
@@ -152,11 +152,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => null,
         'cust_group' => null,
         'spy_dimensions' => null,
-        'id' => null,
         'system_created_at' => null,
         'system_created_by' => null,
         'system_modified_at' => null,
-        'system_modified_by' => null
+        'system_modified_by' => null,
+        'id' => null
     ];
 
     /**
@@ -195,11 +195,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => false,
         'cust_group' => false,
         'spy_dimensions' => false,
-        'id' => false,
         'system_created_at' => false,
         'system_created_by' => false,
         'system_modified_at' => false,
-        'system_modified_by' => false
+        'system_modified_by' => false,
+        'id' => false
     ];
 
     /**
@@ -318,11 +318,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => 'cashDiscountDate',
         'cust_group' => 'custGroup',
         'spy_dimensions' => 'spyDimensions',
-        'id' => 'id',
         'system_created_at' => 'systemCreatedAt',
         'system_created_by' => 'systemCreatedBy',
         'system_modified_at' => 'systemModifiedAt',
-        'system_modified_by' => 'systemModifiedBy'
+        'system_modified_by' => 'systemModifiedBy',
+        'id' => 'id'
     ];
 
     /**
@@ -361,11 +361,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => 'setCashDiscountDate',
         'cust_group' => 'setCustGroup',
         'spy_dimensions' => 'setSpyDimensions',
-        'id' => 'setId',
         'system_created_at' => 'setSystemCreatedAt',
         'system_created_by' => 'setSystemCreatedBy',
         'system_modified_at' => 'setSystemModifiedAt',
-        'system_modified_by' => 'setSystemModifiedBy'
+        'system_modified_by' => 'setSystemModifiedBy',
+        'id' => 'setId'
     ];
 
     /**
@@ -404,11 +404,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'cash_discount_date' => 'getCashDiscountDate',
         'cust_group' => 'getCustGroup',
         'spy_dimensions' => 'getSpyDimensions',
-        'id' => 'getId',
         'system_created_at' => 'getSystemCreatedAt',
         'system_created_by' => 'getSystemCreatedBy',
         'system_modified_at' => 'getSystemModifiedAt',
-        'system_modified_by' => 'getSystemModifiedBy'
+        'system_modified_by' => 'getSystemModifiedBy',
+        'id' => 'getId'
     ];
 
     /**
@@ -517,11 +517,11 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('cash_discount_date', $data ?? [], null);
         $this->setIfExists('cust_group', $data ?? [], null);
         $this->setIfExists('spy_dimensions', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('system_created_at', $data ?? [], null);
         $this->setIfExists('system_created_by', $data ?? [], null);
         $this->setIfExists('system_modified_at', $data ?? [], null);
         $this->setIfExists('system_modified_by', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -1404,33 +1404,6 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets system_created_at
      *
      * @return string|null
@@ -1534,6 +1507,33 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable system_modified_by cannot be null');
         }
         $this->container['system_modified_by'] = $system_modified_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

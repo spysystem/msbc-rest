@@ -38,14 +38,14 @@ namespace Spy\MsbcRestClient\Model;
  */
 class CompaniesModelFields
 {
+    public string $strSystemCreatedAt = 'systemCreatedAt';
+    public string $strSystemCreatedBy = 'systemCreatedBy';
+    public string $strSystemModifiedAt = 'systemModifiedAt';
+    public string $strSystemModifiedBy = 'systemModifiedBy';
     public string $strId = 'id';
     public string $strSystemVersion = 'systemVersion';
     public string $strName = 'name';
     public string $strDisplayName = 'displayName';
     public string $strBusinessProfileId = 'businessProfileId';
-    public string $strSystemCreatedAt = 'systemCreatedAt';
-    public string $strSystemCreatedBy = 'systemCreatedBy';
-    public string $strSystemModifiedAt = 'systemModifiedAt';
-    public string $strSystemModifiedBy = 'systemModifiedBy';
 }
 

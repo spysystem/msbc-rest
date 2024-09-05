@@ -350,15 +350,6 @@ class JournalLineResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "system_created_at"
      */
     public function testPropertySystemCreatedAt()
@@ -389,6 +380,15 @@ class JournalLineResponseTest extends TestCase
      * Test attribute "system_modified_by"
      */
     public function testPropertySystemModifiedBy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -67,10 +67,10 @@ class JournalLineModelFields
     public string $strCashDiscountDate = 'cashDiscountDate';
     public string $strCustGroup = 'custGroup';
     public string $strSpyDimensions = 'spyDimensions';
-    public string $strId = 'id';
     public string $strSystemCreatedAt = 'systemCreatedAt';
     public string $strSystemCreatedBy = 'systemCreatedBy';
     public string $strSystemModifiedAt = 'systemModifiedAt';
     public string $strSystemModifiedBy = 'systemModifiedBy';
+    public string $strId = 'id';
 }
 

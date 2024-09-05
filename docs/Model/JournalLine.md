@@ -33,10 +33,10 @@ Name | Type | Description | Notes
 **cash_discount_date** | **string** |  | [optional]
 **cust_group** | **string** |  | [optional]
 **spy_dimensions** | [**\Spy\MsbcRestClient\Model\SpyDimension[]**](SpyDimension.md) |  | [optional]
-**id** | **string** |  | [optional]
 **system_created_at** | **string** |  | [optional]
 **system_created_by** | **string** |  | [optional]
 **system_modified_at** | **string** |  | [optional]
 **system_modified_by** | **string** |  | [optional]
+**id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

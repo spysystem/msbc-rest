@@ -1,6 +1,6 @@
 <?php
 /**
- * Companies
+ * AuditFields
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Spy\MsbcRestClient\ObjectSerializer;
 
 /**
- * Companies Class Doc Comment
+ * AuditFields Class Doc Comment
  *
  * @category Class
  * @package  Spy\MsbcRestClient
@@ -40,28 +40,28 @@ use \Spy\MsbcRestClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
+class AuditFields implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
       * Return an object with the Model Fields
       *
-      * @return CompaniesModelFields
+      * @return AuditFieldsModelFields
       */
-    public static function GetModelFields(): CompaniesModelFields
+    public static function GetModelFields(): AuditFieldsModelFields
     {
-        return new CompaniesModelFields();
+        return new AuditFieldsModelFields();
     }
 
     /**
       * Return an object with the Model Attributes
       *
-      * @return CompaniesModelAttributes
+      * @return AuditFieldsModelAttributes
       */
-    public static function GetModelAttributes(): CompaniesModelAttributes
+    public static function GetModelAttributes(): AuditFieldsModelAttributes
     {
-        return new CompaniesModelAttributes();
+        return new AuditFieldsModelAttributes();
     }
 
     /**
@@ -69,7 +69,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'companies';
+    protected static $openAPIModelName = 'AuditFields';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -80,12 +80,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => 'string',
         'system_created_by' => 'string',
         'system_modified_at' => 'string',
-        'system_modified_by' => 'string',
-        'id' => 'string',
-        'system_version' => 'string',
-        'name' => 'string',
-        'display_name' => 'string',
-        'business_profile_id' => 'string'
+        'system_modified_by' => 'string'
     ];
 
     /**
@@ -99,12 +94,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => null,
         'system_created_by' => null,
         'system_modified_at' => null,
-        'system_modified_by' => null,
-        'id' => null,
-        'system_version' => null,
-        'name' => null,
-        'display_name' => null,
-        'business_profile_id' => null
+        'system_modified_by' => null
     ];
 
     /**
@@ -116,12 +106,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => false,
         'system_created_by' => false,
         'system_modified_at' => false,
-        'system_modified_by' => false,
-        'id' => false,
-        'system_version' => false,
-        'name' => false,
-        'display_name' => false,
-        'business_profile_id' => false
+        'system_modified_by' => false
     ];
 
     /**
@@ -213,12 +198,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => 'systemCreatedAt',
         'system_created_by' => 'systemCreatedBy',
         'system_modified_at' => 'systemModifiedAt',
-        'system_modified_by' => 'systemModifiedBy',
-        'id' => 'id',
-        'system_version' => 'systemVersion',
-        'name' => 'name',
-        'display_name' => 'displayName',
-        'business_profile_id' => 'businessProfileId'
+        'system_modified_by' => 'systemModifiedBy'
     ];
 
     /**
@@ -230,12 +210,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => 'setSystemCreatedAt',
         'system_created_by' => 'setSystemCreatedBy',
         'system_modified_at' => 'setSystemModifiedAt',
-        'system_modified_by' => 'setSystemModifiedBy',
-        'id' => 'setId',
-        'system_version' => 'setSystemVersion',
-        'name' => 'setName',
-        'display_name' => 'setDisplayName',
-        'business_profile_id' => 'setBusinessProfileId'
+        'system_modified_by' => 'setSystemModifiedBy'
     ];
 
     /**
@@ -247,12 +222,7 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         'system_created_at' => 'getSystemCreatedAt',
         'system_created_by' => 'getSystemCreatedBy',
         'system_modified_at' => 'getSystemModifiedAt',
-        'system_modified_by' => 'getSystemModifiedBy',
-        'id' => 'getId',
-        'system_version' => 'getSystemVersion',
-        'name' => 'getName',
-        'display_name' => 'getDisplayName',
-        'business_profile_id' => 'getBusinessProfileId'
+        'system_modified_by' => 'getSystemModifiedBy'
     ];
 
     /**
@@ -316,11 +286,6 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('system_created_by', $data ?? [], null);
         $this->setIfExists('system_modified_at', $data ?? [], null);
         $this->setIfExists('system_modified_by', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('system_version', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('display_name', $data ?? [], null);
-        $this->setIfExists('business_profile_id', $data ?? [], null);
     }
 
     /**
@@ -469,141 +434,6 @@ class Companies implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable system_modified_by cannot be null');
         }
         $this->container['system_modified_by'] = $system_modified_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets system_version
-     *
-     * @return string|null
-     */
-    public function getSystemVersion()
-    {
-        return $this->container['system_version'];
-    }
-
-    /**
-     * Sets system_version
-     *
-     * @param string|null $system_version system_version
-     *
-     * @return self
-     */
-    public function setSystemVersion($system_version)
-    {
-        if (is_null($system_version)) {
-            throw new \InvalidArgumentException('non-nullable system_version cannot be null');
-        }
-        $this->container['system_version'] = $system_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_name
-     *
-     * @return string|null
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string|null $display_name display_name
-     *
-     * @return self
-     */
-    public function setDisplayName($display_name)
-    {
-        if (is_null($display_name)) {
-            throw new \InvalidArgumentException('non-nullable display_name cannot be null');
-        }
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileId()
-    {
-        return $this->container['business_profile_id'];
-    }
-
-    /**
-     * Sets business_profile_id
-     *
-     * @param string|null $business_profile_id business_profile_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileId($business_profile_id)
-    {
-        if (is_null($business_profile_id)) {
-            throw new \InvalidArgumentException('non-nullable business_profile_id cannot be null');
-        }
-        $this->container['business_profile_id'] = $business_profile_id;
 
         return $this;
     }

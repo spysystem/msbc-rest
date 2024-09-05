@@ -1,6 +1,6 @@
 <?php
 /**
- * CompaniesTest
+ * AuditFieldsTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace Spy\MsbcRestClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CompaniesTest Class Doc Comment
+ * AuditFieldsTest Class Doc Comment
  *
  * @category    Class
- * @description Companies
+ * @description AuditFields
  * @package     Spy\MsbcRestClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CompaniesTest extends TestCase
+class AuditFieldsTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class CompaniesTest extends TestCase
     }
 
     /**
-     * Test "Companies"
+     * Test "AuditFields"
      */
-    public function testCompanies()
+    public function testAuditFields()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -110,51 +110,6 @@ class CompaniesTest extends TestCase
      * Test attribute "system_modified_by"
      */
     public function testPropertySystemModifiedBy()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "system_version"
-     */
-    public function testPropertySystemVersion()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "display_name"
-     */
-    public function testPropertyDisplayName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "business_profile_id"
-     */
-    public function testPropertyBusinessProfileId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

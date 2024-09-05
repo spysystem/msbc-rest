@@ -1,6 +1,6 @@
 <?php
 /**
- * CompaniesModelAttributes
+ * AuditFieldsModelFields
  *
  * PHP version 7.2
  *
@@ -29,23 +29,18 @@
 namespace Spy\MsbcRestClient\Model;
 
 /**
- * CompaniesModelAttributes Class Doc Comment
+ * AuditFieldsModelFields Class Doc Comment
  *
  * @category Class
  * @package  Spy\MsbcRestClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CompaniesModelAttributes
+class AuditFieldsModelFields
 {
-    public string $strSystemCreatedAt = 'system_created_at';
-    public string $strSystemCreatedBy = 'system_created_by';
-    public string $strSystemModifiedAt = 'system_modified_at';
-    public string $strSystemModifiedBy = 'system_modified_by';
-    public string $strId = 'id';
-    public string $strSystemVersion = 'system_version';
-    public string $strName = 'name';
-    public string $strDisplayName = 'display_name';
-    public string $strBusinessProfileId = 'business_profile_id';
+    public string $strSystemCreatedAt = 'systemCreatedAt';
+    public string $strSystemCreatedBy = 'systemCreatedBy';
+    public string $strSystemModifiedAt = 'systemModifiedAt';
+    public string $strSystemModifiedBy = 'systemModifiedBy';
 }
 

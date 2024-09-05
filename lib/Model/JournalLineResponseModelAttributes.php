@@ -68,10 +68,10 @@ class JournalLineResponseModelAttributes
     public string $strCashDiscountDate = 'cash_discount_date';
     public string $strCustGroup = 'cust_group';
     public string $strSpyDimensions = 'spy_dimensions';
-    public string $strId = 'id';
     public string $strSystemCreatedAt = 'system_created_at';
     public string $strSystemCreatedBy = 'system_created_by';
     public string $strSystemModifiedAt = 'system_modified_at';
     public string $strSystemModifiedBy = 'system_modified_by';
+    public string $strId = 'id';
 }
 

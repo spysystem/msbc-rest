@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [AuditFields](docs/Model/AuditFields.md)
 - [AuthenticateErrorResponse](docs/Model/AuthenticateErrorResponse.md)
 - [AuthenticateResponse](docs/Model/AuthenticateResponse.md)
 - [BaseEntity](docs/Model/BaseEntity.md)
