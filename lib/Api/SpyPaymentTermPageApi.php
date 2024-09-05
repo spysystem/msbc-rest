@@ -114,16 +114,31 @@ class SpyPaymentTermPageApi
         'createPaymentTerm' => [
             'application/json',
         ],
+        'createPaymentTermV2' => [
+            'application/json',
+        ],
         'deletePaymentTerm' => [
+            'application/json',
+        ],
+        'deletePaymentTermV2' => [
             'application/json',
         ],
         'editPaymentTerm' => [
             'application/json',
         ],
+        'editPaymentTermV2' => [
+            'application/json',
+        ],
         'getPaymentTerm' => [
             'application/json',
         ],
+        'getPaymentTermV2' => [
+            'application/json',
+        ],
         'getPaymentTerms' => [
+            'application/json',
+        ],
+        'getPaymentTermsV2' => [
             'application/json',
         ],
     ];
@@ -184,6 +199,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function createPaymentTerm($spy_payment_term, $select = null, string $contentType = self::contentTypes['createPaymentTerm'][0])
     {
@@ -201,6 +217,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function createPaymentTermWithHttpInfo($spy_payment_term, $select = null, string $contentType = self::contentTypes['createPaymentTerm'][0])
     {
@@ -393,6 +410,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createPaymentTermAsync($spy_payment_term, $select = null, string $contentType = self::contentTypes['createPaymentTerm'][0])
     {
@@ -413,6 +431,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createPaymentTermAsyncWithHttpInfo($spy_payment_term, $select = null, string $contentType = self::contentTypes['createPaymentTerm'][0])
     {
@@ -464,6 +483,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function createPaymentTermRequest($spy_payment_term, $select = null, string $contentType = self::contentTypes['createPaymentTerm'][0])
     {
@@ -562,6 +582,393 @@ class SpyPaymentTermPageApi
     }
 
     /**
+     * Operation createPaymentTermV2
+     *
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 spy_payment_term_v2 (required)
+     * @param  string $select select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     */
+    public function createPaymentTermV2($spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['createPaymentTermV2'][0])
+    {
+        list($response) = $this->createPaymentTermV2WithHttpInfo($spy_payment_term_v2, $select, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createPaymentTermV2WithHttpInfo
+     *
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createPaymentTermV2WithHttpInfo($spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['createPaymentTermV2'][0])
+    {
+        $request = $this->createPaymentTermV2Request($spy_payment_term_v2, $select, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createPaymentTermV2Async
+     *
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPaymentTermV2Async($spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['createPaymentTermV2'][0])
+    {
+        return $this->createPaymentTermV2AsyncWithHttpInfo($spy_payment_term_v2, $select, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createPaymentTermV2AsyncWithHttpInfo
+     *
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPaymentTermV2AsyncWithHttpInfo($spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['createPaymentTermV2'][0])
+    {
+        $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+        $request = $this->createPaymentTermV2Request($spy_payment_term_v2, $select, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createPaymentTermV2'
+     *
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createPaymentTermV2Request($spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['createPaymentTermV2'][0])
+    {
+
+        // verify the required parameter 'spy_payment_term_v2' is set
+        if ($spy_payment_term_v2 === null || (is_array($spy_payment_term_v2) && count($spy_payment_term_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $spy_payment_term_v2 when calling createPaymentTermV2'
+            );
+        }
+
+
+
+        $resourcePath = '/SpyPaymentTermV2';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $select,
+            '$select', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($spy_payment_term_v2)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($spy_payment_term_v2));
+            } else {
+                $httpBody = $spy_payment_term_v2;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deletePaymentTerm
      *
      * @param  string $code The code of the PaymentTerm to retrieve (required)
@@ -570,6 +977,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
+     * @deprecated
      */
     public function deletePaymentTerm($code, string $contentType = self::contentTypes['deletePaymentTerm'][0])
     {
@@ -585,6 +993,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deletePaymentTermWithHttpInfo($code, string $contentType = self::contentTypes['deletePaymentTerm'][0])
     {
@@ -642,6 +1051,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function deletePaymentTermAsync($code, string $contentType = self::contentTypes['deletePaymentTerm'][0])
     {
@@ -661,6 +1071,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function deletePaymentTermAsyncWithHttpInfo($code, string $contentType = self::contentTypes['deletePaymentTerm'][0])
     {
@@ -698,6 +1109,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function deletePaymentTermRequest($code, string $contentType = self::contentTypes['deletePaymentTerm'][0])
     {
@@ -787,6 +1199,231 @@ class SpyPaymentTermPageApi
     }
 
     /**
+     * Operation deletePaymentTermV2
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deletePaymentTermV2($system_id, string $contentType = self::contentTypes['deletePaymentTermV2'][0])
+    {
+        $this->deletePaymentTermV2WithHttpInfo($system_id, $contentType);
+    }
+
+    /**
+     * Operation deletePaymentTermV2WithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePaymentTermV2WithHttpInfo($system_id, string $contentType = self::contentTypes['deletePaymentTermV2'][0])
+    {
+        $request = $this->deletePaymentTermV2Request($system_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deletePaymentTermV2Async
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePaymentTermV2Async($system_id, string $contentType = self::contentTypes['deletePaymentTermV2'][0])
+    {
+        return $this->deletePaymentTermV2AsyncWithHttpInfo($system_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePaymentTermV2AsyncWithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePaymentTermV2AsyncWithHttpInfo($system_id, string $contentType = self::contentTypes['deletePaymentTermV2'][0])
+    {
+        $returnType = '';
+        $request = $this->deletePaymentTermV2Request($system_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePaymentTermV2'
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePaymentTermV2Request($system_id, string $contentType = self::contentTypes['deletePaymentTermV2'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling deletePaymentTermV2'
+            );
+        }
+
+
+        $resourcePath = '/SpyPaymentTermV2({systemId})';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'systemId' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation editPaymentTerm
      *
      * @param  string $code The code of the PaymentTerm to retrieve (required)
@@ -798,6 +1435,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function editPaymentTerm($code, $if_match, $spy_payment_term, $select = null, string $contentType = self::contentTypes['editPaymentTerm'][0])
     {
@@ -817,6 +1455,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function editPaymentTermWithHttpInfo($code, $if_match, $spy_payment_term, $select = null, string $contentType = self::contentTypes['editPaymentTerm'][0])
     {
@@ -1011,6 +1650,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function editPaymentTermAsync($code, $if_match, $spy_payment_term, $select = null, string $contentType = self::contentTypes['editPaymentTerm'][0])
     {
@@ -1033,6 +1673,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function editPaymentTermAsyncWithHttpInfo($code, $if_match, $spy_payment_term, $select = null, string $contentType = self::contentTypes['editPaymentTerm'][0])
     {
@@ -1086,6 +1727,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function editPaymentTermRequest($code, $if_match, $spy_payment_term, $select = null, string $contentType = self::contentTypes['editPaymentTerm'][0])
     {
@@ -1210,6 +1852,429 @@ class SpyPaymentTermPageApi
     }
 
     /**
+     * Operation editPaymentTermV2
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $if_match The ETag of the Entity to update (required)
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 spy_payment_term_v2 (required)
+     * @param  string $select select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     */
+    public function editPaymentTermV2($system_id, $if_match, $spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['editPaymentTermV2'][0])
+    {
+        list($response) = $this->editPaymentTermV2WithHttpInfo($system_id, $if_match, $spy_payment_term_v2, $select, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation editPaymentTermV2WithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $if_match The ETag of the Entity to update (required)
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function editPaymentTermV2WithHttpInfo($system_id, $if_match, $spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['editPaymentTermV2'][0])
+    {
+        $request = $this->editPaymentTermV2Request($system_id, $if_match, $spy_payment_term_v2, $select, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation editPaymentTermV2Async
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $if_match The ETag of the Entity to update (required)
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editPaymentTermV2Async($system_id, $if_match, $spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['editPaymentTermV2'][0])
+    {
+        return $this->editPaymentTermV2AsyncWithHttpInfo($system_id, $if_match, $spy_payment_term_v2, $select, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation editPaymentTermV2AsyncWithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $if_match The ETag of the Entity to update (required)
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editPaymentTermV2AsyncWithHttpInfo($system_id, $if_match, $spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['editPaymentTermV2'][0])
+    {
+        $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+        $request = $this->editPaymentTermV2Request($system_id, $if_match, $spy_payment_term_v2, $select, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'editPaymentTermV2'
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $if_match The ETag of the Entity to update (required)
+     * @param  \Spy\MsbcRestClient\Model\SpyPaymentTermV2 $spy_payment_term_v2 (required)
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function editPaymentTermV2Request($system_id, $if_match, $spy_payment_term_v2, $select = null, string $contentType = self::contentTypes['editPaymentTermV2'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling editPaymentTermV2'
+            );
+        }
+
+        // verify the required parameter 'if_match' is set
+        if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $if_match when calling editPaymentTermV2'
+            );
+        }
+
+        // verify the required parameter 'spy_payment_term_v2' is set
+        if ($spy_payment_term_v2 === null || (is_array($spy_payment_term_v2) && count($spy_payment_term_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $spy_payment_term_v2 when calling editPaymentTermV2'
+            );
+        }
+
+
+
+        $resourcePath = '/SpyPaymentTermV2({systemId})';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $select,
+            '$select', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($if_match !== null) {
+            $headerParams['if-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'systemId' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($spy_payment_term_v2)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($spy_payment_term_v2));
+            } else {
+                $httpBody = $spy_payment_term_v2;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getPaymentTerm
      *
      * @param  string $code The code of the PaymentTerm to retrieve (required)
@@ -1220,6 +2285,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function getPaymentTerm($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTerm'][0])
     {
@@ -1238,6 +2304,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPaymentTermWithHttpInfo($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTerm'][0])
     {
@@ -1431,6 +2498,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getPaymentTermAsync($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTerm'][0])
     {
@@ -1452,6 +2520,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getPaymentTermAsyncWithHttpInfo($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTerm'][0])
     {
@@ -1504,6 +2573,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getPaymentTermRequest($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTerm'][0])
     {
@@ -1608,6 +2678,404 @@ class SpyPaymentTermPageApi
     }
 
     /**
+     * Operation getPaymentTermV2
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $select select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     */
+    public function getPaymentTermV2($system_id, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTermV2'][0])
+    {
+        list($response) = $this->getPaymentTermV2WithHttpInfo($system_id, $data_access_intent, $select, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getPaymentTermV2WithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermV2Response|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPaymentTermV2WithHttpInfo($system_id, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTermV2'][0])
+    {
+        $request = $this->getPaymentTermV2Request($system_id, $data_access_intent, $select, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPaymentTermV2Async
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaymentTermV2Async($system_id, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTermV2'][0])
+    {
+        return $this->getPaymentTermV2AsyncWithHttpInfo($system_id, $data_access_intent, $select, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPaymentTermV2AsyncWithHttpInfo
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaymentTermV2AsyncWithHttpInfo($system_id, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTermV2'][0])
+    {
+        $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2Response';
+        $request = $this->getPaymentTermV2Request($system_id, $data_access_intent, $select, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPaymentTermV2'
+     *
+     * @param  string $system_id The systemId of the PaymentTerm to retrieve (required)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $select (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPaymentTermV2Request($system_id, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getPaymentTermV2'][0])
+    {
+
+        // verify the required parameter 'system_id' is set
+        if ($system_id === null || (is_array($system_id) && count($system_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $system_id when calling getPaymentTermV2'
+            );
+        }
+
+
+
+
+        $resourcePath = '/SpyPaymentTermV2({systemId})';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $select,
+            '$select', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($data_access_intent !== null) {
+            $headerParams['Data-Access-Intent'] = ObjectSerializer::toHeaderValue($data_access_intent);
+        }
+
+        // path params
+        if ($system_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'systemId' . '}',
+                ObjectSerializer::toPathValue($system_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getPaymentTerms
      *
      * @param  string $filter filter (optional)
@@ -1618,6 +3086,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyPaymentTermListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function getPaymentTerms($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTerms'][0])
     {
@@ -1636,6 +3105,7 @@ class SpyPaymentTermPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getPaymentTermsWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTerms'][0])
     {
@@ -1829,6 +3299,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getPaymentTermsAsync($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTerms'][0])
     {
@@ -1850,6 +3321,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getPaymentTermsAsyncWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTerms'][0])
     {
@@ -1902,6 +3374,7 @@ class SpyPaymentTermPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getPaymentTermsRequest($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTerms'][0])
     {
@@ -1911,6 +3384,399 @@ class SpyPaymentTermPageApi
 
 
         $resourcePath = '/SpyPaymentTerm';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            '$filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $select,
+            '$select', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($data_access_intent !== null) {
+            $headerParams['Data-Access-Intent'] = ObjectSerializer::toHeaderValue($data_access_intent);
+        }
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPaymentTermsV2
+     *
+     * @param  string $filter filter (optional)
+     * @param  string $select select (optional)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermsV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     */
+    public function getPaymentTermsV2($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTermsV2'][0])
+    {
+        list($response) = $this->getPaymentTermsV2WithHttpInfo($filter, $select, $data_access_intent, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getPaymentTermsV2WithHttpInfo
+     *
+     * @param  string $filter (optional)
+     * @param  string $select (optional)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermsV2'] to see the possible values for this operation
+     *
+     * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPaymentTermsV2WithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTermsV2'][0])
+    {
+        $request = $this->getPaymentTermsV2Request($filter, $select, $data_access_intent, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\AuthenticateErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Spy\MsbcRestClient\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Spy\MsbcRestClient\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Spy\MsbcRestClient\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\AuthenticateErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Spy\MsbcRestClient\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPaymentTermsV2Async
+     *
+     * @param  string $filter (optional)
+     * @param  string $select (optional)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermsV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaymentTermsV2Async($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTermsV2'][0])
+    {
+        return $this->getPaymentTermsV2AsyncWithHttpInfo($filter, $select, $data_access_intent, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPaymentTermsV2AsyncWithHttpInfo
+     *
+     * @param  string $filter (optional)
+     * @param  string $select (optional)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermsV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaymentTermsV2AsyncWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTermsV2'][0])
+    {
+        $returnType = '\Spy\MsbcRestClient\Model\SpyPaymentTermV2ListResponse';
+        $request = $this->getPaymentTermsV2Request($filter, $select, $data_access_intent, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPaymentTermsV2'
+     *
+     * @param  string $filter (optional)
+     * @param  string $select (optional)
+     * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentTermsV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPaymentTermsV2Request($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getPaymentTermsV2'][0])
+    {
+
+
+
+
+
+        $resourcePath = '/SpyPaymentTermV2';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -139,10 +139,15 @@ Class | Method | HTTP request | Description
 *SpyLedgerTransPageApi* | [**getLedgerTransactionEntries**](docs/Api/SpyLedgerTransPageApi.md#getledgertransactionentries) | **GET** /SpyLedgerTrans | 
 *SpyLedgerTransPageApi* | [**getLedgerTransactionEntry**](docs/Api/SpyLedgerTransPageApi.md#getledgertransactionentry) | **GET** /SpyLedgerTrans({Entry_No}) | 
 *SpyPaymentTermPageApi* | [**createPaymentTerm**](docs/Api/SpyPaymentTermPageApi.md#createpaymentterm) | **POST** /SpyPaymentTerm | 
+*SpyPaymentTermPageApi* | [**createPaymentTermV2**](docs/Api/SpyPaymentTermPageApi.md#createpaymenttermv2) | **POST** /SpyPaymentTermV2 | 
 *SpyPaymentTermPageApi* | [**deletePaymentTerm**](docs/Api/SpyPaymentTermPageApi.md#deletepaymentterm) | **DELETE** /SpyPaymentTerm(\&#39;{code}\&#39;) | 
+*SpyPaymentTermPageApi* | [**deletePaymentTermV2**](docs/Api/SpyPaymentTermPageApi.md#deletepaymenttermv2) | **DELETE** /SpyPaymentTermV2({systemId}) | 
 *SpyPaymentTermPageApi* | [**editPaymentTerm**](docs/Api/SpyPaymentTermPageApi.md#editpaymentterm) | **PATCH** /SpyPaymentTerm(\&#39;{code}\&#39;) | 
+*SpyPaymentTermPageApi* | [**editPaymentTermV2**](docs/Api/SpyPaymentTermPageApi.md#editpaymenttermv2) | **PATCH** /SpyPaymentTermV2({systemId}) | 
 *SpyPaymentTermPageApi* | [**getPaymentTerm**](docs/Api/SpyPaymentTermPageApi.md#getpaymentterm) | **GET** /SpyPaymentTerm(\&#39;{code}\&#39;) | 
+*SpyPaymentTermPageApi* | [**getPaymentTermV2**](docs/Api/SpyPaymentTermPageApi.md#getpaymenttermv2) | **GET** /SpyPaymentTermV2({systemId}) | 
 *SpyPaymentTermPageApi* | [**getPaymentTerms**](docs/Api/SpyPaymentTermPageApi.md#getpaymentterms) | **GET** /SpyPaymentTerm | 
+*SpyPaymentTermPageApi* | [**getPaymentTermsV2**](docs/Api/SpyPaymentTermPageApi.md#getpaymenttermsv2) | **GET** /SpyPaymentTermV2 | 
 *SpyPostCodePageApi* | [**createPostalCode**](docs/Api/SpyPostCodePageApi.md#createpostalcode) | **POST** /SpyPostCode | 
 *SpyPostCodePageApi* | [**deletePostalCode**](docs/Api/SpyPostCodePageApi.md#deletepostalcode) | **DELETE** /SpyPostCode(\&#39;{Code}\&#39;,\&#39;{City}\&#39;) | 
 *SpyPostCodePageApi* | [**editPostalCode**](docs/Api/SpyPostCodePageApi.md#editpostalcode) | **PATCH** /SpyPostCode(\&#39;{Code}\&#39;,\&#39;{City}\&#39;) | 
@@ -255,6 +260,10 @@ Class | Method | HTTP request | Description
 - [SpyPaymentTermList](docs/Model/SpyPaymentTermList.md)
 - [SpyPaymentTermListResponse](docs/Model/SpyPaymentTermListResponse.md)
 - [SpyPaymentTermResponse](docs/Model/SpyPaymentTermResponse.md)
+- [SpyPaymentTermV2](docs/Model/SpyPaymentTermV2.md)
+- [SpyPaymentTermV2List](docs/Model/SpyPaymentTermV2List.md)
+- [SpyPaymentTermV2ListResponse](docs/Model/SpyPaymentTermV2ListResponse.md)
+- [SpyPaymentTermV2Response](docs/Model/SpyPaymentTermV2Response.md)
 - [SpyPostCode](docs/Model/SpyPostCode.md)
 - [SpyPostCodeList](docs/Model/SpyPostCodeList.md)
 - [SpyPostCodeListResponse](docs/Model/SpyPostCodeListResponse.md)
@@ -279,6 +288,7 @@ Class | Method | HTTP request | Description
 - [SpyVendLedgerList](docs/Model/SpyVendLedgerList.md)
 - [SpyVendLedgerListResponse](docs/Model/SpyVendLedgerListResponse.md)
 - [SpyVendLedgerResponse](docs/Model/SpyVendLedgerResponse.md)
+- [SystemId](docs/Model/SystemId.md)
 
 ## Authorization
 
