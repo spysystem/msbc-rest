@@ -163,6 +163,7 @@ paths:
 #region SpyPaymentTerm
   /SpyPaymentTerm:
     get:
+      deprecated: true
       operationId: GetPaymentTerms
       security:
         - bearerAuth: []
@@ -183,6 +184,7 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     post:
+      deprecated: true
       operationId: CreatePaymentTerm
       parameters:
         - $ref: '#/components/parameters/selectParameter'
@@ -216,6 +218,7 @@ paths:
         schema:
           type: string
     get:
+      deprecated: true
       operationId: GetPaymentTerm
       security:
         - bearerAuth: []
@@ -235,6 +238,7 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     patch:
+      deprecated: true
       operationId: EditPaymentTerm
       security:
         - bearerAuth: []
@@ -260,10 +264,120 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     delete:
+      deprecated: true
       operationId: DeletePaymentTerm
       security:
         - bearerAuth: []
       tags: [SpyPaymentTermPage]
+      responses:
+        '204':
+          description: Successful response
+#endregion
+
+#region SpyPaymentTermV2
+  /SpyPaymentTermV2:
+    get:
+      operationId: GetPaymentTermsV2
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyPaymentTermPage ]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPaymentTermV2ListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    post:
+      operationId: CreatePaymentTermV2
+      parameters:
+        - $ref: '#/components/parameters/selectParameter'
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyPaymentTermPage ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyPaymentTermV2'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPaymentTermV2Response'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /SpyPaymentTermV2({systemId}):
+    parameters:
+      - in: path
+        name: systemId
+        description: The systemId of the PaymentTerm to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetPaymentTermV2
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyPaymentTermPage ]
+      parameters:
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+        - $ref: '#/components/parameters/selectParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPaymentTermV2Response'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    patch:
+      operationId: EditPaymentTermV2
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyPaymentTermPage ]
+      parameters:
+        - $ref: '#/components/parameters/ifMatchParameter'
+        - $ref: '#/components/parameters/selectParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpyPaymentTermV2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyPaymentTermV2Response'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+    delete:
+      operationId: DeletePaymentTermV2
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyPaymentTermPage ]
       responses:
         '204':
           description: Successful response
@@ -2695,6 +2809,12 @@ components:
           type: string
           description: If-Match header for updates
 
+    SystemId:
+      type: object
+      properties:
+        'systemId':
+          type: string
+
     AuditFields:
         type: object
         properties:
@@ -2822,6 +2942,43 @@ components:
               type: string
             'Coupled_to_CRM':
               type: boolean
+#endregion
+
+#region SpyPaymentTermSchemas
+    SpyPaymentTermV2ListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyPaymentTermV2List'
+    SpyPaymentTermV2Response:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyPaymentTermV2'
+    SpyPaymentTermV2List:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyPaymentTermV2'
+    SpyPaymentTermV2:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - $ref: '#/components/schemas/SystemId'
+        - $ref: '#/components/schemas/AuditFields'
+        - type: object
+          properties:
+            'code':
+              type: string
+            'dueDateCalculation':
+              type: string
+            'discountDateCalculation':
+              type: string
+            'discountPercentage':
+              type: number
+            'calculateDiscountOnCreditNotes':
+              type: boolean
+            'description':
+              type: string
 #endregion
 
 #region SpyCustomerSchemas
