@@ -2694,6 +2694,18 @@ components:
         '@odata.etag':
           type: string
           description: If-Match header for updates
+
+    AuditFields:
+        type: object
+        properties:
+          'systemCreatedAt':
+            type: string
+          'systemCreatedBy':
+            type: string
+          'systemModifiedAt':
+            type: string
+          'systemModifiedBy':
+            type: string
 #endregion
 
 #region AuthenticateSchemas
@@ -2759,26 +2771,20 @@ components:
           items:
             $ref: '#/components/schemas/companies'
     companies:
-      type: object
-      properties:
-        'id':
-          type: string
-        'systemVersion':
-          type: string
-        'name':
-          type: string
-        'displayName':
-          type: string
-        'businessProfileId':
-          type: string
-        'systemCreatedAt':
-          type: string
-        'systemCreatedBy':
-          type: string
-        'systemModifiedAt':
-          type: string
-        'systemModifiedBy':
-          type: string
+      allOf:
+        - $ref: '#/components/schemas/AuditFields'
+        - type: object
+          properties:
+            'id':
+              type: string
+            'systemVersion':
+              type: string
+            'name':
+              type: string
+            'displayName':
+              type: string
+            'businessProfileId':
+              type: string
 #endregion
 
 #region SpyPaymentTermSchemas
@@ -4366,17 +4372,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseEntity'
         - $ref: '#/components/schemas/createJournalLine'
+        - $ref: '#/components/schemas/AuditFields'
         - type: object
           properties:
             'id':
-              type: string
-            'systemCreatedAt':
-              type: string
-            'systemCreatedBy':
-              type: string
-            'systemModifiedAt':
-              type: string
-            'systemModifiedBy':
               type: string
     spyDimension:
       type: object
