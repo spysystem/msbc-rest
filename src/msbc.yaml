@@ -26,6 +26,9 @@ tags:
   - name: Company
     description: |
       Company information for Microsoft Business Center API.
+  - name: SpyExtensionInfo
+    description: |
+      SpyExtensionInfo operations for Microsoft Business Center API.
   - name: SpyPaymentTermPage
     description: |
       SpyPaymentTermPage operations for Microsoft Business Center API.
@@ -154,6 +157,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companiesListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyExtensionInfo
+  /SpyExtensionInfo:
+    get:
+      operationId: GetSpyExtensionInfo
+      security:
+        - bearerAuth: []
+      tags: [SpyExtensionInfo]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyExtensionInfoResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -2904,6 +2927,49 @@ components:
             'displayName':
               type: string
             'businessProfileId':
+              type: string
+#endregion
+
+#region SpyExtensionInfo
+    SpyExtensionInfoResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyExtensionInfoList'
+
+    SpyExtensionInfoList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyExtensionInfo'
+
+    SpyExtensionInfo:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          properties:
+            'msbcApplicationBuild':
+              type: string
+            'msbcApplicationVersion':
+              type: string
+            'msbcBuildBranch':
+              type: string
+            'msbcBuildFileVersion':
+              type: string
+            'msbcOriginalApplicationVersion':
+              type: string
+            'msbcPlatformFileVersion':
+              type: string
+            'msbcPlatformProductVersion':
+              type: string
+            'spyExtensionAppVersion':
+              type: string
+            'spyExtensionDataVersion':
+              type: string
+            'spyExtensionName':
+              type: string
+            'spyExtensionPublisher':
               type: string
 #endregion
 
