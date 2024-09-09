@@ -26,6 +26,9 @@ tags:
   - name: Company
     description: |
       Company information for Microsoft Business Center API.
+  - name: SpyAccountingPeriods
+    description: |
+      SpyAccountingPeriods operations for Microsoft Business Center API.
   - name: SpyExtensionInfo
     description: |
       SpyExtensionInfo operations for Microsoft Business Center API.
@@ -157,6 +160,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companiesListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyAccountingPeriods
+  /SpyAccountingPeriods:
+    get:
+      operationId: GetSpyAccountingPeriods
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyAccountingPeriods ]
+      parameters:
+        - $ref: '#/components/parameters/filterParameter'
+        - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/dataAccessIntentParameter'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyAccountingPeriodsResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -2927,6 +2954,37 @@ components:
             'displayName':
               type: string
             'businessProfileId':
+              type: string
+#endregion
+
+#region SpyAccountingPeriods
+    SpyAccountingPeriodsResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyAccountingPeriodList'
+
+    SpyAccountingPeriodList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyAccountingPeriod'
+
+    SpyAccountingPeriod:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - $ref: '#/components/schemas/SystemId'
+        - $ref: '#/components/schemas/AuditFields'
+        - type: object
+          properties:
+            'startDate':
+              type: string
+            'periodName':
+              type: string
+            'closed':
+              type: string
+            'newFiscalYear':
               type: string
 #endregion
 
