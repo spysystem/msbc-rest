@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *SpyExchangeRatesPageApi* | [**editExchangeRate**](docs/Api/SpyExchangeRatesPageApi.md#editexchangerate) | **PATCH** /SpyExchangeRates(\&#39;{CurrencyCode}\&#39;,{StartingDate}) | 
 *SpyExchangeRatesPageApi* | [**getExchangeRate**](docs/Api/SpyExchangeRatesPageApi.md#getexchangerate) | **GET** /SpyExchangeRates(\&#39;{CurrencyCode}\&#39;,{StartingDate}) | 
 *SpyExchangeRatesPageApi* | [**getExchangeRates**](docs/Api/SpyExchangeRatesPageApi.md#getexchangerates) | **GET** /SpyExchangeRates | 
+*SpyExtensionInfoApi* | [**getSpyExtensionInfo**](docs/Api/SpyExtensionInfoApi.md#getspyextensioninfo) | **GET** /SpyExtensionInfo | 
 *SpyFieldsPageApi* | [**createField**](docs/Api/SpyFieldsPageApi.md#createfield) | **POST** /SpyFieldsPage | 
 *SpyFieldsPageApi* | [**deleteField**](docs/Api/SpyFieldsPageApi.md#deletefield) | **DELETE** /SpyFieldsPage({TableNo},{FieldNo}) | 
 *SpyFieldsPageApi* | [**editField**](docs/Api/SpyFieldsPageApi.md#editfield) | **PATCH** /SpyFieldsPage({TableNo},{FieldNo}) | 
@@ -239,6 +240,9 @@ Class | Method | HTTP request | Description
 - [SpyExchangeRatesList](docs/Model/SpyExchangeRatesList.md)
 - [SpyExchangeRatesListResponse](docs/Model/SpyExchangeRatesListResponse.md)
 - [SpyExchangeRatesResponse](docs/Model/SpyExchangeRatesResponse.md)
+- [SpyExtensionInfo](docs/Model/SpyExtensionInfo.md)
+- [SpyExtensionInfoList](docs/Model/SpyExtensionInfoList.md)
+- [SpyExtensionInfoResponse](docs/Model/SpyExtensionInfoResponse.md)
 - [SpyFields](docs/Model/SpyFields.md)
 - [SpyFieldsList](docs/Model/SpyFieldsList.md)
 - [SpyFieldsListResponse](docs/Model/SpyFieldsListResponse.md)
