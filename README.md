@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 *BatchApi* | [**callBatchService**](docs/Api/BatchApi.md#callbatchservice) | **POST** /$batch | 
 *CompanyApi* | [**getCompanies**](docs/Api/CompanyApi.md#getcompanies) | **GET** /companies | 
 *JournalLinesPageApi* | [**deleteTempJournalLine**](docs/Api/JournalLinesPageApi.md#deletetempjournalline) | **DELETE** /journalLines(\&#39;{id}\&#39;) | 
+*SpyAccountingPeriodsApi* | [**getSpyAccountingPeriods**](docs/Api/SpyAccountingPeriodsApi.md#getspyaccountingperiods) | **GET** /SpyAccountingPeriods | 
 *SpyApplyCustomerTemplatesCodeUnitApi* | [**applyCustomerTemplates**](docs/Api/SpyApplyCustomerTemplatesCodeUnitApi.md#applycustomertemplates) | **POST** /SpyApplyCustomerTemplates_ApplyTemplates | 
 *SpyCalcCustomerBalanceCodeUnitApi* | [**calcCustomerBalance**](docs/Api/SpyCalcCustomerBalanceCodeUnitApi.md#calccustomerbalance) | **POST** /SpyCalcCustomerBalance_calcCustomerBalance | 
 *SpyCountryPageApi* | [**createSpyCountry**](docs/Api/SpyCountryPageApi.md#createspycountry) | **POST** /SpyCountryPage | 
@@ -209,6 +210,9 @@ Class | Method | HTTP request | Description
 - [JournalLineListResponse](docs/Model/JournalLineListResponse.md)
 - [JournalLineResponse](docs/Model/JournalLineResponse.md)
 - [ODataEnvelope](docs/Model/ODataEnvelope.md)
+- [SpyAccountingPeriod](docs/Model/SpyAccountingPeriod.md)
+- [SpyAccountingPeriodList](docs/Model/SpyAccountingPeriodList.md)
+- [SpyAccountingPeriodsResponse](docs/Model/SpyAccountingPeriodsResponse.md)
 - [SpyApplyCustomerTemplates](docs/Model/SpyApplyCustomerTemplates.md)
 - [SpyCountry](docs/Model/SpyCountry.md)
 - [SpyCountryList](docs/Model/SpyCountryList.md)
