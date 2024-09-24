@@ -198,6 +198,7 @@ class TempJournalLinesPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function commitToJournalLine($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
@@ -223,6 +224,7 @@ class TempJournalLinesPageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCreateJournalLineCommitToJournalLineResponse|\Spy\MsbcRestClient\Model\ErrorResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function commitToJournalLineWithHttpInfo($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
@@ -458,6 +460,7 @@ class TempJournalLinesPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function commitToJournalLineAsync($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
@@ -486,6 +489,7 @@ class TempJournalLinesPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function commitToJournalLineAsyncWithHttpInfo($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
@@ -545,6 +549,7 @@ class TempJournalLinesPageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function commitToJournalLineRequest($company, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['commitToJournalLine'][0])
     {
