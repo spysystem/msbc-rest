@@ -2603,6 +2603,7 @@ paths:
     description: |
       This Codeunit is used to commit data in the Temporary Journal Lines table to the real Journal
     post:
+      deprecated: true
       operationId: CommitToJournalLine
       security:
         - bearerAuth: []
