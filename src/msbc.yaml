@@ -763,6 +763,7 @@ paths:
 #region SpyCustomerTemplate
   /SpyCustomerTemplate:
     get:
+      deprecated: true
       operationId: GetCustomerTemplates
       security:
         - bearerAuth: []
@@ -783,6 +784,7 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     post:
+      deprecated: true
       operationId: CreateCustomerTemplate
       parameters:
         - $ref: '#/components/parameters/selectParameter'
@@ -816,6 +818,7 @@ paths:
         schema:
           type: string
     get:
+      deprecated: true
       operationId: GetCustomerTemplate
       security:
         - bearerAuth: []
@@ -835,6 +838,7 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     patch:
+      deprecated: true
       operationId: EditCustomerTemplate
       security:
         - bearerAuth: []
@@ -860,6 +864,7 @@ paths:
         default:
           $ref: '#/components/responses/Default'
     delete:
+      deprecated: true
       operationId: DeleteCustomerTemplate
       security:
         - bearerAuth: []
