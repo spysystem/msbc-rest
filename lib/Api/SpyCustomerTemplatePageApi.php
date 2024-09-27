@@ -184,6 +184,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function createCustomerTemplate($spy_customer_template, $select = null, string $contentType = self::contentTypes['createCustomerTemplate'][0])
     {
@@ -201,6 +202,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function createCustomerTemplateWithHttpInfo($spy_customer_template, $select = null, string $contentType = self::contentTypes['createCustomerTemplate'][0])
     {
@@ -393,6 +395,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createCustomerTemplateAsync($spy_customer_template, $select = null, string $contentType = self::contentTypes['createCustomerTemplate'][0])
     {
@@ -413,6 +416,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function createCustomerTemplateAsyncWithHttpInfo($spy_customer_template, $select = null, string $contentType = self::contentTypes['createCustomerTemplate'][0])
     {
@@ -464,6 +468,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function createCustomerTemplateRequest($spy_customer_template, $select = null, string $contentType = self::contentTypes['createCustomerTemplate'][0])
     {
@@ -570,6 +575,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
+     * @deprecated
      */
     public function deleteCustomerTemplate($code, string $contentType = self::contentTypes['deleteCustomerTemplate'][0])
     {
@@ -585,6 +591,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function deleteCustomerTemplateWithHttpInfo($code, string $contentType = self::contentTypes['deleteCustomerTemplate'][0])
     {
@@ -642,6 +649,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function deleteCustomerTemplateAsync($code, string $contentType = self::contentTypes['deleteCustomerTemplate'][0])
     {
@@ -661,6 +669,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function deleteCustomerTemplateAsyncWithHttpInfo($code, string $contentType = self::contentTypes['deleteCustomerTemplate'][0])
     {
@@ -698,6 +707,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function deleteCustomerTemplateRequest($code, string $contentType = self::contentTypes['deleteCustomerTemplate'][0])
     {
@@ -798,6 +808,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function editCustomerTemplate($code, $if_match, $spy_customer_template, $select = null, string $contentType = self::contentTypes['editCustomerTemplate'][0])
     {
@@ -817,6 +828,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function editCustomerTemplateWithHttpInfo($code, $if_match, $spy_customer_template, $select = null, string $contentType = self::contentTypes['editCustomerTemplate'][0])
     {
@@ -1011,6 +1023,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function editCustomerTemplateAsync($code, $if_match, $spy_customer_template, $select = null, string $contentType = self::contentTypes['editCustomerTemplate'][0])
     {
@@ -1033,6 +1046,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function editCustomerTemplateAsyncWithHttpInfo($code, $if_match, $spy_customer_template, $select = null, string $contentType = self::contentTypes['editCustomerTemplate'][0])
     {
@@ -1086,6 +1100,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function editCustomerTemplateRequest($code, $if_match, $spy_customer_template, $select = null, string $contentType = self::contentTypes['editCustomerTemplate'][0])
     {
@@ -1220,6 +1235,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function getCustomerTemplate($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getCustomerTemplate'][0])
     {
@@ -1238,6 +1254,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCustomerTemplateResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getCustomerTemplateWithHttpInfo($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getCustomerTemplate'][0])
     {
@@ -1431,6 +1448,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getCustomerTemplateAsync($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getCustomerTemplate'][0])
     {
@@ -1452,6 +1470,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getCustomerTemplateAsyncWithHttpInfo($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getCustomerTemplate'][0])
     {
@@ -1504,6 +1523,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getCustomerTemplateRequest($code, $data_access_intent = 'ReadOnly', $select = null, string $contentType = self::contentTypes['getCustomerTemplate'][0])
     {
@@ -1618,6 +1638,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyCustomerTemplateListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
+     * @deprecated
      */
     public function getCustomerTemplates($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getCustomerTemplates'][0])
     {
@@ -1636,6 +1657,7 @@ class SpyCustomerTemplatePageApi
      * @throws \Spy\MsbcRestClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyCustomerTemplateListResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getCustomerTemplatesWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getCustomerTemplates'][0])
     {
@@ -1829,6 +1851,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getCustomerTemplatesAsync($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getCustomerTemplates'][0])
     {
@@ -1850,6 +1873,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getCustomerTemplatesAsyncWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getCustomerTemplates'][0])
     {
@@ -1902,6 +1926,7 @@ class SpyCustomerTemplatePageApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getCustomerTemplatesRequest($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getCustomerTemplates'][0])
     {
