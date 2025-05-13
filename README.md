@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *SpyFieldsPageApi* | [**editField**](docs/Api/SpyFieldsPageApi.md#editfield) | **PATCH** /SpyFieldsPage({TableNo},{FieldNo}) | 
 *SpyFieldsPageApi* | [**getField**](docs/Api/SpyFieldsPageApi.md#getfield) | **GET** /SpyFieldsPage({TableNo},{FieldNo}) | 
 *SpyFieldsPageApi* | [**getFields**](docs/Api/SpyFieldsPageApi.md#getfields) | **GET** /SpyFieldsPage | 
+*SpyGeneralLedgerSetupApi* | [**getSpyGeneralLedgerSetup**](docs/Api/SpyGeneralLedgerSetupApi.md#getspygeneralledgersetup) | **GET** /SpyGeneralLedgerSetup | 
 *SpyInsertPostCodeCodeUnitApi* | [**insertPostCode**](docs/Api/SpyInsertPostCodeCodeUnitApi.md#insertpostcode) | **POST** /SpyInsertPostCode_InsertPostCode | 
 *SpyJournalPageApi* | [**createJournalEntry**](docs/Api/SpyJournalPageApi.md#createjournalentry) | **POST** /SpyJournalPage | 
 *SpyJournalPageApi* | [**deleteJournalEntry**](docs/Api/SpyJournalPageApi.md#deletejournalentry) | **DELETE** /SpyJournalPage(\&#39;{JournalTemplateName}\&#39;,\&#39;{JournalBatchName}\&#39;,{LineNo}) | 
@@ -251,6 +252,9 @@ Class | Method | HTTP request | Description
 - [SpyFieldsList](docs/Model/SpyFieldsList.md)
 - [SpyFieldsListResponse](docs/Model/SpyFieldsListResponse.md)
 - [SpyFieldsResponse](docs/Model/SpyFieldsResponse.md)
+- [SpyGeneralLedgerSetup](docs/Model/SpyGeneralLedgerSetup.md)
+- [SpyGeneralLedgerSetupList](docs/Model/SpyGeneralLedgerSetupList.md)
+- [SpyGeneralLedgerSetupResponse](docs/Model/SpyGeneralLedgerSetupResponse.md)
 - [SpyInsertPostCode](docs/Model/SpyInsertPostCode.md)
 - [SpyJournalEntriesList](docs/Model/SpyJournalEntriesList.md)
 - [SpyJournalEntriesListResponse](docs/Model/SpyJournalEntriesListResponse.md)
