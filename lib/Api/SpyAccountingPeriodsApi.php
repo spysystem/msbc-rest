@@ -167,6 +167,8 @@ class SpyAccountingPeriodsApi
      *
      * @param  string $filter filter (optional)
      * @param  string $select select (optional)
+     * @param  string $order_by order_by (optional)
+     * @param  int $top top (optional)
      * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSpyAccountingPeriods'] to see the possible values for this operation
      *
@@ -174,9 +176,9 @@ class SpyAccountingPeriodsApi
      * @throws \InvalidArgumentException
      * @return \Spy\MsbcRestClient\Model\SpyAccountingPeriodsResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse
      */
-    public function getSpyAccountingPeriods($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
+    public function getSpyAccountingPeriods($filter = null, $select = null, $order_by = null, $top = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
     {
-        list($response) = $this->getSpyAccountingPeriodsWithHttpInfo($filter, $select, $data_access_intent, $contentType);
+        list($response) = $this->getSpyAccountingPeriodsWithHttpInfo($filter, $select, $order_by, $top, $data_access_intent, $contentType);
         return $response;
     }
 
@@ -185,6 +187,8 @@ class SpyAccountingPeriodsApi
      *
      * @param  string $filter (optional)
      * @param  string $select (optional)
+     * @param  string $order_by (optional)
+     * @param  int $top (optional)
      * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSpyAccountingPeriods'] to see the possible values for this operation
      *
@@ -192,9 +196,9 @@ class SpyAccountingPeriodsApi
      * @throws \InvalidArgumentException
      * @return array of \Spy\MsbcRestClient\Model\SpyAccountingPeriodsResponse|\Spy\MsbcRestClient\Model\AuthenticateErrorResponse|\Spy\MsbcRestClient\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSpyAccountingPeriodsWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
+    public function getSpyAccountingPeriodsWithHttpInfo($filter = null, $select = null, $order_by = null, $top = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
     {
-        $request = $this->getSpyAccountingPeriodsRequest($filter, $select, $data_access_intent, $contentType);
+        $request = $this->getSpyAccountingPeriodsRequest($filter, $select, $order_by, $top, $data_access_intent, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -380,15 +384,17 @@ class SpyAccountingPeriodsApi
      *
      * @param  string $filter (optional)
      * @param  string $select (optional)
+     * @param  string $order_by (optional)
+     * @param  int $top (optional)
      * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSpyAccountingPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSpyAccountingPeriodsAsync($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
+    public function getSpyAccountingPeriodsAsync($filter = null, $select = null, $order_by = null, $top = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
     {
-        return $this->getSpyAccountingPeriodsAsyncWithHttpInfo($filter, $select, $data_access_intent, $contentType)
+        return $this->getSpyAccountingPeriodsAsyncWithHttpInfo($filter, $select, $order_by, $top, $data_access_intent, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -401,16 +407,18 @@ class SpyAccountingPeriodsApi
      *
      * @param  string $filter (optional)
      * @param  string $select (optional)
+     * @param  string $order_by (optional)
+     * @param  int $top (optional)
      * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSpyAccountingPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSpyAccountingPeriodsAsyncWithHttpInfo($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
+    public function getSpyAccountingPeriodsAsyncWithHttpInfo($filter = null, $select = null, $order_by = null, $top = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
     {
         $returnType = '\Spy\MsbcRestClient\Model\SpyAccountingPeriodsResponse';
-        $request = $this->getSpyAccountingPeriodsRequest($filter, $select, $data_access_intent, $contentType);
+        $request = $this->getSpyAccountingPeriodsRequest($filter, $select, $order_by, $top, $data_access_intent, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -453,14 +461,18 @@ class SpyAccountingPeriodsApi
      *
      * @param  string $filter (optional)
      * @param  string $select (optional)
+     * @param  string $order_by (optional)
+     * @param  int $top (optional)
      * @param  string $data_access_intent Data Access Intent (optional, default to 'ReadOnly')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSpyAccountingPeriods'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSpyAccountingPeriodsRequest($filter = null, $select = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
+    public function getSpyAccountingPeriodsRequest($filter = null, $select = null, $order_by = null, $top = null, $data_access_intent = 'ReadOnly', string $contentType = self::contentTypes['getSpyAccountingPeriods'][0])
     {
+
+
 
 
 
@@ -487,6 +499,24 @@ class SpyAccountingPeriodsApi
             $select,
             '$select', // param base name
             'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order_by,
+            '$orderBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $top,
+            '$top', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

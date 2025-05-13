@@ -10,7 +10,7 @@ All URIs are relative to https://api.businesscentral.dynamics.com/v2.0/XXXXXXXX-
 ## `getSpyAccountingPeriods()`
 
 ```php
-getSpyAccountingPeriods($filter, $select, $data_access_intent): \Spy\MsbcRestClient\Model\SpyAccountingPeriodsResponse
+getSpyAccountingPeriods($filter, $select, $order_by, $top, $data_access_intent): \Spy\MsbcRestClient\Model\SpyAccountingPeriodsResponse
 ```
 
 
@@ -34,10 +34,12 @@ $apiInstance = new Spy\MsbcRestClient\Api\SpyAccountingPeriodsApi(
 );
 $filter = 'filter_example'; // string
 $select = 'select_example'; // string
+$order_by = 'order_by_example'; // string
+$top = 56; // int
 $data_access_intent = 'ReadOnly'; // string | Data Access Intent
 
 try {
-    $result = $apiInstance->getSpyAccountingPeriods($filter, $select, $data_access_intent);
+    $result = $apiInstance->getSpyAccountingPeriods($filter, $select, $order_by, $top, $data_access_intent);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpyAccountingPeriodsApi->getSpyAccountingPeriods: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +52,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **filter** | **string**|  | [optional] |
 | **select** | **string**|  | [optional] |
+| **order_by** | **string**|  | [optional] |
+| **top** | **int**|  | [optional] |
 | **data_access_intent** | **string**| Data Access Intent | [optional] [default to &#39;ReadOnly&#39;] |
 
 ### Return type
