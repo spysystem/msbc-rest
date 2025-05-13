@@ -176,6 +176,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/filterParameter'
         - $ref: '#/components/parameters/selectParameter'
+        - $ref: '#/components/parameters/orderByParameter'
+        - $ref: '#/components/parameters/topParameter'
         - $ref: '#/components/parameters/dataAccessIntentParameter'
       responses:
         '200':
@@ -2777,6 +2779,20 @@ components:
       required: false
       schema:
         type: string
+
+    orderByParameter:
+      name: $orderBy
+      in: query
+      required: false
+      schema:
+        type: string
+
+    topParameter:
+      name: $top
+      in: query
+      required: false
+      schema:
+        type: integer
 
     ifMatchParameter:
       in: header
