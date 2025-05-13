@@ -26,6 +26,9 @@ tags:
   - name: Company
     description: |
       Company information for Microsoft Business Center API.
+  - name: SpyGeneralLedgerSetup
+    description: |
+      General Ledger Setup for Microsoft Business Center API.
   - name: SpyAccountingPeriods
     description: |
       SpyAccountingPeriods operations for Microsoft Business Center API.
@@ -160,6 +163,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/companiesListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        default:
+          $ref: '#/components/responses/Default'
+#endregion
+
+#region SpyAccountingPeriods
+  /SpyGeneralLedgerSetup:
+    get:
+      operationId: GetSpyGeneralLedgerSetup
+      security:
+        - bearerAuth: [ ]
+      tags: [ SpyGeneralLedgerSetup ]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpyGeneralLedgerSetupResponse'
         '401':
           $ref: '#/components/responses/Unauthorized'
         default:
@@ -2977,6 +3000,35 @@ components:
               type: string
             'businessProfileId':
               type: string
+#endregion
+
+#region SpyGeneralLedgerSetup
+    SpyGeneralLedgerSetupResponse:
+      allOf:
+        - $ref: '#/components/schemas/ODataEnvelope'
+        - $ref: '#/components/schemas/SpyGeneralLedgerSetupList'
+
+    SpyGeneralLedgerSetupList:
+      type: object
+      properties:
+        'value':
+          type: array
+          items:
+            $ref: '#/components/schemas/SpyGeneralLedgerSetup'
+
+    SpyGeneralLedgerSetup:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - $ref: '#/components/schemas/SystemId'
+        - $ref: '#/components/schemas/AuditFields'
+        - type: object
+          properties:
+            'allowPostingFromDate':
+              type: string
+              nullable: true
+            'allowPostingToDate':
+              type: string
+              nullable: true
 #endregion
 
 #region SpyAccountingPeriods
