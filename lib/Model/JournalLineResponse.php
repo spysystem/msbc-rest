@@ -92,6 +92,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => 'string',
         'currency' => 'string',
         'amount_base_currency' => 'float',
+        'currency_factor' => 'float',
         'county_us_tax_account' => 'string',
         'state_us_tax_account' => 'string',
         'vat_code' => 'string',
@@ -137,6 +138,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => null,
         'currency' => null,
         'amount_base_currency' => null,
+        'currency_factor' => null,
         'county_us_tax_account' => null,
         'state_us_tax_account' => null,
         'vat_code' => null,
@@ -180,6 +182,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => false,
         'currency' => false,
         'amount_base_currency' => false,
+        'currency_factor' => false,
         'county_us_tax_account' => false,
         'state_us_tax_account' => false,
         'vat_code' => false,
@@ -303,6 +306,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => 'invoiceNo',
         'currency' => 'currency',
         'amount_base_currency' => 'amountBaseCurrency',
+        'currency_factor' => 'currencyFactor',
         'county_us_tax_account' => 'countyUSTaxAccount',
         'state_us_tax_account' => 'stateUSTaxAccount',
         'vat_code' => 'vatCode',
@@ -346,6 +350,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => 'setInvoiceNo',
         'currency' => 'setCurrency',
         'amount_base_currency' => 'setAmountBaseCurrency',
+        'currency_factor' => 'setCurrencyFactor',
         'county_us_tax_account' => 'setCountyUsTaxAccount',
         'state_us_tax_account' => 'setStateUsTaxAccount',
         'vat_code' => 'setVatCode',
@@ -389,6 +394,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'invoice_no' => 'getInvoiceNo',
         'currency' => 'getCurrency',
         'amount_base_currency' => 'getAmountBaseCurrency',
+        'currency_factor' => 'getCurrencyFactor',
         'county_us_tax_account' => 'getCountyUsTaxAccount',
         'state_us_tax_account' => 'getStateUsTaxAccount',
         'vat_code' => 'getVatCode',
@@ -502,6 +508,7 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('invoice_no', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('amount_base_currency', $data ?? [], null);
+        $this->setIfExists('currency_factor', $data ?? [], null);
         $this->setIfExists('county_us_tax_account', $data ?? [], null);
         $this->setIfExists('state_us_tax_account', $data ?? [], null);
         $this->setIfExists('vat_code', $data ?? [], null);
@@ -1098,6 +1105,33 @@ class JournalLineResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable amount_base_currency cannot be null');
         }
         $this->container['amount_base_currency'] = $amount_base_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_factor
+     *
+     * @return float|null
+     */
+    public function getCurrencyFactor()
+    {
+        return $this->container['currency_factor'];
+    }
+
+    /**
+     * Sets currency_factor
+     *
+     * @param float|null $currency_factor The currency factor between the amount and the amountBaseCurrency
+     *
+     * @return self
+     */
+    public function setCurrencyFactor($currency_factor)
+    {
+        if (is_null($currency_factor)) {
+            throw new \InvalidArgumentException('non-nullable currency_factor cannot be null');
+        }
+        $this->container['currency_factor'] = $currency_factor;
 
         return $this;
     }

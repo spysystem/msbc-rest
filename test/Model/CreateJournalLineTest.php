@@ -229,6 +229,15 @@ class CreateJournalLineTest extends TestCase
     }
 
     /**
+     * Test attribute "currency_factor"
+     */
+    public function testPropertyCurrencyFactor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "county_us_tax_account"
      */
     public function testPropertyCountyUsTaxAccount()

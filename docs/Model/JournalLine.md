@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **invoice_no** | **string** |  | [optional]
 **currency** | **string** |  | [optional]
 **amount_base_currency** | **float** |  | [optional]
+**currency_factor** | **float** | The currency factor between the amount and the amountBaseCurrency | [optional]
 **county_us_tax_account** | **string** |  | [optional]
 **state_us_tax_account** | **string** |  | [optional]
 **vat_code** | **string** |  | [optional]

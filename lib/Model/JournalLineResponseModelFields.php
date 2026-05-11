@@ -53,6 +53,7 @@ class JournalLineResponseModelFields
     public string $strInvoiceNo = 'invoiceNo';
     public string $strCurrency = 'currency';
     public string $strAmountBaseCurrency = 'amountBaseCurrency';
+    public string $strCurrencyFactor = 'currencyFactor';
     public string $strCountyUsTaxAccount = 'countyUSTaxAccount';
     public string $strStateUsTaxAccount = 'stateUSTaxAccount';
     public string $strVatCode = 'vatCode';
