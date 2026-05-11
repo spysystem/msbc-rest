@@ -1,6 +1,6 @@
 {
     "name": "spysystem/msbc-rest",
-    "description": "The Microsoft Business Center API is a RESTful API that provides an interface to the Microsoft Business Center service.",
+    "description": "Microsoft Business Center API",
     "keywords": [
         "openapitools",
         "openapi-generator",
