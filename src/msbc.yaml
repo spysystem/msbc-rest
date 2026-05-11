@@ -4782,6 +4782,9 @@ components:
           type: string
         'amountBaseCurrency':
           type: number
+        'currencyFactor':
+          description: 'The currency factor between the amount and the amountBaseCurrency'
+          type: number
         'countyUSTaxAccount':
           type: string
         'stateUSTaxAccount':
